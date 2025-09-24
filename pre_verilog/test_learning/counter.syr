@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: counter.prj
 
@@ -68,7 +68,7 @@ Automatic Register Balancing       : No
 
 ---- Target Options
 Add IO Buffers                     : YES
-Global Maximum Fanout              : 500
+Global Maximum Fanout              : 100000
 Add Generic Clock Buffer(BUFG)     : 8
 Register Duplication               : YES
 Slice Packing                      : YES
@@ -105,13 +105,13 @@ Slice Utilization Ratio Delta      : 5
 *                          HDL Compilation                              *
 =========================================================================
 Compiling verilog file "counter.v" in library work
-ERROR:HDLCompilers:26 - "counter.v" line 27 unexpected token: '['
+ERROR:HDLCompilers:27 - "counter.v" line 27 Illegal redeclaration of 'cnt'
+ERROR:HDLCompilers:26 - "counter.v" line 31 unexpected token: '0'
 Module <counter> compiled
-ERROR:HDLCompilers:26 - "counter.v" line 27 expecting 'endmodule', found '3'
 Analysis of file <"counter.prj"> failed.
 --> 
 
-Total memory usage is 4513352 kilobytes
+Total memory usage is 4512860 kilobytes
 
 Number of errors   :    2 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
