@@ -1,9 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2025-09-23T14:50:51</DateModified>
+  <DateModified>2025-09-26T17:28:41</DateModified>
   <ModuleName>counter</ModuleName>
-  <SummaryTimeStamp>Unknown</SummaryTimeStamp>
+  <SummaryTimeStamp>2025-09-26T17:16:42</SummaryTimeStamp>
   <SavedFilePath>C:/Users/27628/Documents/CO-2025/pre_verilog/test_learning/iseconfig/counter.xreport</SavedFilePath>
   <ImplementationReportsDirectory>C:/Users/27628/Documents/CO-2025/pre_verilog/test_learning\</ImplementationReportsDirectory>
   <DateInitialized>2025-09-18T10:26:48</DateInitialized>

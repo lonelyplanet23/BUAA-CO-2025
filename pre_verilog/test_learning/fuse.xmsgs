@@ -5,5 +5,11 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="error" file="HDLCompiler" num="806" delta="unknown" >"C:/Users/27628/Documents/CO-2025/pre_verilog/test_learning/Comb_test_1.v" Line 28: Syntax error near &quot;<arg fmt="%s" index="1">inA</arg>&quot;.
+</msg>
+
+<msg type="error" file="HDLCompiler" num="598" delta="unknown" >"C:/Users/27628/Documents/CO-2025/pre_verilog/test_learning/Comb_test_1.v" Line 21: Module &lt;<arg fmt="%s" index="1">ALU</arg>&gt; ignored due to previous errors.
+</msg>
+
 </messages>
 

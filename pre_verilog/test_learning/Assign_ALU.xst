@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/27628/Documents/CO-2025/pre_verilog/test_learning/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/27628/Documents/CO-2025/pre_verilog/test_learning/xst"
+elaborate
+-ifn Assign_ALU.prj
+-ifmt mixed
