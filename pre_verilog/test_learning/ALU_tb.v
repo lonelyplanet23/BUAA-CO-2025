@@ -1,42 +1,58 @@
-// Verilog Test Fixture Template
+`timescale 1ns / 1ps
 
-  `timescale 1 ns / 1 ps
+////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer:
+//
+// Create Date:   18:36:45 09/29/2025
+// Design Name:   ALU
+// Module Name:   C:/Users/27628/Documents/CO-2025/pre_verilog/test_learning/ALU_tb.v
+// Project Name:  test_learning
+// Target Device:  
+// Tool versions:  
+// Description: 
+//
+// Verilog Test Fixture created by ISE for module: ALU
+//
+// Dependencies:
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+////////////////////////////////////////////////////////////////////////////////
 
-  module TEST_gate;
-          reg <signal1>;
-          reg [2:0] <signal2>;
-          wire [3:0] <signal3>;
-          wire <signal4>;
+module ALU_tb;
 
-          <module_name> <instance_name> (
-                  <port1>,
-                  <port2>
-          );
+	// Inputs
+	reg [3:0] inA;
+	reg [3:0] inB;
+	reg [1:0] op;
 
-          integer <name1>;
-          integer <name2>;
+	// Outputs
+	wire [3:0] ans;
 
-   // The following code initializes the Global Set Reset (GSR) and Global Three-State (GTS) nets
-   // Refer to the Synthesis and Simulation Design Guide for more information on this process
-   reg GSR;
-   assign glbl.GSR = GSR;
-   reg GTS;
-   assign glbl.GTS = GTS;
+	// Instantiate the Unit Under Test (UUT)
+	ALU uut (
+		.inA(inA), 
+		.inB(inB), 
+		.op(op), 
+		.ans(ans)
+	);
 
-   initial begin
-      GSR = 1;
-      GTS = 0; // GTS is not activated by default
-      #100; // GSR is set for 100 ns
-      GSR = 0;
-   end
+	initial begin
+		// Initialize Inputs
+		inA = 0;
+		inB = 0;
+		op = 0;
 
-  // Initialize Inputs
-      `define auto_init
+		// Wait 100 ns for global reset to finish
+		#100;
+        
+		// Add stimulus here time delay and always
+	
 
-      `ifdef auto_init
+	end
+      
+endmodule
 
-          initial begin
-          end
-
-      `endif
-  endmodule

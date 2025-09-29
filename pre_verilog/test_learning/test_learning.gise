@@ -60,64 +60,64 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1758878558" xil_pn:in_ck="-2339133512373628194" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1758878558">
+    <transform xil_pn:end_ts="1759141799" xil_pn:in_ck="-1955465809809412733" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1759141799">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="Comb_test_1.v"/>
+      <outfile xil_pn:name="counter.v"/>
+      <outfile xil_pn:name="counter_tb.v"/>
+      <outfile xil_pn:name="logic.v"/>
     </transform>
-    <transform xil_pn:end_ts="1758163198" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-3016962201827947828" xil_pn:start_ts="1758163198">
+    <transform xil_pn:end_ts="1759141806" xil_pn:name="TRAN_xawsToSimhdl" xil_pn:prop_ck="-3016962201827947828" xil_pn:start_ts="1759141806">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
     </transform>
-    <transform xil_pn:end_ts="1758163198" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-4063401287578957454" xil_pn:start_ts="1758163198">
+    <transform xil_pn:end_ts="1759141806" xil_pn:name="TRAN_schematicsToHdlSim" xil_pn:prop_ck="-4063401287578957454" xil_pn:start_ts="1759141806">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForProperties"/>
     </transform>
     <transform xil_pn:end_ts="1758163045" xil_pn:name="TRAN_regenerateCoresSim" xil_pn:prop_ck="793657636733693249" xil_pn:start_ts="1758163045">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1758163198" xil_pn:in_ck="-2530807961161379971" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1758163198">
+    <transform xil_pn:end_ts="1759141806" xil_pn:in_ck="-1955465809809412733" xil_pn:name="TRAN_copyPostAbstractToPreSimulation" xil_pn:start_ts="1759141806">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
-      <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="Comb_test_1.v"/>
+      <outfile xil_pn:name="counter.v"/>
+      <outfile xil_pn:name="counter_tb.v"/>
+      <outfile xil_pn:name="logic.v"/>
     </transform>
-    <transform xil_pn:end_ts="1758163200" xil_pn:in_ck="-2530807961161379971" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-5704308159397079307" xil_pn:start_ts="1758163198">
+    <transform xil_pn:end_ts="1759141809" xil_pn:in_ck="-1955465809809412733" xil_pn:name="TRAN_ISimulateBehavioralModelRunFuse" xil_pn:prop_ck="-5704308159397079307" xil_pn:start_ts="1759141806">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputChanged"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="counter_tb_beh.prj"/>
+      <outfile xil_pn:name="counter_tb_isim_beh.exe"/>
+      <outfile xil_pn:name="fuse.log"/>
+      <outfile xil_pn:name="isim"/>
+      <outfile xil_pn:name="isim.log"/>
+      <outfile xil_pn:name="xilinxsim.ini"/>
     </transform>
-    <transform xil_pn:end_ts="1758163200" xil_pn:in_ck="3306488027725510867" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="7879015115568375256" xil_pn:start_ts="1758163200">
+    <transform xil_pn:end_ts="1759141809" xil_pn:in_ck="3306488027725510867" xil_pn:name="TRAN_ISimulateBehavioralModel" xil_pn:prop_ck="7879015115568375256" xil_pn:start_ts="1759141809">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
-      <status xil_pn:value="OutputRemoved"/>
+      <outfile xil_pn:name="counter_tb_isim_beh.wdb"/>
+      <outfile xil_pn:name="isim.cmd"/>
+      <outfile xil_pn:name="isim.log"/>
     </transform>
     <transform xil_pn:end_ts="1758162576" xil_pn:name="TRAN_copyInitialToXSTAbstractSynthesis" xil_pn:start_ts="1758162576">
       <status xil_pn:value="SuccessfullyRun"/>
@@ -147,7 +147,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1758879127" xil_pn:in_ck="8649941996343142538" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="8366347083071246318" xil_pn:start_ts="1758879124">
+    <transform xil_pn:end_ts="1759141614" xil_pn:in_ck="8649941996343142538" xil_pn:name="TRANEXT_xstsynthesize_spartan3" xil_pn:prop_ck="8366347083071246318" xil_pn:start_ts="1759141611">
       <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>

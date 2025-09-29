@@ -5,10 +5,16 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="error" file="HDLCompilers" num="27" delta="old" ><arg fmt="%s" index="1">&quot;counter.v&quot; line 27 </arg>Illegal redeclaration of &apos;<arg fmt="%s" index="2">cnt</arg>&apos;
+<msg type="error" file="HDLCompilers" num="247" delta="new" ><arg fmt="%s" index="1">&quot;counter.v&quot; line 31 </arg>Reference to <arg fmt="%s" index="2">vector wire &apos;cnt&apos;</arg> is not a legal reg or variable lvalue
 </msg>
 
-<msg type="error" file="HDLCompilers" num="26" delta="old" >&quot;<arg fmt="%s" index="1">counter.v</arg>&quot; line <arg fmt="%d" index="2">31</arg> <arg fmt="%s" index="3">unexpected token: &apos;0&apos;</arg>
+<msg type="error" file="HDLCompilers" num="106" delta="new" ><arg fmt="%s" index="1">&quot;counter.v&quot; line 31 </arg>Illegal left hand side of nonblocking assignment
+</msg>
+
+<msg type="error" file="HDLCompilers" num="247" delta="new" ><arg fmt="%s" index="1">&quot;counter.v&quot; line 33 </arg>Reference to <arg fmt="%s" index="2">vector wire &apos;cnt&apos;</arg> is not a legal reg or variable lvalue
+</msg>
+
+<msg type="error" file="HDLCompilers" num="106" delta="new" ><arg fmt="%s" index="1">&quot;counter.v&quot; line 33 </arg>Illegal left hand side of nonblocking assignment
 </msg>
 
 </messages>

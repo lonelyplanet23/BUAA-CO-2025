@@ -1,0 +1,33 @@
+.data
+	message: .asciiz "The numbers are equal."
+	message2: .asciiz "The numbers are different"
+	message3: .asciiz "Nothing happened"
+.text
+	main:
+		add $t0, $zero, 5
+		add $t0, $zero, 20
+		
+		beq $t0, $t1, numbersEqual
+		bne $t0, $t1, numbersDif
+		
+		b numbersNothing
+		
+		
+		
+			
+	li $v0, 10
+	syscall	
+	
+	numbersEqual:
+		li $v0, 4
+		la $a0, message
+		syscall
+	numbersDif:
+		li $v0, 4
+		la $a0, message2
+		syscall
+	numbersNothing:
+		li $v0, 4
+		la $a0, message3
+		syscall
+		
