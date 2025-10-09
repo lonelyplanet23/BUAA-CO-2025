@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.16 secs
+Total CPU time to Xst completion: 0.13 secs
  
 --> Reading design: counter.prj
 
@@ -68,7 +68,7 @@ Automatic Register Balancing       : No
 
 ---- Target Options
 Add IO Buffers                     : YES
-Global Maximum Fanout              : 500
+Global Maximum Fanout              : 100000
 Add Generic Clock Buffer(BUFG)     : 8
 Register Duplication               : YES
 Slice Packing                      : YES
@@ -105,15 +105,17 @@ Slice Utilization Ratio Delta      : 5
 *                          HDL Compilation                              *
 =========================================================================
 Compiling verilog file "counter.v" in library work
-ERROR:HDLCompilers:26 - "counter.v" line 27 unexpected token: '['
 Module <counter> compiled
-ERROR:HDLCompilers:26 - "counter.v" line 27 expecting 'endmodule', found '3'
+ERROR:HDLCompilers:247 - "counter.v" line 31 Reference to vector wire 'cnt' is not a legal reg or variable lvalue
+ERROR:HDLCompilers:106 - "counter.v" line 31 Illegal left hand side of nonblocking assignment
+ERROR:HDLCompilers:247 - "counter.v" line 33 Reference to vector wire 'cnt' is not a legal reg or variable lvalue
+ERROR:HDLCompilers:106 - "counter.v" line 33 Illegal left hand side of nonblocking assignment
 Analysis of file <"counter.prj"> failed.
 --> 
 
-Total memory usage is 4513352 kilobytes
+Total memory usage is 4512852 kilobytes
 
-Number of errors   :    2 (   0 filtered)
+Number of errors   :    4 (   0 filtered)
 Number of warnings :    0 (   0 filtered)
 Number of infos    :    0 (   0 filtered)
 
