@@ -6,11 +6,19 @@
 
    <img src="./assets/image-20250916184955940.png" alt="image-20250916184955940" style="zoom:50%;" />
 
-2. ![img](https://cscore-buaa-edu-cn.vpn.buaa.edu.cn:8118/tutorial/logisim/logisim-3/assets/logisim_3_2.png)
+2. 选中器件 + 上下左右方向键 调整方向
 
-3. 选中器件 + 上下左右方向键 调整方向
+3. Ctrl + 1 手；Ctrl+2 画电路，移动器件；Ctrl+3 文字 
 
-4. Ctrl + 1 手；Ctrl+2 画电路，移动器件；Ctrl+3 文字 
+4. 线路颜色：![img](./assets/b14b43cc74b4b0c9e0e5742ee850e2ee.png)
+
+​	5. 有时信号错误可能是因为没有启动 **信号模拟！**
+
+## 自动化的方法：
+
+​	**先搭建一个最小重复单元**
+
+​	**将对应XML的模块作为单元，放入脚本中，循环输出**
 
 ## 陌生元器件
 
