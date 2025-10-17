@@ -5,7 +5,7 @@
 + 分清input output
 + 变量名前[]:表示位宽，变量名后[]:表示数组位数
 + 注意选取位宽时的范围
-+ always模块中不能给wire类型赋值，需要使用wire
++ always模块中不能给wire类型赋值，需要使用reg
 + assign语句中只能给wire类型赋值（或者默认新建）
 + 为所有的 if 语句都写出相应的 else 分支。
 
