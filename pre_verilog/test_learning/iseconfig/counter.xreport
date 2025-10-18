@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2025-10-09T16:48:34</DateModified>
+  <DateModified>2025-10-18T15:09:03</DateModified>
   <ModuleName>counter</ModuleName>
   <SummaryTimeStamp>2025-09-29T18:26:54</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/27628/Documents/CO-2025/pre_verilog/test_learning/iseconfig/counter.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/27628/Documents/CO-2025/pre_verilog/test_learning\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/27628/Desktop/CO-2025/pre_verilog/test_learning/iseconfig/counter.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/27628/Desktop/CO-2025/pre_verilog/test_learning\</ImplementationReportsDirectory>
   <DateInitialized>2025-09-18T10:26:48</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

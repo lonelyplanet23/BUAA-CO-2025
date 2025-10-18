@@ -77,6 +77,19 @@
    > The usual reason is: "What happens in the cases other than those you specified?". Verilog's answer is: Keep the outputs unchanged
 
 4. `case` `endcase`语句
+   1. 多个判定时可以用逗号联立，如
+   ```verilog
+   case (ascii)
+       "0", "1", "2", "3", "4", "5", "6", "7", "8", "9": begin
+        is_digit = 1'b1;
+        value = ascii - "0";
+    end
+    default: begin
+        is_digit = 1'b0;
+        value = 4'd0;
+    end
+   endcase
+   ```
 
 5. `casez` `endcase` 这时条件可以有`4'bzzz1`表示前三位无所谓，以简化判断条件
 
@@ -133,3 +146,8 @@ module test ;
  
 endmodule
 ```
+
+## extra vscode安装法
++ 安装插件
++ 下载ctags 配置到PATH或者将路径拷贝到设置中（配置环境变量也需要在设置中填写"ctags"）
++ 下载iverilog 同样的配置
