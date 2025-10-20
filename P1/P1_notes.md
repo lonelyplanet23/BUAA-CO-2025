@@ -1,5 +1,5 @@
 # P1 课下
-参考资料：https://www.runoob.com/w3cnote/verilog2-reset.html，教程
+参考资料：https://www.runoob.com/w3cnote/verilog2-reset.html，教程， 
 
 ## verilog 规范
 一个 always 块中不要存在多个并行或不相关的条件语句，使用多个 always 分别描述。如
@@ -69,3 +69,25 @@ module async_reset(
     
 endmodule   
 ```
+
+## test bench 漂亮写法
+
+```verilog
+always #1 clk = ~clk;
+initial begin
+    clk = 0;
+    reset = 1;
+    in = 0;
+    data = "hello world!";
+    while(!data[0:7]) data = data << 8;//一次传8位
+    #2;
+    reset = 0;
+    while(data[0:7]) begin
+        in[7:0] = data[0:7];
+        data = data << 8;
+        #2;
+    end
+    $finish;
+end
+```
+
