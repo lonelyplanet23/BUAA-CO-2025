@@ -13,11 +13,10 @@ main:
 	
 	jal print_newline
 	
-	#Get the input 
-	li $v0, 5 # $v0 模式为5 输入整数
-	syscall 
+	# get the input
+	li $v0, 5
+	syscall
 	
-	#将输入的数据放在t0
 	move $t0, $v0
 	
 	#display the message

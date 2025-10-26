@@ -15,13 +15,13 @@ main:
 	jal print_newline
 	
 	#Get the input 
-	li $v0, 6 # $v0 模式为5 输入浮点数
+	li $v0, 6 # $v0 模式为6 输入浮点数
 	syscall 
 	
 	# Display the value 浮点数存在f0中！
 	# 用add
 	li $v0, 2
-	add.s $f12, $f0, $f4
+	add.s $f12, $f0, $zero
 	syscall
 	
 	#exit

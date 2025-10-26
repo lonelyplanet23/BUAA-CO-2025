@@ -4,25 +4,17 @@
 	val2:	.double 2.25
 	
 .text
-.globl main
-
 main:
-	ldc1 $f2 val1	#双浮点数必须存储在偶数位
-	ldc1 $f4 val2
-	add.d $f12, $f2, $f4 #.d 对双浮点数计算
+	ldc1 $f2, val1
+	ldc1 $f4, val2
 	
-	li $v0,3
-	syscall
-	
-	jal print_newline
-	
-	sub.d $f12, $f4, $f2
+	add.d $f12, $f2, $f4
 	li $v0, 3
 	syscall
 	
 	jal print_newline
 	
-	mul.d $f12, $f4, $f2
+	mul.d $f12, $f2, $f4
 	li $v0, 3
 	syscall
 	
