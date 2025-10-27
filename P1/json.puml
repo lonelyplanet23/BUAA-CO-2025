@@ -1,0 +1,39 @@
+@startuml
+title json序列检测
+
+top to bottom direction
+
+[*] -down-> IDLE
+IDLE -down-> _BEGIN: 输入左括号
+IDLE -> IDLE : default
+_BEGIN -down-> LEFT_QUOTE: 输入引号
+_BEGIN -down-> ZERO_END: 输入右括号
+LEFT_QUOTE -> INVALID: 输入引号
+LEFT_QUOTE -down-> CONTENT: 输入字符
+CONTENT -down-> CONTENT: 输入字符
+CONTENT -down-> RIGHT_QUOTE: 输入引号
+RIGHT_QUOTE -down-> COLON : 输入冒号
+COLON -down-> LEFT_QUOTE : 输入引号
+RIGHT_QUOTE -down-> COMMA : 输入逗号
+COMMA -> LEFT_QUOTE : 输入引号
+RIGHT_QUOTE -down-> _END : 输入右括号
+_END -> _BEGIN: 输入左括号
+INVALID -> ZERO_END : 输入右括号
+INVALID -> INVALID : default
+
+ZERO_END -> _BEGIN: 输入左括号
+
+
+IDLE: 000
+_BEGIN: 001,cnt=0
+LEFT_QUOTE: 010
+CONTENT: 011
+RIGHT_QUOTE: 100
+COLON: 101
+COMMA: 110,cnt++
+_END: 111,cnt++,update
+INVALID: 1000，cnt=0
+ZERO_END: 1001, cnt=0, update
+
+@enduml
+

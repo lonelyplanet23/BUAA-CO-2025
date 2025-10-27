@@ -1,0 +1,3 @@
+verilog work "P1_JSON.v"
+verilog work "json_tb.v"
+verilog work "D:/14.7/ISE_DS/ISE//verilog/src/glbl.v"

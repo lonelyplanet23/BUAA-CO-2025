@@ -18,7 +18,7 @@
 		# call factorial function
 		lw $a0, num
 		jal fact
-		sw $v0, ans #´«²ÎÊ¹ÓÃv1,v0
+		sw $v0, ans #ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½v1,v0
 		
 		#output
 		li $v0, 4
@@ -35,15 +35,16 @@
 # find  factorial function
 .globl fact
 fact:
-	subu 	$sp, $sp, 4
+	subu 	$sp, $sp, 8
 	sw	$ra, ($sp)
+	sw	$s0, 4($sp)
 	
 	#base case
 	li $v0, 1 # so the return value is 1
 	beq $a0, 0, fact_End
 	
 	# find sthe factorial of n-1
-	move $t0, $a0 # because you need n-1 and n, so you need to save the current n to s0
+	move $s0, $a0 # because you need n-1 and n, so you need to save the current n to s0
 	sub $a0, $a0, 1
 	jal fact
 	
@@ -53,6 +54,7 @@ fact:
 	fact_End:
 		#restore the address and s0
 		lw $ra, ($sp)
+		lw $s0, 4($sp)
 		addu $sp, $sp, 4
 		jr $ra
 		

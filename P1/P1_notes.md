@@ -35,39 +35,33 @@
 ## 同步复位
 复位信号不要加入到敏感列表中
 ```verilog
-module sync_reset(
-    input       rstn,  //同步复位信号
-    input       clk,   //时钟
-    input       din,   //输入数据
-    output reg  dout   //输出数据
-    );
-    
-    always @(posedge clk) begin   //复位信号不要加入到敏感列表中
-        if(!rstn)  dout <= 1'b0 ; //rstn 信号与时钟 clk 同步 //所有输出变量最好都要复位
-        else       dout <= din ;
+    always @(posedge clk) begin
+        if(reset) begin
+            out = 0;
+            state_cur = IDLE;
+        end
+
+        else begin
+            state_cur = state_next;
+        end
     end
-    
-endmodule
 ```
 
 ## 异步复位
 复位信号要加到敏感列表中
-
+复位时只需要重置cur_state即可
 ```verilog
-module async_reset(
-    input       rstn,  //异步复位信号
-    input       clk,   //时钟
-    input       din,   //输入数据
-    output reg  dout   //输出数据
-    );
-    
-    //复位信号要加到敏感列表中
-    always @(posedge clk or negedge rstn) begin
-        if(!rstn)  dout <= 1'b0 ; //rstn 信号与时钟 clk 异步
-        else       dout <= din ;
+    always @(posedge clk, posedge reset) begin
+        if(reset) begin
+            out = 0;
+            state_cur = IDLE;
+        end
+
+        else begin
+            state_cur = state_next;
+        end
     end
-    
-endmodule   
+
 ```
 
 ## test bench 漂亮写法
@@ -89,5 +83,61 @@ initial begin
     end
     $finish;
 end
+```
+
+# P1课上
+
+## T3 json序列检测 
+
+**一定注意是Moore机**,状态往多了设计，不要轻易合并，变成Mealy机
++ 除了上述情况外，**不会出现其他非法情况**。即输入的 json 序列只有两种：
+    1. 合法 json 序列，所有键值对的字符串均不为空串。 
+    2. 无效 json 序列，至少有一个字符串是空串。
++ **可以没有键值对**   
++ **最最关键的，关于计数多少键值对，用int变量记录，在状态转移时！！加1，不要在状态中加1，否则会连续计数，无论是MOORE还是Mealy**
+
+状态转移图
+
+```plantuml
+' 竖直方向
+title json序列检测
+
+top to bottom direction
+
+[*] -down-> IDLE
+IDLE -down-> _BEGIN: 输入左括号
+IDLE -> IDLE : default
+_BEGIN -down-> LEFT_QUOTE: 输入引号
+_BEGIN -down-> ZERO_END: 输入右括号
+LEFT_QUOTE -> INVALID: 输入引号
+LEFT_QUOTE -down-> CONTENT: 输入字符
+CONTENT -down-> CONTENT: 输入字符
+CONTENT -down-> RIGHT_QUOTE: 输入引号
+RIGHT_QUOTE -down-> COLON : 输入冒号
+COLON -down-> LEFT_QUOTE : 输入引号
+RIGHT_QUOTE -down-> COMMA : 输入逗号
+COMMA -> LEFT_QUOTE : 输入引号
+RIGHT_QUOTE -down-> _END : 输入右括号
+_END -> _BEGIN: 输入左括号
+INVALID -> ZERO_END : 输入右括号
+INVALID -> INVALID : default
+
+ZERO_END -> _BEGIN: 输入左括号
+
+
+IDLE: 000
+_BEGIN: 001,cnt=0
+LEFT_QUOTE: 010
+CONTENT: 011
+RIGHT_QUOTE: 100
+COLON: 101
+COMMA: 110,cnt++
+_END: 111,cnt++,update
+INVALID: 1000，cnt=0
+ZERO_END: 1001, cnt=0, update
+
+
+
+
 ```
 

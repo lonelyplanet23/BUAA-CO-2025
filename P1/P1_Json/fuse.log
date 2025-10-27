@@ -1,0 +1,20 @@
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/Users/27628/Documents/CO-2025/P1/P1_Json/json_tb_isim_beh.exe" -prj "C:/Users/27628/Documents/CO-2025/P1/P1_Json/json_tb_beh.prj" "work.json_tb" "work.glbl" 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 18
+Turning on mult-threading, number of parallel sub-compilation jobs: 36 
+Determining compilation order of HDL files
+Analyzing Verilog file "C:/Users/27628/Documents/CO-2025/P1/P1_Json/P1_JSON.v" into library work
+Analyzing Verilog file "C:/Users/27628/Documents/CO-2025/P1/P1_Json/json_tb.v" into library work
+WARNING:HDLCompiler:1383 - "C:/Users/27628/Documents/CO-2025/P1/P1_Json/json_tb.v" Line 68: Empty loop variable assignment statement violates IEEE 1800 syntax
+Analyzing Verilog file "D:/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+Completed static elaboration
+Compiling module json
+Compiling module json_tb
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 3 Verilog Units
+Built simulation executable C:/Users/27628/Documents/CO-2025/P1/P1_Json/json_tb_isim_beh.exe
+Fuse Memory Usage: 32852 KB
+Fuse CPU Usage: 296 ms

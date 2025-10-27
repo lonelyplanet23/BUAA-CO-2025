@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/Users/27628/Documents/CO-2025/P1/P1_Json/json_tb_isim_beh.exe" -prj "C:/Users/27628/Documents/CO-2025/P1/P1_Json/json_tb_beh.prj" "work.json_tb" "work.glbl" 

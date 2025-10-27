@@ -26,7 +26,7 @@
 		loop_i_1:
 			li $t1, 0 # t1 = j = 0
 			loop_j_1:
-				# 输入
+				# ????
 				li $v0, 5
 				syscall
 				calc_addr($t2, $t0, $t1, $s0)
@@ -40,7 +40,7 @@
 		loop_i_2:
 			li $t1, 0 # t1 = j = 0
 			loop_j_2:
-				# 输入
+				# ????
 				li $v0, 5
 				syscall
 				calc_addr($t2, $t0, $t1, $s0)
@@ -64,7 +64,7 @@
 					calc_addr($t6, $t2, $t1, $s0) 
 					lw	$t8, matrix2($t6)# t8 = b[k][j]
 					
-					mulu $t3, $t7, $t8 # 重新赋值t3 = a[i][j+k] * b[i+k][j]
+					mulu $t3, $t7, $t8 # ??????t3 = a[i][j+k] * b[i+k][j]
 					add  $t9, $t9, $t3					
 					addi	$t2, $t2, 1
 					blt	$t2, $s0, loop_k	
@@ -81,7 +81,7 @@
 		loop_i_4:
 			li $t1, 0 # t1 = j = 0
 			loop_j_4:
-				# 输出
+				# ???
 				calc_addr($t2, $t0, $t1, $s0)
 				li $v0, 1
 				lw $a0, ans($t2)
@@ -103,3 +103,4 @@
 	
 	li $v0, 10
 	syscall
+	
