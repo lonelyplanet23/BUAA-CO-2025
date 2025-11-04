@@ -74,7 +74,7 @@ module json(
             end
 
             _END: begin
-                cnt = cnt + 1;
+                cnt = cnt + 1; //!计数器单独设一个int变量，不要用结果reg[7:0]cur_num来计数！
                 cur_num = cnt;
                 if(max_num < cur_num) max_num = cur_num; // 更新
                 if(char == "{") state_next = _BEGIN;
