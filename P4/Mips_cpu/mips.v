@@ -30,10 +30,11 @@ endmodule
 // 1.2 NPC (Next Program Counter)
 // Calculates the address of the next instruction (PC+4 or Branch target).
 // --------------------------------------------------------------------
-module NPC (
+module NPC (    
     input  wire [31:0] PC,       // Current PC address
     input  wire [15:0] imm,      // 16-bit branch immediate offset
-    input  wire        nPC_sel,  // Control signal: 1=Branch target, 0=PC+4
+    input  wire [31:0] ra,      // Register value (rs) for branch calculation
+    input  wire [2:0] nPC_sel,  // Control signal: 1=Branch target, 0=PC+4
     input  wire        Zero,     // ALU Zero flag (rs == rt)
     output wire [31:0] NPC       // Next PC address
 );
