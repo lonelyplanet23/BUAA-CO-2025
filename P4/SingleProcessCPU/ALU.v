@@ -18,13 +18,24 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
+`include "constants.v"
 module ALU(
     input [31:0] A,
     input [31:0] B,
     input [2:0] ALUCtrl,
-    output [31:0] Result,
+    output reg [31:0] Result,
     output Zero
     );
-
+    
+    assign Zero = (A == B);
+    always @(*) begin
+        case (ALUCtrl)
+            `ALU_ADD: Result = A + B;
+            `ALU_SUB: Result = A - B;
+            `ALU_OR:  Result = A | B;
+            `ALU_SHIFT_LEFT_16: Result = B[15:0] << 16;
+            default: Result = 32'h00000000;
+        endcase
+    end
 
 endmodule

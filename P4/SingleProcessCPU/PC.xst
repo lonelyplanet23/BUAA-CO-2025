@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/27628/Desktop/CO-2025/P4/SingleProcessCPU/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/27628/Desktop/CO-2025/P4/SingleProcessCPU/xst"
+elaborate
+-ifn PC.prj
+-ifmt mixed

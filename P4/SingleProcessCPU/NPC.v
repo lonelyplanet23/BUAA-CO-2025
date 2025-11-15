@@ -27,7 +27,8 @@ module NPC(
     input [31:0] ra,
     input [2:0] nPC_Sel,
     input Zero,
-    output [31:0] NPC
+    output [31:0] NPC,
+    output [31:0] PC4
     );
 
     wire [31:0] NPC1, NPC2, NPC3, NPC4;
@@ -42,11 +43,12 @@ module NPC(
     //JAL: PC <- PC31..28║instr_index║0^2
     assign NPC3 = {PC[31:28], imm[25:0], 2'b00};
 
-    assign NPC = (nPC_Sel == `PC_ADD_4)? NPC1:
-                 (nPC_Sel == `PC_IMM_00)? NPC2:
-                 (nPC_Sel == `PC_JAL)? NPC3:
-                 (nPC_Sel == `RA)? ra:
+    assign NPC = (nPC_Sel == `NPC_PC4)? NPC1:
+                 (nPC_Sel == `NPC_BRANCH)? NPC2:
+                 (nPC_Sel == `NPC_JUMP)? NPC3:
+                 (nPC_Sel == `NPC_JR)? ra:
                  NPC1; //default
-
+    assign PC4 = NPC1;
+    
 
 endmodule

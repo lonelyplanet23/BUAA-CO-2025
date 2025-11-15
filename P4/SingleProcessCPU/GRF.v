@@ -23,6 +23,7 @@ module GRF(
     input [4:0] A2,
     output [31:0] RD1,
     output [31:0] RD2,
+    output [31:0] RA,
     input [31:0] PC,
     input [4:0] A3,
     input [31:0] WD,
@@ -49,5 +50,6 @@ module GRF(
 
     assign RD1 = reg_file[A1];
     assign RD2 = reg_file[A2];
+    assign RA = reg_file[31];
 
 endmodule

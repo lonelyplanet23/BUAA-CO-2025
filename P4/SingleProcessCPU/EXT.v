@@ -23,6 +23,11 @@ module EXT(
     input EXTOp,
     output [31:0] EXT32
     );
-
+    //1 符号延展 
+    //0 零延展
+    assign EXT32 = (EXTOp == 1)? 
+                    {{16{Imm16[15]}}, Imm16}:
+                    {{16{1'b0}}, Imm16};
+            
 
 endmodule

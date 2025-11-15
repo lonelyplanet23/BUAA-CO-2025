@@ -21,7 +21,34 @@
 
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="SingleProcessCPU.xise"/>
 
-  <files xmlns="http://www.xilinx.com/XMLSchema"/>
+  <files xmlns="http://www.xilinx.com/XMLSchema">
+    <file xil_pn:fileType="FILE_LSO" xil_pn:name=".lso"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="ALU.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="ALU.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="ALU.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="Controller.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="Controller.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="Controller.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="DM.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="DM.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="DM.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="EXT.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="EXT.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="EXT.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="GRF.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="GRF.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="GRF.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="IM.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="IM.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="IM.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="NPC.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="NPC.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="NPC.xst"/>
+    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="PC.prj"/>
+    <file xil_pn:fileType="FILE_XST_STX" xil_pn:name="PC.stx"/>
+    <file xil_pn:fileType="FILE_XST" xil_pn:name="PC.xst"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="xst"/>
+  </files>
 
   <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
 
