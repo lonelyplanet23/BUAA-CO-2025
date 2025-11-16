@@ -4,7 +4,7 @@ module alu (
     input [2:0] ALUOp,
     output reg [31:0] C
 );
-    
+        
     always @(*)begin
         case(ALUOp)
             3'b000: C = A + B;
