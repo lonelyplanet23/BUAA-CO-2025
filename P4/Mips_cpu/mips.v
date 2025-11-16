@@ -64,7 +64,7 @@ module mips(
 
     assign A1 = rs;
     assign A2 = rt;
-    assign A3 = (RegDst == `RD_RT) ? rt : (RegDst == `RD_RD) ? rd : 31;
+    assign A3 = (RegDst == `RD_RA) ? 31 : (RegDst == `RD_RD) ? rd : rt;
     assign WD = (RegSrc == `RS_PC4) ? pc_4_addr : (RegSrc == `RS_ALU) ? alu_rst : mem_data;
    
 
