@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.22 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.22 secs
+Total CPU time to Xst completion: 0.12 secs
  
 --> Reading design: mips.prj
 
@@ -168,10 +168,6 @@ Analyzing module <PC> in library <work>.
 Module <PC> is correct for synthesis.
  
 Analyzing module <NPC> in library <work>.
-WARNING:Xst:2725 - "NPC.v" line 49: Size mismatch between case item and case selector.
-WARNING:Xst:2725 - "NPC.v" line 50: Size mismatch between case item and case selector.
-WARNING:Xst:2725 - "NPC.v" line 51: Size mismatch between case item and case selector.
-WARNING:Xst:2725 - "NPC.v" line 52: Size mismatch between case item and case selector.
 Module <NPC> is correct for synthesis.
  
 Analyzing module <IM> in library <work>.
@@ -3278,9 +3274,9 @@ ERROR:Xst:880 - "DM.v" line 50: Cannot mix blocking and non blocking assignments
 Found 3072 error(s). Aborting synthesis.
 --> 
 
-Total memory usage is 4567840 kilobytes
+Total memory usage is 4567828 kilobytes
 
 Number of errors   : 3072 (   0 filtered)
-Number of warnings :   10 (   0 filtered)
+Number of warnings :    6 (   0 filtered)
 Number of infos    :    1 (   0 filtered)
 

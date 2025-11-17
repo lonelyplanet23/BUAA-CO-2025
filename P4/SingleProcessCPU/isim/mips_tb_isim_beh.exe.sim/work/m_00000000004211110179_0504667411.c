@@ -21,7 +21,7 @@
 #include <malloc.h>
 #define alloca _alloca
 #endif
-static const char *ng0 = "C:/Users/27628/Desktop/CO-2025/P4/SingleProcessCPU/Splitter.v";
+static const char *ng0 = "C:/Users/27628/Documents/CO-2025/P4/SingleProcessCPU/Splitter.v";
 
 
 

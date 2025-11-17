@@ -5,18 +5,6 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="Xst" num="2725" delta="old" >&quot;<arg fmt="%s" index="1">NPC.v</arg>&quot; line <arg fmt="%d" index="2">49</arg>: Size mismatch between case item and case selector.
-</msg>
-
-<msg type="warning" file="Xst" num="2725" delta="old" >&quot;<arg fmt="%s" index="1">NPC.v</arg>&quot; line <arg fmt="%d" index="2">50</arg>: Size mismatch between case item and case selector.
-</msg>
-
-<msg type="warning" file="Xst" num="2725" delta="old" >&quot;<arg fmt="%s" index="1">NPC.v</arg>&quot; line <arg fmt="%d" index="2">51</arg>: Size mismatch between case item and case selector.
-</msg>
-
-<msg type="warning" file="Xst" num="2725" delta="old" >&quot;<arg fmt="%s" index="1">NPC.v</arg>&quot; line <arg fmt="%d" index="2">52</arg>: Size mismatch between case item and case selector.
-</msg>
-
 <msg type="info" file="Xst" num="2546" delta="old" >&quot;<arg fmt="%s" index="1">IM.v</arg>&quot; line <arg fmt="%d" index="2">32</arg>: reading initialization file &quot;<arg fmt="%s" index="3">code.txt</arg>&quot;.
 </msg>
 

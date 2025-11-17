@@ -1,1 +1,1 @@
--intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/Users/27628/Desktop/CO-2025/P4/SingleProcessCPU/mips_tb_isim_beh.exe" -prj "C:/Users/27628/Desktop/CO-2025/P4/SingleProcessCPU/mips_tb_beh.prj" "work.mips_tb" "work.glbl" 
+-intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/Users/27628/Documents/CO-2025/P4/SingleProcessCPU/mips_tb_isim_beh.exe" -prj "C:/Users/27628/Documents/CO-2025/P4/SingleProcessCPU/mips_tb_beh.prj" "work.mips_tb" "work.glbl" 

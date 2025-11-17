@@ -1,10 +1,11 @@
 ISim log file
-Running: C:\Users\27628\Desktop\CO-2025\P4\SingleProcessCPU\mips_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/27628/Desktop/CO-2025/P4/SingleProcessCPU/mips_tb_isim_beh.wdb 
+Running: C:\Users\27628\Documents\CO-2025\P4\SingleProcessCPU\mips_tb_isim_beh.exe -intstyle ise -gui -tclbatch isim.cmd -wdb C:/Users/27628/Documents/CO-2025/P4/SingleProcessCPU/mips_tb_isim_beh.wdb 
+INFO: There is another simulation running in the same directory. Using database file name isim1.wdb.
 ISim P.20131013 (signature 0x7708f090)
 ----------------------------------------------------------------------
 INFO:Security:51 - The XILINXD_LICENSE_FILE environment variable is not set.
 INFO:Security:53 - The LM_LICENSE_FILE environment variable is not set.
-INFO:Security:68a - user is 27628, on host XIAONAOLIU.
+INFO:Security:68a - user is 27628, on host NAONAOLIU.
 WARNING:Security:43 - No license file was found in the standard Xilinx license directory.
 WARNING:Security:44 - Since no license file was found,
        please run the Xilinx License Configuration Manager
@@ -14,7 +15,7 @@ ERROR:Security:14 - No feature was available for 'ISIM'.
 
 No such feature exists.
 Feature:       ISIM
-License path:  C:/.Xilinx;C:\Xilinx\14.7\ISE_DS\ISE\/data\*.lic;C:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\Xilinx.lic;C:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\XilinxFree.lic;C:\Xilinx\14.7\ISE_DS\EDK/data/core_licenses\Xilinx.lic;
+License path:  C:/.Xilinx;D:\14.7\ISE_DS\ISE\/data\*.lic;D:\14.7\ISE_DS\ISE\/coregen/core_licenses\Xilinx.lic;D:\14.7\ISE_DS\ISE\/coregen/core_licenses\XilinxFree.lic;D:\14.7\ISE_DS\EDK/data/core_licenses\Xilinx.lic;
 FLEXnet Licensing error:-5,357
 For further information, refer to the FLEXnet Licensing documentation,
 available at "www.flexerasoftware.com".
@@ -25,462 +26,6 @@ This is a Lite version of ISim.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
-# run 1000 ns
-Simulator is doing circuit initialization process.
-Finished circuit initialization process.
-@00003004: $28 <= 00001ea6
-@00003008: $ 5 <= 0000fb51
-@0000300c: $12 <= 00007ed3
-@00003010: $ 4 <= 0000871a
-@00003018: $ 1 <= 0000ed37
-@0000301c: $11 <= 0000a47a
-@00003020: $ 9 <= 00002adb
-@00003024: $ 4 <= 0000ff9c
-@00003028: $12 <= 00005100
-@0000302c: $15 <= 0000d747
-@00003030: $15 <= 00000e48
-@00003034: $ 6 <= 000060f4
-@00003038: $ 5 <= 0000543e
-@0000303c: $16 <= 0000552d
-@000030ec: $ 2 <= 0000000d
-@000030f0: $15 <= 0000000e
-@000030f4: $19 <= 0000001e
-@000030f8: $16 <= 00000030
-@000030fc: $29 <= 00000002
-@00003100: $25 <= 00000029
-@00003104: $ 5 <= 00000002
-@00003108: $28 <= 0000002d
-@0000310c: $ 7 <= 00000006
-@00003110: $14 <= 00000031
-@00003114: $21 <= 00000003
-@00003118: $23 <= 00000025
-@0000311c: $ 6 <= 00000020
-@00003120: $12 <= 0000002f
-@00003124: $31 <= 0000001c
-@00003128: $27 <= 000030e4
-@0000312c: $ 9 <= 000030e4
-@00003130: $ 4 <= 00003078
-@00003134: $ 1 <= 0000308c
-@00003138: $13 <= 000030e4
-@0000313c: $22 <= 000030b4
-@00003140: $11 <= 000030c8
-@00003144: $ 8 <= 000030e4
-@00003148: *00000010 <= 00000030
-@0000314c: *00000018 <= 00000000
-@00003150: *0000000c <= 0000000e
-@00003154: *00000000 <= 00003078
-@00003158: *00000008 <= 00000030
-@0000315c: *00000018 <= 000030e4
-@00003160: *00000000 <= 000030e4
-@00003164: *00000024 <= 00003078
-@00003168: *0000002c <= 0000308c
-@0000316c: *00000018 <= 00000020
-@00003170: *00000004 <= 0000001e
-@00003174: *00000030 <= 00000000
-@00003178: *00000000 <= 00000029
-@0000317c: *00000010 <= 0000000d
-@00003180: *0000002c <= 000030e4
-@00003184: *00000008 <= 00000031
-@00003188: *00000030 <= 0000001e
-@0000318c: *0000001c <= 0000002d
-@00003190: *00000028 <= 0000000d
-@00003194: *00000008 <= 0000002f
-@0000319c: $31 <= 000031a0
-@000031a0: $16 <= 0000007b
-@000031a4: $19 <= 00000000
-@000031a8: $28 <= 00000063
-@000031ac: $31 <= 000031ac
-@000031b0: $16 <= 00000025
-@000031b4: $31 <= 00000013
-@000031b8: $16 <= 00000000
-@000031c0: $12 <= 00000029
-@000031c4: $ 5 <= 0000002d
-@000031c8: $31 <= 000031c8
-@000031cc: $31 <= 00000001
-@000031d0: $12 <= 00000000
-@000031d4: $31 <= 000031d8
-@000031dc: $ 2 <= 00000000
-@000031e0: *000000c4 <= 00000031
-@000031e4: $31 <= 000031e4
-@000031e8: $31 <= 0000002a
-@000031ec: $ 2 <= 00000003
-@000031f0: $ 7 <= 00000003
-@000031f4: $16 <= 00000052
-@000031f8: $ 6 <= 00000052
-@000031fc: $ 7 <= 00000069
-@00003200: $15 <= 00000069
-@00003208: $31 <= 0000320c
-@00003224: $15 <= 00000021
-@00003228: $ 7 <= 00000025
-@0000322c: $31 <= 00000029
-@00003230: $ 5 <= 00000000
-@00003234: $ 2 <= 00000000
-@00003238: $ 2 <= 0000000d
-@00003240: $31 <= 00003240
-@00003244: $31 <= 00000001
-@00003248: $12 <= 00000021
-@00003250: $29 <= 0000009d
-@00003258: $31 <= 0000325c
-@0000325c: $31 <= 0000325c
-@00003260: $29 <= 00000021
-@00003264: $31 <= 0000002c
-@00003268: $16 <= 0000002e
-@0000326c: $14 <= 0000004f
-@00003270: $28 <= 00000000
-@00003278: $31 <= 00003278
-@0000327c: $31 <= 00000031
-@00003280: *000000ac <= 00000029
-@00003284: $31 <= 00003288
-@0000328c: $25 <= 00000000
-@00003290: $15 <= 000000b3
-@00003294: $31 <= 00003294
-@00003298: $15 <= 0000000a
-@0000329c: $31 <= 00000012
-@000032a0: $19 <= 00000056
-@000032a4: $28 <= 00000056
-@000032ac: $21 <= 00000000
-@000032b0: $19 <= 00000000
-@000032b8: $31 <= 000032bc
-@000032bc: $31 <= 000032bc
-@000032c0: $31 <= 0000001f
-@000032c4: $21 <= 0000005b
-@000032c8: $12 <= 0000005b
-@000032cc: $21 <= 00000000
-@000032d0: *00000000 <= 0000000a
-@000032dc: $31 <= 000032e0
-@000032e0: $31 <= 000032e0
-@000032e4: $31 <= 00000027
-@000032e8: $ 5 <= 00000000
-@000032ec: $31 <= 000032f0
-@00003094: $13 <= 000032f0
-@000032f0: $31 <= 000032f4
-@000032f4: $25 <= 00000000
-@000032f8: $31 <= 000032fc
-@00003300: $31 <= 00003300
-@00003304: $13 <= 000030e4
-@00003308: $31 <= 00000029
-@0000330c: $ 2 <= 00000098
-@00003310: $ 7 <= 00000098
-@00003314: $15 <= 000000ae
-@00003318: $16 <= 000000ae
-@0000331c: $ 5 <= 000000ad
-@00003338: $ 2 <= 0000001e
-@0000333c: $15 <= 0000002b
-@00003340: $16 <= 00000008
-@00003344: $ 5 <= 00000031
-@00003348: $ 7 <= 0000000a
-@0000334c: $31 <= 00000013
-@00003350: $15 <= 0000004c
-@00003354: $ 6 <= 0000004c
-@00003358: $31 <= 0000335c
-@00003360: $19 <= 0000000c
-@00003364: $31 <= 00003364
-@00003368: $31 <= 0000001e
-@0000336c: *00000040 <= 0000000c
-@00003370: *0000004c <= 00000008
-@00003378: $ 7 <= 00000000
-@0000337c: $31 <= 0000337c
-@00003380: $31 <= 00000023
-@00003384: $14 <= 00000041
-@00003390: $31 <= 00003394
-@00003398: $31 <= 00003398
-@0000339c: $31 <= 0000002e
-@000033a0: $15 <= 000000ac
-@000033a4: $ 7 <= 000000ac
-@000033a8: $16 <= 00000025
-@000033c0: $15 <= 00000011
-@000033c4: $ 7 <= 0000002a
-@000033c8: $31 <= 00000029
-@000033cc: $15 <= 0000002a
-@000033d0: $25 <= 0000002a
-@000033d4: $ 6 <= 000000a3
-@000033d8: $31 <= 000000a3
-@000033f8: $ 6 <= 00000018
-@000033fc: $31 <= 0000001a
-@00003400: *00000040 <= 00000000
-@00003404: $31 <= 00003408
-@000030bc: $11 <= 00003408
-@00003408: $31 <= 0000340c
-@0000340c: $ 6 <= 000000ab
-@00003410: $31 <= 00003414
-@0000306c: $ 4 <= 00003414
-@00003414: $31 <= 00003418
-@00003418: $31 <= 00003418
-@0000341c: $11 <= 000030e4
-@00003420: $ 4 <= 00003078
-@00003424: $ 6 <= 00000016
-@00003428: $31 <= 0000001b
-@0000342c: $25 <= 00000000
-@00003434: $31 <= 00003438
-@00003438: $21 <= 0000009f
-@0000343c: $29 <= 000000a7
-@00003440: $31 <= 00003440
-@00003444: $29 <= 00000006
-@00003448: $21 <= 00000005
-@0000344c: $31 <= 0000001d
-@00003450: $21 <= 0000007f
-@00003454: $14 <= 00000000
-@0000345c: $25 <= 00000000
-@00003460: $31 <= 00003460
-@00003464: $21 <= 00000009
-@00003468: $31 <= 00000010
-@0000346c: $ 5 <= 0000003b
-@00003470: $12 <= 0000003b
-@00003474: $31 <= 00000000
-@00003490: $31 <= 0000001b
-@00003494: $19 <= 0000000a
-@00003498: $28 <= 00000040
-@000034a0: $31 <= 000034a4
-@000034a4: $19 <= 00000000
-@000034a8: $31 <= 000034a8
-@000034ac: $31 <= 00000009
-@000034b0: $28 <= 00000084
-@000034b4: $23 <= 00000084
-@000034b8: $28 <= 0000001e
-ISim P.20131013 (signature 0x7708f090)
-----------------------------------------------------------------------
-INFO:Security:51 - The XILINXD_LICENSE_FILE environment variable is not set.
-INFO:Security:53 - The LM_LICENSE_FILE environment variable is not set.
-INFO:Security:68a - user is 27628, on host XIAONAOLIU.
-WARNING:Security:43 - No license file was found in the standard Xilinx license directory.
-WARNING:Security:44 - Since no license file was found,
-       please run the Xilinx License Configuration Manager
-       (xlcm or "Manage Xilinx Licenses")
-       to assist in obtaining a license.
-ERROR:Security:14 - No feature was available for 'ISIM'.
-
-No such feature exists.
-Feature:       ISIM
-License path:  C:/.Xilinx;C:\Xilinx\14.7\ISE_DS\ISE\/data\*.lic;C:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\Xilinx.lic;C:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\XilinxFree.lic;C:\Xilinx\14.7\ISE_DS\EDK/data/core_licenses\Xilinx.lic;
-FLEXnet Licensing error:-5,357
-For further information, refer to the FLEXnet Licensing documentation,
-available at "www.flexerasoftware.com".
-----------------------------------------------------------------------
-WARNING: A full ISim License cannot be checked out due to the issues listed above. Please use Xilinx License Configuration Manager to fix these issues in order to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
-# run 1000 ns
-Simulator is doing circuit initialization process.
-Finished circuit initialization process.
-@00003000: $13 <= 00000d93
-@00003004: $10 <= 00000d93
-@00003014: $23 <= 0000277f
-@00003018: $22 <= 0000c5a5
-@00003020: $ 5 <= a7be0000
-@00003024: $ 5 <= a7becf7c
-@00003028: $27 <= b5470000
-@0000302c: $27 <= b547bc1a
-@00003030: $10 <= f2771362
-@00003034: $14 <= 00000377
-@00003038: $19 <= 0000cc5d
-@00003040: $26 <= fa870000
-@00003044: $26 <= fa878e9b
-@00003048: $18 <= 0000dc7f
-@0000304c: $13 <= fa886b1a
-@00003050: $ 5 <= 000017e9
-@00003054: $30 <= 0000d94d
-@0000305c: $19 <= 00000000
-@00003060: $ 4 <= ffff0000
-@00003064: $ 4 <= ffffffff
-@00003068: $16 <= 00000001
-@0000306c: $ 4 <= 00003f42
-@00003070: $ 5 <= 0000ebf0
-@00003078: $22 <= 00000002
-@0000307c: $29 <= 00004f4a
-@00003080: $11 <= 00004f4c
-@00003084: $24 <= 000056d2
-@00003088: $23 <= 0000cb33
-@00003090: $29 <= ffff0000
-@00003094: $29 <= ffff8003
-@000030a0: $15 <= ffff8003
-@000030a4: $11 <= 000063d6
-@000030a8: $30 <= 0000e3a7
-@000030b0: $29 <= 00007ffa
-@000030b4: $13 <= ffff0000
-@000030b8: $13 <= ffff8004
-@000030bc: $24 <= 0000fff6
-@000030c0: $ 5 <= 000063d6
-@000030c4: $ 5 <= 0000e3a7
-@000030d4: $19 <= 00004c49
-@000030d8: $10 <= 000091f1
-@000030e0: $ 4 <= 80000000
-@000030e4: $ 4 <= 80000001
-@000030e8: $ 8 <= 00007ffd
-@000030ec: $23 <= 80007ffe
-@000030f0: $14 <= 0000181e
-@000030f4: $ 6 <= 0000e7ee
-@000030fc: $14 <= ffff0000
-@00003100: $14 <= ffffffff
-@00003104: $15 <= ffff0000
-@00003108: $15 <= ffffffff
-@0000310c: $15 <= fffffffe
-@00003110: $ 5 <= 00007cb9
-@00003114: $ 8 <= 00008f45
-@0000311c: $10 <= 0000d420
-@00003120: $14 <= 80000000
-@00003124: $14 <= 80000000
-@00003128: $24 <= 8000d420
-@0000312c: $28 <= 00006571
-@00003138: $23 <= 0000100a
-@0000313c: $22 <= 80000000
-@00003140: $22 <= 80000002
-@00003144: $ 8 <= 80001008
-@00003148: $ 2 <= 00002be2
-@0000314c: $26 <= 0000dcae
-@00003154: $ 8 <= 31d50000
-@00003158: $ 8 <= 31d559e1
-@0000315c: $16 <= ffff0000
-@00003160: $16 <= ffff8004
-@00003164: $11 <= 31d4d9e5
-@00003168: $ 2 <= 0000b563
-@0000316c: $17 <= 0000b563
-@0000317c: $ 5 <= 00006469
-@00003180: $23 <= 0000a717
-@00003188: $27 <= 00003967
-@0000318c: $12 <= ffff0000
-@00003190: $12 <= ffff8004
-@00003194: $11 <= 0000b963
-@00003198: $21 <= 00004224
-@0000319c: $24 <= 00004224
-@000031ac: $19 <= 00007d1e
-@000031b0: $ 8 <= 0000f97d
-@000031b8: $ 5 <= 00007ffc
-@000031bc: $23 <= ffff0000
-@000031c0: $23 <= ffffffff
-@000031c4: $23 <= 00007ffd
-@000031c8: $ 5 <= 0000c10b
-@000031cc: $31 <= 0000c10b
-@000031dc: $28 <= 000031bf
-@000031e8: $21 <= 0000124e
-@000031ec: $23 <= ffff0000
-@000031f0: $23 <= ffff8003
-@000031f4: $26 <= ffff9251
-@000031f8: $16 <= 00002322
-@000031fc: $13 <= 0000f33b
-@00003204: $24 <= 04f80000
-@00003208: $24 <= 04f84001
-@0000320c: $30 <= 00008c70
-@00003210: $ 3 <= 04f8cc71
-@00003214: $29 <= 000008dd
-@00003218: $ 8 <= 000008dd
-@00003228: $12 <= 00002b5f
-@00003238: $12 <= 0000f871
-@0000323c: $24 <= 00000c2b
-@00003240: $30 <= 00000c2b
-@00003250: $31 <= 0000428f
-@00003254: $ 5 <= 0000a2ad
-@0000325c: $11 <= 00007ffa
-@00003260: $19 <= 000091f1
-@00003264: $28 <= ffffee09
-@00003268: $ 5 <= 00001c7f
-@0000326c: $30 <= 00001c7f
-@0000327c: $19 <= 0000c542
-@00003280: $23 <= 0000c542
-@00003290: $ 8 <= 0000190a
-@00003294: $25 <= 0000ec91
-@0000329c: $ 8 <= 1ef40000
-@000032a0: $ 8 <= 1ef4913e
-@000032a4: $21 <= 00000000
-@000032a8: $15 <= 1ef4913e
-@000032ac: $26 <= 00002736
-@000032b0: $30 <= 000098cf
-@000032b8: $12 <= dc570000
-@000032bc: $12 <= dc571069
-@000032c0: $26 <= ffff0000
-@000032c4: $26 <= ffff8002
-@000032cc: $ 4 <= 00004ac3
-@000032d8: $17 <= ffff0000
-@000032dc: $17 <= ffff8004
-@000032e0: $23 <= 80000000
-@000032e4: $23 <= 80000002
-@000032e8: $26 <= 7fff8002
-@000032ec: $11 <= 00004ac3
-@000032f0: $11 <= 00008264
-@00003300: $23 <= 00005e39
-@00003304: $ 2 <= 00005e39
-@00003314: $22 <= 00006045
-@00003318: $14 <= 0000fc1e
-@00003320: $ 2 <= 80000000
-@00003324: $ 2 <= 80000001
-@00003328: $ 9 <= 00007ffb
-@0000332c: $16 <= 80007ffc
-@00003330: $23 <= 0000915d
-@00003334: $ 9 <= 0000915d
-@00003344: $27 <= 0000915d
-@00003348: $27 <= 0000915d
-@00003358: $17 <= 0000dce9
-@0000335c: $21 <= 0000dce9
-@0000336c: $28 <= 0000457d
-@00003370: $22 <= 0000e01a
-@00003378: $29 <= 00000001
-@0000337c: $13 <= 00008c4f
-@00003380: $10 <= ffff73b2
-@00003384: $20 <= 00005b5b
-@00003388: $26 <= 0000f7c1
-@00003390: $16 <= 7fff0000
-@00003394: $16 <= 7ffffffd
-@00003398: $ 8 <= 0000d15b
-@0000339c: $16 <= 7fff2ea2
-@000033a0: $ 2 <= 0000284a
-@000033a4: $23 <= 0000e646
-@000033ac: $ 8 <= ffff0000
-@000033b0: $ 8 <= ffff8004
-@000033b4: $29 <= 000086f8
-@000033b8: $27 <= fffef90c
-@000033bc: $ 8 <= 00003ee0
-@000033c0: $27 <= 0000a2e2
-@000033c8: $29 <= 7fff0000
-@000033cc: $29 <= 7ffffffd
-@000033d0: $14 <= 00000001
-@000033d4: $12 <= 7ffffffc
-@000033d8: $29 <= 000017be
-@000033dc: $ 6 <= 0000e3a4
-@000033e4: $ 4 <= 00008594
-@000033e8: $ 9 <= 0000409f
-@000033ec: $17 <= 000044f5
-@000033f0: $ 8 <= 00002854
-@000033fc: $11 <= 177e0000
-@00003400: $11 <= 177e4a46
-@00003404: $30 <= ffff0000
-@00003408: $30 <= ffff8004
-@0000340c: $ 8 <= 177dca4a
-@00003410: $23 <= 00002eae
-@00003414: $30 <= 00002eae
-@00003424: $13 <= 00006f73
-@00003428: $10 <= 00008202
-@00003430: $11 <= 00003f19
-@00003434: $29 <= 29e20000
-@00003438: $29 <= 29e26c54
-@0000343c: $11 <= 29e2ab6d
-@00003440: $28 <= 00001e59
-@00003444: $13 <= 00009141
-@0000344c: $25 <= b67f0000
-@00003450: $25 <= b67fcd38
-@00003454: $22 <= 7fff0000
-@00003458: $22 <= 7ffffffd
-@0000345c: $27 <= 367fcd35
-ISim P.20131013 (signature 0x7708f090)
-----------------------------------------------------------------------
-INFO:Security:51 - The XILINXD_LICENSE_FILE environment variable is not set.
-INFO:Security:53 - The LM_LICENSE_FILE environment variable is not set.
-INFO:Security:68a - user is 27628, on host XIAONAOLIU.
-WARNING:Security:43 - No license file was found in the standard Xilinx license directory.
-WARNING:Security:44 - Since no license file was found,
-       please run the Xilinx License Configuration Manager
-       (xlcm or "Manage Xilinx Licenses")
-       to assist in obtaining a license.
-ERROR:Security:14 - No feature was available for 'ISIM'.
-
-No such feature exists.
-Feature:       ISIM
-License path:  C:/.Xilinx;C:\Xilinx\14.7\ISE_DS\ISE\/data\*.lic;C:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\Xilinx.lic;C:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\XilinxFree.lic;C:\Xilinx\14.7\ISE_DS\EDK/data/core_licenses\Xilinx.lic;
-FLEXnet Licensing error:-5,357
-For further information, refer to the FLEXnet Licensing documentation,
-available at "www.flexerasoftware.com".
-----------------------------------------------------------------------
-WARNING: A full ISim License cannot be checked out due to the issues listed above. Please use Xilinx License Configuration Manager to fix these issues in order to check out a full ISim license.
-WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
-This is a Lite version of ISim.
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
@@ -678,11 +223,12 @@ Finished circuit initialization process.
 @00003a44: $31 <= 00003a48
 @00003a4c: $31 <= 00003a50
 @00003a54: $31 <= 00003a58
+INFO: There is another simulation running in the same directory. Using database file name isim2.wdb.
 ISim P.20131013 (signature 0x7708f090)
 ----------------------------------------------------------------------
 INFO:Security:51 - The XILINXD_LICENSE_FILE environment variable is not set.
 INFO:Security:53 - The LM_LICENSE_FILE environment variable is not set.
-INFO:Security:68a - user is 27628, on host XIAONAOLIU.
+INFO:Security:68a - user is 27628, on host NAONAOLIU.
 WARNING:Security:43 - No license file was found in the standard Xilinx license directory.
 WARNING:Security:44 - Since no license file was found,
        please run the Xilinx License Configuration Manager
@@ -692,7 +238,7 @@ ERROR:Security:14 - No feature was available for 'ISIM'.
 
 No such feature exists.
 Feature:       ISIM
-License path:  C:/.Xilinx;C:\Xilinx\14.7\ISE_DS\ISE\/data\*.lic;C:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\Xilinx.lic;C:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\XilinxFree.lic;C:\Xilinx\14.7\ISE_DS\EDK/data/core_licenses\Xilinx.lic;
+License path:  C:/.Xilinx;D:\14.7\ISE_DS\ISE\/data\*.lic;D:\14.7\ISE_DS\ISE\/coregen/core_licenses\Xilinx.lic;D:\14.7\ISE_DS\ISE\/coregen/core_licenses\XilinxFree.lic;D:\14.7\ISE_DS\EDK/data/core_licenses\Xilinx.lic;
 FLEXnet Licensing error:-5,357
 For further information, refer to the FLEXnet Licensing documentation,
 available at "www.flexerasoftware.com".
@@ -700,6 +246,232 @@ available at "www.flexerasoftware.com".
 WARNING: A full ISim License cannot be checked out due to the issues listed above. Please use Xilinx License Configuration Manager to fix these issues in order to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+@00003000: $31 <= 00003004
+@00003020: $31 <= 00003024
+@00003018: $31 <= 0000301c
+@00003008: $31 <= 0000300c
+@00003034: $31 <= 00003038
+@0000303c: $31 <= 00003040
+@0000305c: $31 <= 00003060
+@00003054: $31 <= 00003058
+@00003068: $31 <= 0000306c
+@00003088: $31 <= 0000308c
+@00003070: $31 <= 00003074
+@00003094: $31 <= 00003098
+@000030bc: $31 <= 000030c0
+@000030b4: $31 <= 000030b8
+@000030ac: $31 <= 000030b0
+@000030c8: $31 <= 000030cc
+@000030d0: $31 <= 000030d4
+@000030d8: $31 <= 000030dc
+@000030f4: $31 <= 000030f8
+@000030fc: $31 <= 00003100
+@00003114: $31 <= 00003118
+@00003120: $31 <= 00003124
+@00003128: $31 <= 0000312c
+@00003140: $31 <= 00003144
+@0000314c: $31 <= 00003150
+@0000316c: $31 <= 00003170
+@0000315c: $31 <= 00003160
+@00003178: $31 <= 0000317c
+@00003180: $31 <= 00003184
+@00003190: $31 <= 00003194
+@00003198: $31 <= 0000319c
+@000031ac: $31 <= 000031b0
+@000031bc: $31 <= 000031c0
+@000031b4: $31 <= 000031b8
+@000031d8: $31 <= 000031dc
+@000031f0: $31 <= 000031f4
+@000031e0: $31 <= 000031e4
+@00003204: $31 <= 00003208
+@0000320c: $31 <= 00003210
+@00003224: $31 <= 00003228
+@00003230: $31 <= 00003234
+@00003238: $31 <= 0000323c
+@00003240: $31 <= 00003244
+@00003258: $31 <= 0000325c
+@00003264: $31 <= 00003268
+@00003274: $31 <= 00003278
+@0000327c: $31 <= 00003280
+@00003290: $31 <= 00003294
+@000032a8: $31 <= 000032ac
+@000032b0: $31 <= 000032b4
+@000032b8: $31 <= 000032bc
+@000032c4: $31 <= 000032c8
+@000032e4: $31 <= 000032e8
+@000032d4: $31 <= 000032d8
+@000032dc: $31 <= 000032e0
+@000032f8: $31 <= 000032fc
+@00003300: $31 <= 00003304
+@00003318: $31 <= 0000331c
+@00003308: $31 <= 0000330c
+@0000332c: $31 <= 00003330
+@00003334: $31 <= 00003338
+@00003344: $31 <= 00003348
+@00003358: $31 <= 0000335c
+@00003368: $31 <= 0000336c
+@00003360: $31 <= 00003364
+@00003384: $31 <= 00003388
+@0000338c: $31 <= 00003390
+@000033a4: $31 <= 000033a8
+@000033b0: $31 <= 000033b4
+@000033b8: $31 <= 000033bc
+@000033c8: $31 <= 000033cc
+@000033dc: $31 <= 000033e0
+@000033e4: $31 <= 000033e8
+@000033fc: $31 <= 00003400
+@00003408: $31 <= 0000340c
+@00003410: $31 <= 00003414
+@00003428: $31 <= 0000342c
+@00003434: $31 <= 00003438
+@00003444: $31 <= 00003448
+@0000343c: $31 <= 00003440
+@00003454: $31 <= 00003458
+@00003468: $31 <= 0000346c
+@00003478: $31 <= 0000347c
+@00003470: $31 <= 00003474
+@00003494: $31 <= 00003498
+@0000349c: $31 <= 000034a0
+@000034ac: $31 <= 000034b0
+@000034bc: $31 <= 000034c0
+@000034c8: $31 <= 000034cc
+@000034e8: $31 <= 000034ec
+@000034d8: $31 <= 000034dc
+@000034f4: $31 <= 000034f8
+@0000350c: $31 <= 00003510
+@00003504: $31 <= 00003508
+@000034fc: $31 <= 00003500
+@00003528: $31 <= 0000352c
+@00003530: $31 <= 00003534
+@00003538: $31 <= 0000353c
+@00003540: $31 <= 00003544
+@0000355c: $31 <= 00003560
+@00003564: $31 <= 00003568
+@0000356c: $31 <= 00003570
+@0000357c: $31 <= 00003580
+@00003590: $31 <= 00003594
+@000035a0: $31 <= 000035a4
+@000035b0: $31 <= 000035b4
+@00003598: $31 <= 0000359c
+@000035c4: $31 <= 000035c8
+@000035e4: $31 <= 000035e8
+@000035dc: $31 <= 000035e0
+@000035d4: $31 <= 000035d8
+@000035f8: $31 <= 000035fc
+@00003620: $31 <= 00003624
+@00003600: $31 <= 00003604
+@00003618: $31 <= 0000361c
+@0000362c: $31 <= 00003630
+@00003634: $31 <= 00003638
+@00003644: $31 <= 00003648
+@00003654: $31 <= 00003658
+@00003660: $31 <= 00003664
+@00003680: $31 <= 00003684
+@00003670: $31 <= 00003674
+@0000368c: $31 <= 00003690
+@000036a4: $31 <= 000036a8
+@00003694: $31 <= 00003698
+@000036b8: $31 <= 000036bc
+@000036c0: $31 <= 000036c4
+@000036d8: $31 <= 000036dc
+@000036e4: $31 <= 000036e8
+@000036ec: $31 <= 000036f0
+@0000370c: $31 <= 00003710
+@00003704: $31 <= 00003708
+@00003718: $31 <= 0000371c
+@00003740: $31 <= 00003744
+@00003730: $31 <= 00003734
+@00003728: $31 <= 0000372c
+@0000374c: $31 <= 00003750
+@0000375c: $31 <= 00003760
+@0000376c: $31 <= 00003770
+@00003778: $31 <= 0000377c
+@00003790: $31 <= 00003794
+@00003780: $31 <= 00003784
+@000037a4: $31 <= 000037a8
+@000037c4: $31 <= 000037c8
+@000037b4: $31 <= 000037b8
+@000037d0: $31 <= 000037d4
+@000037e0: $31 <= 000037e4
+@000037e8: $31 <= 000037ec
+@000037fc: $31 <= 00003800
+@00003804: $31 <= 00003808
+@00003814: $31 <= 00003818
+@00003828: $31 <= 0000382c
+@00003850: $31 <= 00003854
+@00003840: $31 <= 00003844
+@00003830: $31 <= 00003834
+@0000385c: $31 <= 00003860
+@00003874: $31 <= 00003878
+@0000386c: $31 <= 00003870
+@00003888: $31 <= 0000388c
+@00003898: $31 <= 0000389c
+@00003890: $31 <= 00003894
+@000038a8: $31 <= 000038ac
+@000038bc: $31 <= 000038c0
+@000038e4: $31 <= 000038e8
+@000038dc: $31 <= 000038e0
+@000038cc: $31 <= 000038d0
+@000038f0: $31 <= 000038f4
+@00003918: $31 <= 0000391c
+@00003910: $31 <= 00003914
+@000038f8: $31 <= 000038fc
+@00003924: $31 <= 00003928
+@00003934: $31 <= 00003938
+@00003944: $31 <= 00003948
+@0000393c: $31 <= 00003940
+@00003958: $31 <= 0000395c
+@00003970: $31 <= 00003974
+@00003978: $31 <= 0000397c
+@00003984: $31 <= 00003988
+@0000399c: $31 <= 000039a0
+@00003994: $31 <= 00003998
+@000039b0: $31 <= 000039b4
+@000039b8: $31 <= 000039bc
+@000039d8: $31 <= 000039dc
+@000039c0: $31 <= 000039c4
+@000039e4: $31 <= 000039e8
+@00003a04: $31 <= 00003a08
+@000039ec: $31 <= 000039f0
+@000039fc: $31 <= 00003a00
+@00003a18: $31 <= 00003a1c
+@00003a30: $31 <= 00003a34
+@00003a20: $31 <= 00003a24
+@00003a44: $31 <= 00003a48
+@00003a4c: $31 <= 00003a50
+@00003a54: $31 <= 00003a58
+INFO: There is another simulation running in the same directory. Using database file name isim3.wdb.
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+INFO:Security:51 - The XILINXD_LICENSE_FILE environment variable is not set.
+INFO:Security:53 - The LM_LICENSE_FILE environment variable is not set.
+INFO:Security:68a - user is 27628, on host NAONAOLIU.
+WARNING:Security:43 - No license file was found in the standard Xilinx license directory.
+WARNING:Security:44 - Since no license file was found,
+       please run the Xilinx License Configuration Manager
+       (xlcm or "Manage Xilinx Licenses")
+       to assist in obtaining a license.
+ERROR:Security:14 - No feature was available for 'ISIM'.
+
+No such feature exists.
+Feature:       ISIM
+License path:  C:/.Xilinx;D:\14.7\ISE_DS\ISE\/data\*.lic;D:\14.7\ISE_DS\ISE\/coregen/core_licenses\Xilinx.lic;D:\14.7\ISE_DS\ISE\/coregen/core_licenses\XilinxFree.lic;D:\14.7\ISE_DS\EDK/data/core_licenses\Xilinx.lic;
+FLEXnet Licensing error:-5,357
+For further information, refer to the FLEXnet Licensing documentation,
+available at "www.flexerasoftware.com".
+----------------------------------------------------------------------
+WARNING: A full ISim License cannot be checked out due to the issues listed above. Please use Xilinx License Configuration Manager to fix these issues in order to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+Time resolution is 1 ps
+# onerror resume
+# wave add /
 # run 1000 ns
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
