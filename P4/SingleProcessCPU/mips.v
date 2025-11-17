@@ -31,10 +31,11 @@ module mips(
     wire [4:0] rd;
     wire [4:0] shamt;
     wire [5:0] funct;
-    wire [25:0] imm26; //作为16位立即数，或者作为instr_index 26位立即数
+    wire [15:0] imm16;
+    wire [25:0] imm26; //作为instr_index 26位立即数
     wire zero;
     wire [31:0] imm16_EXT;
-    wire [31:0] npc_addr, pc_addr, pc_4_addr, ra, im_data, alu_rst, mem_data, RD1, RD2;
+    wire [31:0] npc_addr, pc_addr, pc_4_addr, im_data, alu_rst, mem_data, RD1, RD2;
     // mem_data 从DM处读的
     wire [1:0] RegDst;   // 寄存器目标选择
     wire ALUSrc;         // ALU第二个源操作数选择
@@ -46,12 +47,12 @@ module mips(
     wire [2:0] ALUCtrl;   // ALU运算类型控制
 
     PC pc(.clk(clk), .reset(reset), .DI(npc_addr), .DO(pc_addr));
-    NPC npc(.PC(pc_addr), .imm(imm26), .ra(ra), .nPC_Sel(nPC_Sel), 
+    NPC npc(.PC(pc_addr), .imm26(imm26), .imm16(imm16), .ra(RD1), .nPC_Sel(nPC_Sel), 
                     .Zero(zero), .NPC(npc_addr), .PC4(pc_4_addr));
     IM im(.IM_addr(pc_addr), .IM_data(Instr));
     
     Splitter splitter(.Instr(Instr), .opcode(opcode), .rs(rs), .rt(rt), .rd(rd), 
-                                    .shamt(shamt), .funct(funct), .imm26(imm26));
+                        .shamt(shamt), .funct(funct), .imm26(imm26), .imm16(imm16));
     Controller controller(.opcode(opcode), .funct(funct), .RegDst(RegDst), .ALUSrc(ALUSrc), 
                             .ALUCtrl(ALUCtrl), .RegSrc(RegSrc), .RegWrite(RegWrite), .MemWrite(MemWrite),
                             .nPC_Sel(nPC_Sel), .ExtOp(ExtOp));
@@ -70,7 +71,7 @@ module mips(
 
 
     GRF rf(.A1(A1), .A2(A2), .A3(A3), .WD(WD), .PC(pc_addr), .WE(RegWrite),
-            .clk(clk), .reset(reset), .RD1(RD1), .RD2(RD2), .RA(ra));
+            .clk(clk), .reset(reset), .RD1(RD1), .RD2(RD2));
     
     EXT ext(.Imm16(imm26[15:0]), .EXTOp(ExtOp), .EXT32(imm16_EXT));
     
