@@ -26,7 +26,8 @@ module Splitter(
     output [4:0] rd,
     output [4:0] shamt,
     output [5:0] funct,
-    output [25:0] imm26
+    output [25:0] imm26,
+    output [15:0] imm16
     );
     assign opcode = Instr[31:26];   
     assign rs = Instr[25:21];
@@ -35,5 +36,6 @@ module Splitter(
     assign shamt = Instr[10:6];
     assign funct = Instr[5:0];
     assign imm26 = Instr[25:0];
+    assign imm16 = Instr[15:0];
 
 endmodule

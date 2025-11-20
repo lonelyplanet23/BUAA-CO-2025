@@ -28,6 +28,7 @@
 `define JAL 6'b000011
 `define JR  6'b001000 //funct
 `define ZERO 6'b000000
+`define J   6'b000010
 `include "constants.v" // 包含所有宏定义
 
 module Controller(
@@ -106,6 +107,7 @@ module Controller(
                 nPC_Sel = `NPC_BRANCH;
                 ExtOp = 1'b1;
                 ALUCtrl = `ALU_SUB;
+
             end
 
             `LUI: begin
@@ -121,6 +123,11 @@ module Controller(
                 RegDst = `RD_RA;
                 RegSrc = `RS_PC4;
                 RegWrite = 1'b1;
+                nPC_Sel = `NPC_JUMP;
+            end
+
+            `J: begin
+                RegWrite = 0;
                 nPC_Sel = `NPC_JUMP;
             end
             default: ;
