@@ -3,3 +3,27 @@ Command line:
      -simmode  gui
      -simrunnum  0
      -socket  3610
+
+Mon Nov 17 18:02:53 2025
+
+
+ Elaboration Time: 0.03125 sec
+
+ Current Memory Usage: 5172.01 Meg
+
+ Total Signals          : 100
+ Total Nets             : 655
+ Total Signal Drivers   : 44
+ Total Blocks           : 12
+ Total Primitive Blocks : 10
+ Total Processes        : 57
+ Total Traceable Variables  : 38
+ Total Scalar Nets and Variables : 231375
+Total Line Count : 155
+
+ Total Simulation Time: 0.078125 sec
+
+ Current Memory Usage: 5014.72 Meg
+
+Mon Nov 17 18:08:11 2025
+
