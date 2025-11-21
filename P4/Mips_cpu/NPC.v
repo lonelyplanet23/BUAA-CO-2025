@@ -23,7 +23,8 @@
 
 module NPC(
     input [31:0] PC,
-    input [25:0] imm,
+    input [15:0] imm16,
+    input [25:0] imm26,
     input [31:0] ra,    
     input [2:0] nPC_Sel,
     input Zero,
@@ -32,16 +33,15 @@ module NPC(
     );
 
     wire [31:0] NPC1, NPC2, NPC3;
-    wire [31:0] EXT_16_TO_32, EXT_26_TO_32;
+    wire [31:0] EXT_16_TO_32;
     assign NPC1 = PC + 4;
     // Zero == 1，PC<-PC+4 + sign_ext(imm16||00)；
     // Zero == 0，PC<-PC+4
-    assign EXT_16_TO_32 = {{16{imm[15]}}, imm[15:0]} << 2;
-
+    assign EXT_16_TO_32 = {{16{imm16[15]}}, imm16} << 2;
     assign NPC2 = (Zero == 0)? PC + 4: PC + 4 + EXT_16_TO_32;
     
     //JAL: PC <- PC31..28║instr_index║0^2
-    assign NPC3 = {PC[31:28], imm[25:0], 2'b00};
+    assign NPC3 = {PC[31:28], imm26[25:0], 2'b00};
 
 
     always @(*) begin
