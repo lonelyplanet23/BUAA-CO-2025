@@ -20,7 +20,7 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 `include "constants.v"
-module PC(
+module F_PC(
     input clk,
     input reset,
     input [31:0] F_NPC_in,

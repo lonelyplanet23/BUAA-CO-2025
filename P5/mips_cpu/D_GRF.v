@@ -18,7 +18,7 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module GRF(
+module D_GRF(
     input [4:0] A1,
     input [4:0] A2,
     output [31:0] RD1,
