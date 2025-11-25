@@ -18,12 +18,12 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module DM(
-    input [31:0] Addr,
-    input [31:0] WD,
+module M_DM(
+    input [31:0] A,
+    input [31:0] M_WD,
     input [31:0] PC,
-    output [31:0] RD,
-    input WE,
+    output [31:0] M_RD,
+    input DMWr,
     input clk,          
     input reset
     );
@@ -37,7 +37,7 @@ module DM(
     end
 
     wire [11:0] word_addr;
-    assign word_addr = Addr >> 2;
+    assign word_addr = A >> 2; //!一个word占4字节
 
     always @(posedge clk) begin
         if(reset) begin
@@ -45,12 +45,12 @@ module DM(
                 MEM[i] = 32'h0;
             end
         end
-        else if(WE) begin
-            $display("@%h: *%h <= %h", PC, Addr , WD);
-            MEM[word_addr] <= WD;
+        else if(DMWr) begin
+            $display("@%h: *%h <= %h", PC, A, M_WD);
+            MEM[word_addr] <= M_WD;
         end
     end
 
-    assign RD = MEM[word_addr];
+    assign M_RD = MEM[word_addr];
 
 endmodule

@@ -40,6 +40,22 @@
 `define TUSE_E                2'b01
 `define TUSE_M                2'b10
 `define TUSE_NONE             2'b11
+// --- Opcode funct encoding ---
+`define ADD 6'h20 //funct
+`define SUB 6'h22 //funct
+`define ORI 6'hd
+`define LW  6'h23
+`define SW  6'h2b
+`define BEQ 6'h04
+`define LUI 6'hf
+`define JAL 6'b000011
+`define JR  6'b001000 //funct
+`define ZERO 6'b000000
+`define J   6'b000010
+// --- Forward encoding ---
+`define FROM_E 2'00
+`define FROM_M 2'01
+`define FROM_W 2'10
 
 // --- Other Constants ---
 `define INITIAL_ADDRESS       32'h00003000

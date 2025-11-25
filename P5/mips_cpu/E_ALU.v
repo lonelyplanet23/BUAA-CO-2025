@@ -19,22 +19,20 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 `include "constants.v"
-module ALU(
+module E_ALU(
     input [31:0] A,
     input [31:0] B,
-    input [2:0] ALUCtrl,
-    output reg [31:0] Result,
-    output Zero
+    input [2:0] E_ALUOp,
+    output reg [31:0] E_AO,
     );
     
-    assign Zero = (A == B);
     always @(*) begin
-        case (ALUCtrl)
-            `ALU_ADD: Result = A + B;
-            `ALU_SUB: Result = A - B;
-            `ALU_OR:  Result = A | B;
-            `ALU_SHIFT_LEFT_16: Result = B << 16;
-            default: Result = 32'h00000000;
+        case (E_ALUOpl)
+            `ALU_ADD: E_AO = A + B;
+            `ALU_SUB: E_AO = A - B;
+            `ALU_OR:  E_AO = A | B;
+            `ALU_SHIFT_LEFT_16: E_AO = B << 16;
+            default: E_AO = 32'h00000000;
         endcase
     end
 
