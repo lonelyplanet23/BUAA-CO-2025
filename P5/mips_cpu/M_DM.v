@@ -46,7 +46,7 @@ module M_DM(
             end
         end
         else if(DMWr) begin
-            $display("@%h: *%h <= %h", PC, A, M_WD);
+            $display("%d@%h: *%h <= %h", $time, PC, A, M_WD);
             MEM[word_addr] <= M_WD;
         end
     end

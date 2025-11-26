@@ -27,7 +27,6 @@ module mips_tb;
 	// Inputs
 	reg clk;
 	reg reset;
-	reg [31:0] output_file; 
 
 	// Instantiate the Unit Under Test (UUT)
 	mips uut (
@@ -36,7 +35,7 @@ module mips_tb;
 	);
 
 	initial begin
-		output_file = $fopen("output.txt", "w");
+
 		// Initialize Inputs
 		clk = 0;
 		reset = 0;

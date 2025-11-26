@@ -53,10 +53,14 @@ module mips(
     wire [1:0]  e_tnew;
     wire [2:0]  e_alu_op;
     wire [1:0]  e_alu_bsrc;
+    wire [1:0]  e_Reg_WrSrc;
     wire        e_rfwr;
     wire [31:0] e_alu_a;
     wire [31:0] e_alu_b;
     wire [31:0] e_ao;
+    wire [31:0] fwd_e_v2;
+    reg  [31:0] e_reg_wd; //!此阶段jal已产生值
+    
 
     // M stage
     wire [31:0] m_instr;
@@ -66,9 +70,11 @@ module mips(
     wire [4:0]  m_a3;
     wire [1:0]  m_tnew;
     wire [31:0] m_rd;
+    wire [1:0]  m_Reg_WrSrc;
     wire        m_rfwr;
     wire        m_dmwr;
-    wire [31:0] m_wd;
+    wire [31:0] m_wd;     //! 指写入DM的值
+    reg  [31:0] m_reg_wd; //!此阶段jal，计算类已产生值
 
     // W stage
     wire [31:0] w_instr;
@@ -79,6 +85,8 @@ module mips(
     wire        w_rfwr;
     wire [1:0]  w_Reg_WrSrc;
     wire [31:0] w_wd;
+    reg [31:0] w_reg_wd;
+
 
     // Hazard / forwarding control
     wire        stall;
@@ -104,28 +112,6 @@ module mips(
     wire [5:0] w_opcode = w_instr[31:26];
     wire [5:0] w_funct  = w_instr[5:0];
 
-    // ------------------------------------------------------------------
-    // Forwarding mux placeholders (assign-only skeleton for practice)
-    // ------------------------------------------------------------------
-
-
-    assign e_alu_a = (fwd_e_a_sel == 2'b01) ? e_v1 : // TODO: forward from M stage
-                     (fwd_e_a_sel == 2'b10) ? e_v1 : // TODO: forward from W stage
-                     e_v1;
-
-    assign e_alu_b = (e_alu_bsrc == `ALU_BSRC_EXT) ? e_e32 :
-                     (fwd_e_b_sel == 2'b01) ? e_v2 : // TODO: forward from M stage
-                     (fwd_e_b_sel == 2'b10) ? e_v2 : // TODO: forward from W stage
-                     e_v2;
-
-    assign m_wd = (fwd_m_wd_sel == 2'b01) ? m_v2 : // TODO: forward from E stage result
-                  (fwd_m_wd_sel == 2'b10) ? m_v2 : // TODO: forward from W stage data
-                  m_v2;
-
-    wire [31:0] w_pc_plus8 = w_pc + 32'd8;
-    assign w_wd = (w_Reg_WrSrc == `RS_MEM) ? w_rd :
-                  (w_Reg_WrSrc == `RS_PC4) ? w_pc_plus8 :
-                  w_ao;
 
     // ------------------------------------------------------------------
     // 2) Stage implementations & placeholder mux blocks
@@ -170,12 +156,12 @@ module mips(
         .imm16 (d_imm16)
     );
 
-    D_GRF u_d_grf (
+    D_GRF u_dw_grf (
         .A1   (d_rs),
         .A2   (d_rt),
         .RD1  (d_v1_raw),
         .RD2  (d_v2_raw),
-        .PC   (w_pc),
+        .PC   (w_pc), //!写阶段在W阶段，故需要w_pc 
         .A3   (w_a3),
         .WD   (w_wd),
         .RFWr (w_rfwr),
@@ -201,7 +187,7 @@ module mips(
         .D_PC   (d_pc),
         .D_imm16(d_imm16),
         .D_imm26(d_imm26),
-        .D_ra   (d_v1),
+        .D_ra   (d_v1), //!
         .nPC_Sel(d_npc_sel),
         .D_bjump(d_bjump),
         .NPC    (f_npc)
@@ -217,16 +203,19 @@ module mips(
         .T_use_RS (d_t_use_rs),
         .T_use_RT (d_t_use_rt)
     );
-
-    assign d_v1 = (fwd_d_rs_sel == 2'b01) ? d_v1_raw : // TODO: forward from E stage
-                  (fwd_d_rs_sel == 2'b10) ? d_v1_raw : // TODO: forward from M stage
+    // D stage v1, v2 forward muxes
+    assign d_v1 = (fwd_d_rs_sel == `FROM_E) ? e_reg_wd: 
+                  (fwd_d_rs_sel == `FROM_M) ? m_reg_wd: 
+                  (fwd_d_rs_sel == `FROM_W) ? w_reg_wd:
                   d_v1_raw;
 
-    assign d_v2 = (fwd_d_rt_sel == 2'b01) ? d_v2_raw : // TODO: forward from E stage
-                  (fwd_d_rt_sel == 2'b10) ? d_v2_raw : // TODO: forward from M stage
+    assign d_v2 = (fwd_d_rt_sel == `FROM_E) ? e_reg_wd:
+                  (fwd_d_rt_sel == `FROM_M) ? m_reg_wd: 
+                  (fwd_d_rt_sel == `FROM_W) ? w_reg_wd:
                   d_v2_raw;
 
-    reg [4:0] d_a3_r;
+    // D stage A3_Sel mux
+    reg [4:0] d_a3_r;  
     always @(*) begin
         case (d_reg_wr_sel)
             `RD_RD: d_a3_r = d_rd;
@@ -237,6 +226,7 @@ module mips(
     end
     assign d_a3 = d_a3_r;
 
+    // -------------------- DE reg --------------------
     DE_REG u_de_reg (
         .clk    (clk),
         .reset  (reset),
@@ -261,6 +251,7 @@ module mips(
         .opcode  (e_opcode),
         .funct   (e_funct),
         .ALU_BSrc(e_alu_bsrc),
+        .Reg_WrSrc(e_Reg_WrSrc),
         .RFWr    (e_rfwr),
         .ALUOp   (e_alu_op)
     );
@@ -272,16 +263,45 @@ module mips(
         .E_AO   (e_ao)
     );
 
+    // E stage alu_a alu_b forward muxes
+    assign e_alu_a = (fwd_e_a_sel == `FROM_M) ? m_reg_wd : 
+                     (fwd_e_a_sel == `FROM_W) ? w_reg_wd : 
+                     e_v1;
+
+    assign fwd_e_v2 = (fwd_e_b_sel == `FROM_M) ? m_reg_wd  : 
+                     (fwd_e_b_sel == `FROM_W) ? w_reg_wd : 
+                     e_v2;
+    
+    // E stage alu_b mux
+    reg [31:0] e_alu_b_r;
+    always @(*) begin
+        case(e_alu_bsrc)
+            `ALU_BSRC_V2:  e_alu_b_r = fwd_e_v2;
+            `ALU_BSRC_EXT: e_alu_b_r = e_e32;
+            default:       e_alu_b_r = 32'd0;
+        endcase
+    end
+    assign e_alu_b = e_alu_b_r;
+
+    // E stage reg_wd mux
+    always @(*) begin
+        case(e_Reg_WrSrc)
+            `RS_PC8: e_reg_wd = e_pc + 32'd8;
+            default: e_reg_wd = 32'd0; 
+        endcase
+    end
+    
+    
+    //-------------------- EM REG --------------------
     EM_REG u_em_reg (
         .clk    (clk),
         .reset  (reset),
         .E_Instr(e_instr),
         .E_AO   (e_ao),
-        .E_V2   (e_v2),
+        .E_V2   (fwd_e_v2),
         .E_PC   (e_pc),
         .E_A3   (e_a3),
         .E_RFWr (e_rfwr),
-        .E_DMWr (1'b0),
         .E_Tnew (e_tnew),
         .M_Instr(m_instr),
         .M_AO   (m_ao),
@@ -296,6 +316,7 @@ module mips(
         .opcode(m_opcode),
         .funct (m_funct),
         .RFWr  (m_rfwr),
+        .Reg_WrSrc(m_Reg_WrSrc),
         .DMWr  (m_dmwr)
     );
 
@@ -309,7 +330,21 @@ module mips(
         .reset(reset)
     );
 
-    MW_REG u_mw_reg (
+    // M stage wd forward mux
+    assign m_wd = (fwd_m_wd_sel == `FROM_W) ? w_reg_wd : 
+                  m_v2;
+
+    // M stage reg_wd mux
+    always @(*) begin
+        case(m_Reg_WrSrc)
+            `RS_ALU:  m_reg_wd = m_ao;
+            `RS_PC8:  m_reg_wd = m_pc + 32'd8;
+            default:  m_reg_wd = 32'd0;
+        endcase
+    end
+
+    //-------------------- MW REG --------------------
+        MW_REG u_mw_reg (
         .clk    (clk),
         .reset  (reset),
         .M_Instr(m_instr),
@@ -332,6 +367,18 @@ module mips(
         .RFWr     (w_rfwr)
     );
 
+    // W stage wd sel mux
+    always @(*) begin
+        case(w_Reg_WrSrc)
+            `RS_MEM: w_reg_wd = w_rd;
+            `RS_PC8: w_reg_wd = w_pc + 32'd8;
+            `RS_ALU: w_reg_wd = w_ao;
+            default: w_reg_wd = 32'd0;
+        endcase
+    end
+    assign w_wd = w_reg_wd;
+
+
     // -------------------- Hazard controller --------------------
     HazardCtrl u_hazard_ctrl (
         .T_use_RS   (d_t_use_rs),
@@ -340,10 +387,15 @@ module mips(
         .M_Tnew     (m_tnew),
         .D_A1       (d_rs),
         .D_A2       (d_rt),
+        .E_A1       (e_instr[25:21]),
+        .E_A2       (e_instr[20:16]),
         .E_A3       (e_a3),
         .M_A3       (m_a3),
+        .M_A2       (m_instr[20:16]),
+        .W_A3       (w_a3),
         .E_RFWr     (e_rfwr),
         .M_RFWr     (m_rfwr),
+        .W_RFWr     (w_rfwr),
         .Stall      (stall),
         .Fwd_D_RS_Sel(fwd_d_rs_sel),
         .Fwd_D_RT_Sel(fwd_d_rt_sel),

@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2025-11-24T15:00:57</DateModified>
+  <DateModified>2025-11-26T16:50:37</DateModified>
   <ModuleName>mips</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>C:/Users/27628/Documents/CO-2025/P5/pipelineCpu/iseconfig/mips.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/27628/Documents/CO-2025/P5/pipelineCpu\</ImplementationReportsDirectory>
-  <DateInitialized>2025-11-23T09:35:22</DateInitialized>
+  <SavedFilePath>C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/iseconfig/mips.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU</ImplementationReportsDirectory>
+  <DateInitialized>2025-11-26T16:48:16</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
  <body>
