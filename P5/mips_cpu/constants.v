@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+ `timescale 1ns / 1ps
 // --- ALU Control (3-bit) ---
 `define ALU_ADD               3'b000
 `define ALU_SUB               3'b001
@@ -11,15 +11,16 @@
 `define RD_RD                 2'b01 // 写回 rd (R-type)
 `define RD_RA                 2'b10 // 写回 $ra ($31) (JAL)
 
-// --- Register Source (RegSrc / MemtoReg 2-bit) ---
+// --- 寄存器写入值 (RegSrc) ---
 `define RS_ALU                2'b00 // 写回 ALU Result (R-type, ORI, LUI)
 `define RS_MEM                2'b01 // 写回 Memory Read Data (LW)
-`define RS_PC4                2'b10 // 写回 PC+4 (JAL)
+`define RS_PC8                2'b10 // 写回 PC+8 (JAL)
 
 // --- ALU B Source (2-bit) ---
 `define ALU_BSRC_V2           2'b00 // 使用寄存器 V2
 `define ALU_BSRC_EXT          2'b01 // 使用扩展后的立即数
-`define ALU_BSRC_UNUSED       2'b11 // 未使用（占位）
+
+
 
 // --- Next PC Select (nPC_sel 2-bit) ---
 `define NPC_PC4               3'b000 // PC + 4 (顺序执行)
@@ -53,9 +54,10 @@
 `define ZERO 6'b000000
 `define J   6'b000010
 // --- Forward encoding ---
-`define FROM_E 2'00
-`define FROM_M 2'01
-`define FROM_W 2'10
+// 00表示不使用转发
+`define FROM_E 2'b01
+`define FROM_M 2'b10
+`define FROM_W 2'b11
 
 // --- Other Constants ---
 `define INITIAL_ADDRESS       32'h00003000

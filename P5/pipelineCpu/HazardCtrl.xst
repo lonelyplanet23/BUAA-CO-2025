@@ -1,0 +1,5 @@
+set -tmpdir "C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/xst/projnav.tmp"
+set -xsthdpdir "C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/xst"
+elaborate
+-ifn HazardCtrl.prj
+-ifmt mixed

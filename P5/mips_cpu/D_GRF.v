@@ -48,7 +48,7 @@ module D_GRF(
         else if(RFWr) begin
             if(A3 != 5'b00000) begin
                 reg_file[A3] <= WD; //保护零号寄存器 一直为0
-                $display("@%h: $%d <= %h", PC, A3, WD);
+                $display("%d@%h: $%d <= %h", $time, PC, A3, WD);
             end
         end
     end

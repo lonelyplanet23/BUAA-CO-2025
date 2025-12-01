@@ -132,7 +132,7 @@ module Controller(
 
             `JAL: begin
                 Reg_WrSel = `RD_RA;
-                Reg_WrSrc = `RS_PC4;
+                Reg_WrSrc = `RS_PC8;
                 RFWr = 1'b1;
                 nPC_sel = `NPC_JUMP;
             end
