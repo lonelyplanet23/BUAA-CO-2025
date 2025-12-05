@@ -3,7 +3,16 @@
 
 module mips(
     input clk,
-    input reset
+    input reset,
+
+    input  [31:0] i_inst_addr,
+    output [31:0] i_inst_rdata,
+
+    input  [31:0] m_data_addr,
+    output [31:0] m_data_rdata,
+    input  [31:0] m_data_wdata,
+    input  [3 :0] m_data_byteen,
+    input  [31:0] m_inst_addr
 );
 
     // ------------------------------------------------------------------
@@ -75,6 +84,7 @@ module mips(
     wire        m_dmwr;
     wire [31:0] m_wd;     //! 指写入DM的值
     reg  [31:0] m_reg_wd; //!此阶段jal，计算类已产生值
+    wire        m_byteen; //! 按字节写入/读入
 
     // W stage
     wire [31:0] w_instr;
@@ -127,10 +137,11 @@ module mips(
         .F_PC    (f_pc)
     );
 
-    F_IM u_f_im (
-        .A       (f_pc),
-        .F_Instr (f_instr)
-    );
+
+    // F_IM u_f_im (
+    //     .A       (f_pc),
+    //     .F_Instr (f_instr)
+    // );
 
     // -------------------- FD reg --------------------
     FD_REG u_fd_reg (
@@ -320,15 +331,15 @@ module mips(
         .DMWr  (m_dmwr)
     );
 
-    M_DM u_m_dm (
-        .A    (m_ao),
-        .M_WD (m_wd),
-        .PC   (m_pc),
-        .M_RD (m_rd),
-        .DMWr (m_dmwr),
-        .clk  (clk),
-        .reset(reset)
-    );
+    // M_DM u_m_dm (
+    //     .A    (m_ao),
+    //     .M_WD (m_wd),
+    //     .PC   (m_pc),
+    //     .M_RD (m_rd),
+    //     .DMWr (m_dmwr),
+    //     .clk  (clk),
+    //     .reset(reset)
+    // );
 
     // M stage wd forward mux
     assign m_wd = (fwd_m_wd_sel == `FROM_W) ? w_reg_wd : 
@@ -377,8 +388,7 @@ module mips(
         endcase
     end
     assign w_wd = w_reg_wd;
-
-
+    
     // -------------------- Hazard controller --------------------
     HazardCtrl u_hazard_ctrl (
         .T_use_RS   (d_t_use_rs),

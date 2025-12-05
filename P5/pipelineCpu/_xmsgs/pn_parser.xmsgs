@@ -8,35 +8,104 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/Controller.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/Controller.v</arg>&quot; Line <arg fmt="%d" index="2">32</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/Controller.v&quot; line 32
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/DE_REG.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/DE_REG.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/DE_REG.v&quot; line 2
+</arg>
+</msg>
+
 <msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/DF_NPC.v&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/DF_NPC.v</arg>&quot; Line <arg fmt="%d" index="2">22</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P4/SingleProcessCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/DF_NPC.v&quot; line 22
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/DF_NPC.v</arg>&quot; Line <arg fmt="%d" index="2">22</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/DF_NPC.v&quot; line 22
 </arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/D_CMP.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/D_CMP.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/D_CMP.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/D_EXT.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/D_EXT.v</arg>&quot; Line <arg fmt="%d" index="2">21</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/D_EXT.v&quot; line 21
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/D_GRF.v&quot; into library work</arg>
 </msg>
 
 <msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/EM_REG.v&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/EM_REG.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P4/SingleProcessCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/EM_REG.v&quot; line 2
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/EM_REG.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/EM_REG.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/E_ALU.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/E_ALU.v</arg>&quot; Line <arg fmt="%d" index="2">21</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/E_ALU.v&quot; line 21
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/FD_REG.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/FD_REG.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/FD_REG.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/F_IM.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/F_IM.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/F_IM.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/F_PC.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/F_PC.v</arg>&quot; Line <arg fmt="%d" index="2">22</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/F_PC.v&quot; line 22
 </arg>
 </msg>
 
 <msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/Hazard_controller.v&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/Hazard_controller.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P4/SingleProcessCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/Hazard_controller.v&quot; line 2
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/Hazard_controller.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/Hazard_controller.v&quot; line 2
 </arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/MW_REG.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/MW_REG.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/MW_REG.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/M_DM.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/Splitter.v&quot; into library work</arg>
 </msg>
 
 <msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/mips.v&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/mips.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P4/SingleProcessCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/mips.v&quot; line 2
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/mips.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/mips.v&quot; line 2
 </arg>
-</msg>
-
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P5/PipeLineCPU/mips_tb.v&quot; into library work</arg>
 </msg>
 
 </messages>
