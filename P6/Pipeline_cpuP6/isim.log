@@ -22,6 +22,7 @@ available at "www.flexerasoftware.com".
 WARNING: A full ISim License cannot be checked out due to the issues listed above. Please use Xilinx License Configuration Manager to fix these issues in order to check out a full ISim license.
 WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
 This is a Lite version of ISim.
+WARNING: File "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/mips.v" Line 101.  For instance uut/u_m_byteen/, width 2 of formal port BEOp is not equal to width 3 of actual signal m_beOp.
 Time resolution is 1 ps
 # onerror resume
 # wave add /
@@ -186,3 +187,290 @@ Finished circuit initialization process.
                  986@0000327c: $10 <= aeb51305
                  990@00003280: $ 8 <= 2a700000
                  998@00003284: $ 8 <= 2a7059b8
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+INFO:Security:51 - The XILINXD_LICENSE_FILE environment variable is not set.
+INFO:Security:53 - The LM_LICENSE_FILE environment variable is not set.
+INFO:Security:68a - user is 27628, on host XIAONAOLIU.
+WARNING:Security:43 - No license file was found in the standard Xilinx license directory.
+WARNING:Security:44 - Since no license file was found,
+       please run the Xilinx License Configuration Manager
+       (xlcm or "Manage Xilinx Licenses")
+       to assist in obtaining a license.
+ERROR:Security:14 - No feature was available for 'ISIM'.
+
+No such feature exists.
+Feature:       ISIM
+License path:  C:/.Xilinx;C:\Xilinx\14.7\ISE_DS\ISE\/data\*.lic;C:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\Xilinx.lic;C:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\XilinxFree.lic;C:\Xilinx\14.7\ISE_DS\EDK/data/core_licenses\Xilinx.lic;
+FLEXnet Licensing error:-5,357
+For further information, refer to the FLEXnet Licensing documentation,
+available at "www.flexerasoftware.com".
+----------------------------------------------------------------------
+WARNING: A full ISim License cannot be checked out due to the issues listed above. Please use Xilinx License Configuration Manager to fix these issues in order to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+WARNING: File "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/mips.v" Line 101.  For instance uut/u_m_byteen/, width 2 of formal port BEOp is not equal to width 3 of actual signal m_beOp.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+                  38@00003000: $ 9 <= 00004cb8
+                  42@00003004: $25 <= 0000e6cf
+                  58@0000300c: $19 <= ffff0000
+                  66@00003010: $19 <= ffff8000
+                  70@00003014: $30 <= 00006316
+                  78@00003018: $11 <= ffffe316
+                  82@0000301c: $ 9 <= 00003299
+                  86@00003020: $25 <= 0000f287
+                 106@00003030: $15 <= 0000e511
+                 110@00003034: $18 <= 0000e511
+                 126@0000303c: $19 <= 00007b68
+                 130@00003040: $14 <= 7fff0000
+                 138@00003044: $14 <= 7ffffffd
+                 174@0000304c: $18 <= 00003db3
+                 182@00003054: $20 <= 0000ef72
+                 186@00003058: $23 <= 0000ef72
+                 202@00003060: $16 <= 00007ffd
+                 206@00003064: $17 <= 00007ffa
+                 262@0000306c: $22 <= 00000003
+                 266@00003070: $21 <= 00000001
+                 270@00003074: $29 <= 0000917d
+                 274@00003078: $20 <= 0000917d
+                 294@00003088: $13 <= 0000b7a3
+                 298@0000308c: $21 <= 0000b7a3
+                 314@00003094: $27 <= 0000b3c3
+                 318@00003098: $22 <= 00000001
+                 326@0000309c: $31 <= 00000000
+                 330@000030a0: $ 4 <= 000097e4
+                 334@000030a4: $27 <= 000097e4
+                 350@000030ac: $30 <= 00000001
+                 354@000030b0: $15 <= 0000cc89
+                 390@000030b8: $ 9 <= 00000000
+                 394@000030bc: $11 <= 0000cc89
+                 398@000030c0: $ 1 <= 00004d50
+                 402@000030c4: $ 7 <= 00004d50
+                 418@000030cc: $19 <= 00000001
+                 422@000030d0: $ 3 <= 00007ffe
+                 430@000030d4: $ 6 <= 00007fff
+                 434@000030d8: $ 5 <= 0000235a
+                 438@000030dc: $23 <= 0000235a
+                 458@000030ec: $28 <= 0000d1c7
+                 462@000030f0: $24 <= 0000d1c7
+                 482@00003100: $ 1 <= 00003994
+                 486@00003104: $ 6 <= 0000b6f3
+                 502@0000310c: $12 <= 80000000
+                 510@00003110: $12 <= 80000000
+                 514@00003114: $ 8 <= ffff0000
+                 522@00003118: $ 8 <= fffffffe
+                 558@00003120: $13 <= 7fffffff
+                 562@00003124: $ 4 <= 00000000
+                 566@00003128: $18 <= 00007c5e
+                 570@0000312c: $ 8 <= 0000c9f9
+                 590@0000313c: $19 <= 00007c5e
+                 594@00003140: $19 <= 0000c9f9
+                 614@00003150: $24 <= 00007a1f
+                 618@00003154: $ 9 <= 00007a1f
+                 638@00003164: $ 7 <= 0000b482
+                 642@00003168: $ 1 <= 0000b482
+                 662@00003178: $24 <= 0000091a
+                 666@0000317c: $ 1 <= 0000f5a3
+                 686@0000318c: $ 8 <= 00005968
+                 690@00003190: $13 <= 0000b8c1
+                 706@00003198: $29 <= 00000000
+                 710@0000319c: $18 <= 00000002
+                 718@000031a0: $ 2 <= 00000001
+                 722@000031a4: $21 <= 00007623
+                 726@000031a8: $30 <= 00007623
+                 746@000031b8: $30 <= 00007623
+                 750@000031bc: $30 <= 00007623
+                 774@000031d0: $16 <= 0000cba8
+                 790@000031d8: $ 5 <= ffff0000
+                 798@000031dc: $ 5 <= ffff8001
+                 802@000031e0: $26 <= 00007ffb
+                 838@000031e8: $14 <= ffffffff
+                 842@000031ec: $27 <= c002fffb
+                 846@000031f0: $29 <= 000034e4
+                 850@000031f4: $25 <= 0000c76c
+                 870@00003204: $ 8 <= 00005d5d
+                 874@00003208: $15 <= 0000dc11
+                 890@00003210: $ 6 <= 000071aa
+                 894@00003214: $ 3 <= 0000fa24
+                 930@0000321c: $17 <= 00000000
+                 934@00003220: $30 <= 6f0fffe8
+                 938@00003224: $26 <= 000033e7
+                 942@00003228: $ 8 <= 0000f694
+                 958@00003230: $ 4 <= 7fff0000
+                 966@00003234: $ 4 <= 7ffffffa
+                 970@00003238: $ 3 <= 80000000
+                 978@0000323c: $ 3 <= 80000001
+                 986@00003240: $16 <= 00000000
+                 990@00003244: $26 <= 00006ffc
+                 994@00003248: $31 <= 0000e634
+ISim P.20131013 (signature 0x7708f090)
+----------------------------------------------------------------------
+INFO:Security:51 - The XILINXD_LICENSE_FILE environment variable is not set.
+INFO:Security:53 - The LM_LICENSE_FILE environment variable is not set.
+INFO:Security:68a - user is 27628, on host XIAONAOLIU.
+WARNING:Security:43 - No license file was found in the standard Xilinx license directory.
+WARNING:Security:44 - Since no license file was found,
+       please run the Xilinx License Configuration Manager
+       (xlcm or "Manage Xilinx Licenses")
+       to assist in obtaining a license.
+ERROR:Security:14 - No feature was available for 'ISIM'.
+
+No such feature exists.
+Feature:       ISIM
+License path:  C:/.Xilinx;C:\Xilinx\14.7\ISE_DS\ISE\/data\*.lic;C:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\Xilinx.lic;C:\Xilinx\14.7\ISE_DS\ISE\/coregen/core_licenses\XilinxFree.lic;C:\Xilinx\14.7\ISE_DS\EDK/data/core_licenses\Xilinx.lic;
+FLEXnet Licensing error:-5,357
+For further information, refer to the FLEXnet Licensing documentation,
+available at "www.flexerasoftware.com".
+----------------------------------------------------------------------
+WARNING: A full ISim License cannot be checked out due to the issues listed above. Please use Xilinx License Configuration Manager to fix these issues in order to check out a full ISim license.
+WARNING: ISim will run in Lite mode. Please refer to the ISim documentation for more information on the differences between the Lite and the Full version.
+This is a Lite version of ISim.
+WARNING: File "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/mips.v" Line 101.  For instance uut/u_m_byteen/, width 2 of formal port BEOp is not equal to width 3 of actual signal m_beOp.
+# run 1000 ns
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+                  38@00003000: $ 5 <= 000071b8
+                  42@00003004: $14 <= ffff0000
+                  50@00003008: $14 <= fffff04e
+                  58@0000300c: $ 5 <= 00000000
+                  62@00003010: $ 5 <= 000053b2
+                  70@00003014: $ 5 <= 00000000
+                  74@00003018: $25 <= 0000396d
+                  78@0000301c: *0000002c <= 00000000
+                  86@00003020: $20 <= ffff0000
+                  94@00003024: $20 <= ffffdff7
+                  98@00003028: *00000148 <= 00000000
+                 106@0000302c: $31 <= ffff0000
+                 114@00003030: $31 <= ffff9e64
+                 122@00003034: $ 5 <= 00000000
+                 126@00003038: $11 <= ffff0000
+                 134@0000303c: $11 <= ffff8004
+                 138@00003040: $10 <= 00000043
+                 146@00003044: $11 <= 00000000
+                 150@00003048: $ 1 <= ffff0000
+                 158@0000304c: $ 1 <= ffffb125
+                 166@00003050: $11 <= 00000000
+                 170@00003054: $20 <= ffff0000
+                 178@00003058: $20 <= ffff9b70
+                 186@0000305c: $11 <= 00000000
+                 190@00003060: $18 <= 00007abd
+                 194@00003064: *00000144 <= 00000000
+                 202@00003068: $11 <= ffff0000
+                 210@0000306c: $11 <= ffffa6d1
+                 214@00003070: *00000090 <= ffff0000
+                 222@00003074: $11 <= 000065cf
+                 226@00003078: $25 <= ffff0000
+                 234@0000307c: $25 <= ffffe3c3
+                 242@00003080: $11 <= 00000000
+                 246@00003084: $27 <= ffff0000
+                 254@00003088: $27 <= ffffb142
+                 258@0000308c: *0000016c <= 00000000
+                 266@00003090: $18 <= ffff0000
+                 274@00003094: $18 <= ffffec74
+                 282@00003098: $11 <= 00000000
+                 286@0000309c: $19 <= 00003aa9
+                 290@000030a0: *00000114 <= 00000000
+                 298@000030a4: $15 <= ffff0000
+                 306@000030a8: $15 <= fffffa0f
+                 310@000030ac: *000000b4 <= 00000000
+                 318@000030b0: $ 3 <= f01c0000
+                 326@000030b4: $ 3 <= f01caa63
+                 330@000030b8: $16 <= 00001793
+                 338@000030bc: $ 3 <= 00000000
+                 342@000030c0: $24 <= ffff0000
+                 350@000030c4: $24 <= ffffabfd
+                 358@000030c8: $ 3 <= 00000000
+                 362@000030cc: $30 <= 00000b3f
+                 370@000030d0: $ 3 <= 00000000
+                 374@000030d4: $13 <= ffff0000
+                 382@000030d8: $13 <= ffffb25c
+                 390@000030dc: $ 3 <= 00000000
+                 394@000030e0: $21 <= ffff0000
+                 402@000030e4: $21 <= ffffea6d
+                 406@000030e8: *000000c8 <= 00000000
+                 414@000030ec: $28 <= f6340000
+                 422@000030f0: $28 <= f634759c
+                 426@000030f4: $16 <= 0000793f
+                 430@000030f8: *00000098 <= 0000759c
+                 438@000030fc: $10 <= ffff0000
+                 446@00003100: $10 <= ffff8d5a
+                 450@00003104: *0000004c <= f634759c
+                 458@00003108: $30 <= ffff0000
+                 466@0000310c: $30 <= ffffaec4
+                 474@00003110: $28 <= 00000000
+                 478@00003114: $ 4 <= 00005a57
+                 482@00003118: *000000d0 <= 00000000
+                 490@0000311c: $22 <= ffff0000
+                 498@00003120: $22 <= fffffb3c
+                 506@00003124: $28 <= 00000000
+                 510@00003128: $31 <= ffff0000
+                 518@0000312c: $31 <= ffff8000
+                 522@00003130: $17 <= 00003d60
+                 530@00003134: $31 <= 00000000
+                 534@00003138: $ 7 <= 00000c7b
+                 542@0000313c: $31 <= 00000000
+                 546@00003140: $ 7 <= 00006f42
+                 554@00003144: $31 <= 00000000
+                 558@00003148: $ 5 <= 000011b5
+                 562@0000314c: *00000094 <= 00000000
+                 570@00003150: $ 1 <= ffff0000
+                 578@00003154: $ 1 <= ffffd087
+                 582@00003158: *00000150 <= 00000000
+                 594@00003160: $15 <= ffff0000
+                 602@00003164: $15 <= ffffd180
+                 614@0000316c: $ 6 <= ffff0000
+                 622@00003170: $ 6 <= ffffaab7
+                 634@00003178: $ 3 <= 00000f34
+                 638@0000317c: *0000012c <= 00000000
+                 646@00003180: $26 <= 00006458
+                 658@00003188: $ 6 <= 000001c5
+                 670@00003190: $14 <= 80000000
+                 678@00003194: $14 <= 80000000
+                 682@00003198: $22 <= ffff0000
+                 690@0000319c: $22 <= ffff9328
+                 698@000031a0: $14 <= 00000000
+                 702@000031a4: $18 <= 00003a85
+                 710@000031a8: $14 <= 00000000
+                 714@000031ac: $ 1 <= 00003dc8
+                 718@000031b0: *000000dc <= 00000000
+                 726@000031b4: $ 9 <= 00001448
+                 734@000031b8: $14 <= 00000000
+                 738@000031bc: $ 9 <= ffff0000
+                 746@000031c0: $ 9 <= ffff8155
+                 750@000031c4: *00000110 <= 00000000
+                 758@000031c8: $13 <= 00000000
+                 762@000031cc: $20 <= 00002a68
+                 770@000031d0: $13 <= 00000000
+                 774@000031d4: $ 7 <= 00002629
+                 778@000031d8: *00000094 <= 00000000
+                 786@000031dc: $31 <= 00002666
+                 794@000031e0: $13 <= 00000000
+                 798@000031e4: $10 <= ffff0000
+                 806@000031e8: $10 <= ffff9f62
+                 810@000031ec: *000000fc <= 00000000
+                 818@000031f0: $28 <= 000068c5
+                 822@000031f4: *00000050 <= 00000000
+                 834@000031fc: $14 <= 000006e2
+                 846@00003204: $ 9 <= 00005bdb
+                 858@0000320c: $ 5 <= ffff0000
+                 866@00003210: $ 5 <= ffffab9c
+                 870@00003214: *00000034 <= 00000000
+                 878@00003218: $19 <= 00003b7b
+                 890@00003220: $19 <= ffff0000
+                 898@00003224: $19 <= ffffb3a7
+                 910@0000322c: $23 <= 0000ec9a
+                 918@00003238: *000000bc <= 00000000
+                 926@0000323c: $ 2 <= ffff0000
+                 934@00003240: $ 2 <= ffff965c
+                 938@00003244: *000000f0 <= 00000000
+                 946@00003248: $26 <= ffff0000
+                 954@0000324c: $26 <= ffffadd5
+                 958@00003250: *0000002c <= 0000ec9a
+                 966@00003254: $30 <= 000079f2
+                 970@00003258: *00000030 <= 0000ec9a
+                 978@0000325c: $ 1 <= ffff0000
+                 986@00003260: $ 1 <= ffff9930
+                 994@00003264: $23 <= 00000000
+                 998@00003268: $11 <= 80000000

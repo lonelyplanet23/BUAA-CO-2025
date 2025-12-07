@@ -56,6 +56,7 @@ module mips(
     wire [1:0]  d_t_use_rs;
     wire [1:0]  d_t_use_rt;
     wire [4:0]  d_a3;
+    wire        d_mdu_related;
 
     // E stage
     wire [31:0] e_instr;
@@ -74,7 +75,14 @@ module mips(
     wire [31:0] e_ao;
     wire [31:0] fwd_e_v2;
     reg  [31:0] e_reg_wd; //!此阶段jal已产生值
-    
+
+    wire [2:0]  e_mdu_op;
+    wire [31:0] e_hi;
+    wire [31:0] e_lo;
+    wire        e_mdu_start;
+    wire        e_mdu_busy;
+    wire [2:0]  e_ao_sel;
+     
 
     // M stage
     wire [31:0] m_instr;
@@ -89,7 +97,8 @@ module mips(
     wire        m_dmwr;
     wire [31:0] m_wd;     //! 指写入DM的值
     reg  [31:0] m_reg_wd; //!此阶段jal，计算类已产生值
-    wire        m_byteen; //! 按字节写入/读入
+    wire [2:0]  m_deOp;
+    wire [2:0]  m_beOp;
 
     // W stage
     wire [31:0] w_instr;
@@ -218,6 +227,7 @@ module mips(
         .nPC_sel  (d_npc_sel),
         .ExtOp    (d_extop),
         .CmpOp    (d_cmp_op),
+        .MDU_related(d_mdu_related),
         .T_use_RS (d_t_use_rs),
         .T_use_RT (d_t_use_rt)
     );
@@ -271,15 +281,32 @@ module mips(
         .ALU_BSrc(e_alu_bsrc),
         .Reg_WrSrc(e_Reg_WrSrc),
         .RFWr    (e_rfwr),
-        .ALUOp   (e_alu_op)
+        .ALUOp   (e_alu_op),
+        .AO_sel  (e_ao_sel),
+        .MDUOp   (e_mdu_op),
+        .MDU_start(e_mdu_start) 
     );
 
+    wire [31:0] e_ao_raw; // 表示alu输出的值
     E_ALU u_e_alu (
         .A      (e_alu_a),
         .B      (e_alu_b),
         .E_ALUOp(e_alu_op),
-        .E_AO   (e_ao)
+        .E_AO   (e_ao_raw)
     );
+    
+    MultDivUnit u_e_mdu (
+        .A        (e_alu_a),
+        .B        (e_alu_b),
+        .MDUOp    (e_mdu_op),
+        .E_HI     (e_hi),
+        .E_LO     (e_lo),
+        .clk      (clk),
+        .reset    (reset),
+        .start    (e_mdu_start),
+        .busy     (e_mdu_busy)
+    );
+    
 
     // E stage alu_a alu_b forward muxes
     assign e_alu_a = (fwd_e_a_sel == `FROM_M) ? m_reg_wd : 
@@ -309,6 +336,12 @@ module mips(
         endcase
     end
     
+    //! E stage ao sel mux
+    assign e_ao = (e_ao_sel == `FROM_ALU) ? e_ao_raw :
+                  (e_ao_sel == `FROM_HI)  ? e_hi :
+                  (e_ao_sel == `FROM_LO)  ? e_lo :
+                  32'd0;
+    
     
     //-------------------- EM REG --------------------
     EM_REG u_em_reg (
@@ -335,23 +368,30 @@ module mips(
         .funct (m_funct),
         .RFWr  (m_rfwr),
         .Reg_WrSrc(m_Reg_WrSrc),
-        .DMWr  (m_dmwr)
+        .DMWr  (m_dmwr),
+        .BEOp  (m_beOp),
+        .DEOp  (m_deOp)
     );
 
+    // M stage data memory
+    M_BE u_m_byteen (
+        .BEOp(m_beOp),
+        .Addr(m_ao),
+        .WD(m_wd),
+        .DMWr(m_dmwr),
+        .M_byteen(m_data_byteen),
+        .m_data_wdata(m_data_wdata)
+    );
+    
     assign m_data_addr = m_ao;
-    assign m_data_byteen = m_byteen; //!按字节访存
-    assign m_data_wdata = m_wd;
-    assign m_rd = m_data_rdata; //! 注意方向
     assign m_inst_addr = m_pc;
-    // M_DM u_m_dm (
-    //     .A    (m_ao),
-    //     .M_WD (m_wd),
-    //     .PC   (m_pc),
-    //     .M_RD (m_rd),
-    //     .DMWr (m_dmwr),
-    //     .clk  (clk),
-    //     .reset(reset)
-    // );
+    
+    M_DE u_m_dataExt(
+        .DEOp(m_deOp),
+        .A(m_ao[1:0]),
+        .M_RD(m_data_rdata),
+        .M_RDEXT(m_rd)
+    );
 
     // M stage wd forward mux
     assign m_wd = (fwd_m_wd_sel == `FROM_W) ? w_reg_wd : 
@@ -411,8 +451,11 @@ module mips(
     HazardCtrl u_hazard_ctrl (
         .T_use_RS   (d_t_use_rs),
         .T_use_RT   (d_t_use_rt),
+        .E_MDU_busy (e_mdu_busy),
+        .E_MDU_start(e_mdu_start),
         .E_Tnew     (e_tnew),
         .M_Tnew     (m_tnew),
+        .D_MDU_related(d_mdu_related),
         .D_A1       (d_rs),
         .D_A2       (d_rt),
         .E_A1       (e_instr[25:21]),

@@ -18,18 +18,6 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-`define ADD 6'h20 //funct
-`define SUB 6'h22 //funct
-`define ORI 6'hd
-`define LW  6'h23
-`define SW  6'h2b
-`define BEQ 6'h04
-`define LUI 6'hf
-`define JAL 6'b000011
-`define JR  6'b001000 //funct
-`define ZERO 6'b000000
-`define J   6'b000010
-
 `include "constants.v" // 包含所有宏定义
 
 module Controller(
@@ -45,7 +33,13 @@ module Controller(
         output reg [3:0] ALUOp,       // ALU运算类型 (4-bit)
         output reg [2:0] CmpOp,       // 比较操作类型
         output reg [1:0] T_use_RS,    // RS 消费时间
-        output reg [1:0] T_use_RT     // RT 消费时间
+        output reg [1:0] T_use_RT,     // RT 消费时间
+        output reg [2:0] AO_sel,     // E阶段ALU/MDU选择
+        output reg [2:0] MDUOp,      // 乘除槽操作类型
+        output reg       MDU_related,  // 指令是否与乘除槽相关
+        output reg       MDU_start,        // 乘除槽开始运算的信号
+        output reg [2:0] BEOp,        // 字节使能操作类型
+        output reg [2:0] DEOp      // DM读取数据的扩展方式
     );
 
     
@@ -61,6 +55,13 @@ module Controller(
         CmpOp = `CMP_NONE;
         T_use_RS = `TUSE_NONE;
         T_use_RT = `TUSE_NONE;
+        AO_sel = `FROM_ALU; 
+        MDUOp = `MDU_NOP;
+        MDU_start = 1'b0;
+        MDU_related = 1'b0;
+        BEOp = `BE_NONE;    
+        DEOp = `DE_NONE;
+
         
         case(opcode) 
             `ZERO: begin
@@ -111,13 +112,65 @@ module Controller(
                         T_use_RS = `TUSE_E;
                         T_use_RT = `TUSE_E;                            
                     end
+                    `MULT: begin
+                        MDU_related = 1'b1;
+                        MDUOp = `MDU_MULT;
+                        MDU_start = 1'b1;
+                        T_use_RS = `TUSE_E;
+                        T_use_RT = `TUSE_E;
+                    end
+                    `MULTU: begin
+                        MDU_related = 1'b1;
+                        MDUOp = `MDU_MULTU;
+                        MDU_start = 1'b1;
+                        T_use_RS = `TUSE_E;
+                        T_use_RT = `TUSE_E;
+                    end
+                    `DIV: begin
+                        MDU_related = 1'b1;
+                        MDUOp = `MDU_DIV;
+                        MDU_start = 1'b1;
+                        T_use_RS = `TUSE_E;
+                        T_use_RT = `TUSE_E;
+                    end
+                    `DIVU: begin
+                        MDU_related = 1'b1;
+                        MDUOp = `MDU_DIVU;
+                        MDU_start = 1'b1;
+                        T_use_RS = `TUSE_E;
+                        T_use_RT = `TUSE_E;
+                    end
+                    `MTHI: begin
+                        MDU_related = 1'b1;
+                        MDUOp = `MDU_MTHI;
+                        MDU_start = 1'b0;
+                        T_use_RS = `TUSE_E;
+                    end
+                    `MTLO: begin
+                        MDU_related = 1'b1;
+                        MDUOp = `MDU_MTLO;
+                        MDU_start = 1'b0;
+                        T_use_RS = `TUSE_E;
+                    end
+                    `MFHI: begin
+                        MDU_related = 1'b1;
+                        Reg_WrSel = `RD_RD;
+                        AO_sel = `FROM_HI;
+                        RFWr = 1'b1;
+                    end
+                    `MFLO: begin
+                        MDU_related = 1'b1;
+                        Reg_WrSel = `RD_RD;
+                        AO_sel = `FROM_LO;
+                        RFWr = 1'b1;
+                    end
                     default: ;
                 endcase
             end
             `ADDI: begin
                 ALU_BSrc = `ALU_BSRC_EXT;
                 RFWr = 1'b1;
-                ExtOp = `EXT_ZERO;
+                ExtOp = `EXT_SIGN;
                 ALUOp = `ALU_ADD;
                 T_use_RS = `TUSE_E;
                 T_use_RT = `TUSE_NONE;                
@@ -148,16 +201,53 @@ module Controller(
                 T_use_RS = `TUSE_E;
                 T_use_RT = `TUSE_NONE;
             end
-            
+            `LB: begin
+                ALU_BSrc = `ALU_BSRC_EXT;
+                Reg_WrSrc = `RS_MEM;
+                RFWr = 1'b1;
+                DEOp = `DE_LB;
+                ExtOp = `EXT_SIGN;
+                ALUOp = `ALU_ADD;
+                T_use_RS = `TUSE_E;
+                T_use_RT = `TUSE_NONE;
+            end            
+            `LH: begin
+                ALU_BSrc = `ALU_BSRC_EXT;
+                Reg_WrSrc = `RS_MEM;
+                RFWr = 1'b1;
+                DEOp = `DE_LH;
+                ExtOp = `EXT_SIGN;
+                ALUOp = `ALU_ADD;
+                T_use_RS = `TUSE_E;
+                T_use_RT = `TUSE_NONE;
+            end            
             `SW: begin
                 ALU_BSrc = `ALU_BSRC_EXT;
                 DMWr = 1'b1;
+                BEOp = `BE_SW;
                 ExtOp = `EXT_SIGN;
                 ALUOp = `ALU_ADD;
                 T_use_RS = `TUSE_E;
                 T_use_RT = `TUSE_M;
             end
-            
+            `SB: begin
+                ALU_BSrc = `ALU_BSRC_EXT;
+                DMWr = 1'b1;
+                BEOp = `BE_SB;
+                ExtOp = `EXT_SIGN;
+                ALUOp = `ALU_ADD;
+                T_use_RS = `TUSE_E;
+                T_use_RT = `TUSE_M;                
+            end
+            `SH: begin
+                ALU_BSrc = `ALU_BSRC_EXT;
+                DMWr = 1'b1;
+                BEOp = `BE_SH;
+                ExtOp = `EXT_SIGN;
+                ALUOp = `ALU_ADD;
+                T_use_RS = `TUSE_E;
+                T_use_RT = `TUSE_M;                
+            end
             `BEQ: begin
                 nPC_sel = `NPC_BRANCH;
                 ExtOp = `EXT_SIGN;

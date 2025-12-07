@@ -5,10 +5,13 @@
 module HazardCtrl(
     input [1:0] T_use_RS,
     input [1:0] T_use_RT,
+    input       E_MDU_busy,
+    input       E_MDU_start,
     input [1:0] E_Tnew,
     input [1:0] M_Tnew,
     input [4:0] D_A1,
     input [4:0] D_A2,
+    input       D_MDU_related,
     input [4:0] E_A1, 
     input [4:0] E_A2, 
     input [4:0] E_A3,
@@ -34,16 +37,19 @@ module HazardCtrl(
     wire stall_rs_m;
     wire stall_rt_e;
     wire stall_rt_m;
+    wire stall_mdu;
 
     assign stall_rs_e = (D_A1 != 5'b0) & (D_A1 == E_A3) & (E_RFWr) & (T_use_RS <= E_Tnew);
     assign stall_rs_m = (D_A1 != 5'b0) & (D_A1 == M_A3) & (M_RFWr) & (T_use_RS <= M_Tnew);
     assign stall_rt_e = (D_A2 != 5'b0) & (D_A2 == E_A3) & (E_RFWr) & (T_use_RT <= E_Tnew);
     assign stall_rt_m = (D_A2 != 5'b0) & (D_A2 == M_A3) & (M_RFWr) & (T_use_RT <= M_Tnew);
+    assign stall_mdu  = (E_MDU_start | E_MDU_busy) & D_MDU_related;
 
     assign Stall = stall_rs_e |
                    stall_rs_m |
                    stall_rt_e |
-                   stall_rt_m;
+                   stall_rt_m |
+                   stall_mdu;
 
     // ------------------------------------------------------------------
     // Forwarding selection wires

@@ -22,7 +22,7 @@
 module E_ALU(
     input [31:0] A,
     input [31:0] B,
-    input [2:0] E_ALUOp,    
+    input [3:0] E_ALUOp,    
     output reg [31:0] E_AO
     );
     
@@ -32,6 +32,9 @@ module E_ALU(
             `ALU_SUB: E_AO = A - B;
             `ALU_OR:  E_AO = A | B;
             `ALU_SHIFT_LEFT_16: E_AO = B << 16;
+            `ALU_AND: E_AO = A & B;
+            `ALU_SLT: E_AO = ($signed(A) < $signed(B)) ? 32'd1 : 32'd0;
+            `ALU_SLTU: E_AO = (A < B) ? 32'd1 : 32'd0;
             default: E_AO = 32'h00000000;
         endcase
     end

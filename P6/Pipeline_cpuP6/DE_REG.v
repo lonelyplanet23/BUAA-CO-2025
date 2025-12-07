@@ -68,6 +68,12 @@ module DE_REG(
                     `SLT:   next_tnew = 2'b01;
                     `SLTU:  next_tnew = 2'b01;
                     `JR:    next_tnew = 2'b00;
+                    `MULT:  next_tnew = 2'b01;
+                    `MULTU: next_tnew = 2'b01;
+                    `DIV:   next_tnew = 2'b01;
+                    `DIVU:  next_tnew = 2'b01;
+                    `MFHI:  next_tnew = 2'b01;
+                    `MFLO:  next_tnew = 2'b01;
                     default:next_tnew = 2'b00;
                 endcase
             end
@@ -75,6 +81,8 @@ module DE_REG(
             `ANDI:  next_tnew = 2'b01;
             `ORI:   next_tnew = 2'b01;
             `LW:    next_tnew = 2'b10;
+            `LB:    next_tnew = 2'b10;
+            `LH:    next_tnew = 2'b10;
             `LUI:   next_tnew = 2'b01;
             default:next_tnew = 2'b00;
         endcase

@@ -1,5 +1,8 @@
 verilog work "Splitter.v"
+verilog work "M_DE.v"
+verilog work "M_BE.v"
 verilog work "MW_REG.v"
+verilog work "MultDivUnit.v"
 verilog work "Hazard_controller.v"
 verilog work "F_PC.v"
 verilog work "FD_REG.v"

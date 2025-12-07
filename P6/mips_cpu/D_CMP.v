@@ -12,6 +12,7 @@ module D_CMP(
     always @(*) begin
         case(D_CmpOp)
             `CMP_EQ:     result = (D_A1 == D_A2);
+            `CMP_NEQ:    result = (D_A1 != D_A2);
             default:    result = 0;
         endcase
     end

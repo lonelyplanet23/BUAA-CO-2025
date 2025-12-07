@@ -1,5 +1,8 @@
 verilog isim_temp "Splitter.v"
+verilog isim_temp "M_DE.v"
+verilog isim_temp "M_BE.v"
 verilog isim_temp "MW_REG.v"
+verilog isim_temp "MultDivUnit.v"
 verilog isim_temp "Hazard_controller.v"
 verilog isim_temp "F_PC.v"
 verilog isim_temp "FD_REG.v"
