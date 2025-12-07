@@ -8,5 +8,26 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/Controller.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/Controller.v</arg>&quot; Line <arg fmt="%d" index="2">21</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/Controller.v&quot; line 21
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/DE_REG.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/DE_REG.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/DE_REG.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/M_BE.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/M_BE.v</arg>&quot; Line <arg fmt="%d" index="2">21</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/M_BE.v&quot; line 21
+</arg>
+</msg>
+
 </messages>
 
