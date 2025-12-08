@@ -220,7 +220,8 @@ module mips(
         case (d_reg_wr_sel)
             `RD_RD: d_a3_r = d_rd;
             `RD_RT: d_a3_r = d_rt;
-            `RD_RA: d_a3_r = 5'd31;
+            `RD_RA: d_a3_r = 5'd31; //! 可在这里修改跳转分支类指令
+            
             default: d_a3_r = 5'd0;
         endcase
     end
