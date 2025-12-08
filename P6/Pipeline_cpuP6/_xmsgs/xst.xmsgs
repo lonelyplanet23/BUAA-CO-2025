@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated
+     by the Xilinx ISE software.  Any direct editing or
+     changes made to this file may result in unpredictable
+     behavior or data corruption.  It is strongly advised that
+     users do not edit the contents of this file. -->
+<messages>
+<msg type="error" file="Xst" num="871" delta="new" >&quot;<arg fmt="%s" index="1">mips.v</arg>&quot; line <arg fmt="%d" index="2">146</arg>: Invalid use of input signal &lt;<arg fmt="%s" index="3">i_inst_addr</arg>&gt; as target.
+</msg>
+
+<msg type="error" file="Xst" num="871" delta="new" >&quot;<arg fmt="%s" index="1">mips.v</arg>&quot; line <arg fmt="%d" index="2">341</arg>: Invalid use of input signal &lt;<arg fmt="%s" index="3">m_data_addr</arg>&gt; as target.
+</msg>
+
+<msg type="error" file="Xst" num="871" delta="new" >&quot;<arg fmt="%s" index="1">mips.v</arg>&quot; line <arg fmt="%d" index="2">342</arg>: Invalid use of input signal &lt;<arg fmt="%s" index="3">m_data_byteen</arg>&gt; as target.
+</msg>
+
+<msg type="error" file="Xst" num="871" delta="new" >&quot;<arg fmt="%s" index="1">mips.v</arg>&quot; line <arg fmt="%d" index="2">343</arg>: Invalid use of input signal &lt;<arg fmt="%s" index="3">m_data_wdata</arg>&gt; as target.
+</msg>
+
+<msg type="error" file="Xst" num="871" delta="new" >&quot;<arg fmt="%s" index="1">mips.v</arg>&quot; line <arg fmt="%d" index="2">345</arg>: Invalid use of input signal &lt;<arg fmt="%s" index="3">m_inst_addr</arg>&gt; as target.
+</msg>
+
+<msg type="error" file="Xst" num="871" delta="new" >&quot;<arg fmt="%s" index="1">mips.v</arg>&quot; line <arg fmt="%d" index="2">394</arg>: Invalid use of input signal &lt;<arg fmt="%s" index="3">w_grf_we</arg>&gt; as target.
+</msg>
+
+<msg type="error" file="Xst" num="871" delta="new" >&quot;<arg fmt="%s" index="1">mips.v</arg>&quot; line <arg fmt="%d" index="2">395</arg>: Invalid use of input signal &lt;<arg fmt="%s" index="3">w_grf_addr</arg>&gt; as target.
+</msg>
+
+<msg type="error" file="Xst" num="871" delta="new" >&quot;<arg fmt="%s" index="1">mips.v</arg>&quot; line <arg fmt="%d" index="2">396</arg>: Invalid use of input signal &lt;<arg fmt="%s" index="3">w_grf_wdata</arg>&gt; as target.
+</msg>
+
+<msg type="error" file="Xst" num="871" delta="new" >&quot;<arg fmt="%s" index="1">mips.v</arg>&quot; line <arg fmt="%d" index="2">397</arg>: Invalid use of input signal &lt;<arg fmt="%s" index="3">w_inst_addr</arg>&gt; as target.
+</msg>
+
+</messages>
+

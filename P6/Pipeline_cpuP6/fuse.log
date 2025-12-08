@@ -1,0 +1,57 @@
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/mips_txt_isim_beh.exe" -prj "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/mips_txt_beh.prj" "work.mips_txt" "work.glbl" 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 20
+Turning on mult-threading, number of parallel sub-compilation jobs: 40 
+Determining compilation order of HDL files
+WARNING:Simulator:1010 - One or more environment variables have been detected which affect the operation of the C compiler. These are typically not set in standard installations and are not tested by Xilinx, however they may be appropriate for your system, so the flow will attempt to continue.  If errors occur, try running fuse with the "-mt off -v 1" switches to see more information from the C compiler. The following environment variables have been detected:
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/Splitter.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/M_DE.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/M_BE.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/MW_REG.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/MultDivUnit.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/Hazard_controller.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/F_PC.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/FD_REG.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/E_ALU.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/EM_REG.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/D_GRF.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/D_EXT.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/D_CMP.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/DF_NPC.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/DE_REG.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/Controller.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/mips.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/mips_tb.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1016 - "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/mips.v" Line 223: Port ALU_BSrc is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/mips.v" Line 278: Port Reg_WrSel is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/mips.v" Line 347: Port M_RFWr is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/mips.v" Line 366: Port Reg_WrSel is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/mips.v" Line 426: Port Reg_WrSel is not connected to this instance
+WARNING:HDLCompiler:189 - "C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/mips.v" Line 378: Size mismatch in connection of port <BEOp>. Formal port size is 2-bit while actual signal size is 3-bit.
+Completed static elaboration
+Compiling module F_PC
+Compiling module FD_REG
+Compiling module Splitter
+Compiling module D_GRF
+Compiling module D_EXT
+Compiling module D_CMP
+Compiling module DF_NPC
+Compiling module Controller
+Compiling module DE_REG
+Compiling module E_ALU
+Compiling module MultDivUnit
+Compiling module EM_REG
+Compiling module M_BE
+Compiling module M_DE
+Compiling module MW_REG
+Compiling module HazardCtrl
+Compiling module mips
+Compiling module mips_txt
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Compiled 19 Verilog Units
+Built simulation executable C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/mips_txt_isim_beh.exe
+Fuse Memory Usage: 35760 KB
+Fuse CPU Usage: 421 ms
