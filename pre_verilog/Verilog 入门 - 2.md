@@ -64,6 +64,7 @@
      - `assign out1 = a & b | c ^ d; `
      - `always @(*) out2 = a & b | c ^ d;`
      - 这两个等价
+     - 用阻塞赋值
    - 时序逻辑：`always @(posedge clk)` (negedge)
      - 内部需要用非阻塞赋值 `<=`
 
