@@ -35,7 +35,6 @@ module CP0 (
     output        IntReq,       // 中断请求信号（送往控制器用于触发跳转）
     output reg [31:0] EPC           // EPC 寄存器输出值（送往 NPC 用于 eret 跳转）
 );
-    // TODO: 内部寄存器 SR, Cause, EPC, PRId 的定义与更新逻辑
 
     reg [31:0] PRId, SR, Cause;
     wire IntReq;      //判断 是否需要陷入内核

@@ -276,7 +276,7 @@ module mips(
     assign d_a3 = d_a3_r;
 
     //! D stage exception: 
-    assign d_exccode = (d_ri) ? `EXCCODE_RI : 5'b00000;
+    assign d_exccode = (d_ri) ? `EXCCODE_RI : (opcode == `SYSCALL) ? `EXCCODE_SYS : 5'b00000;
     // -------------------- DE reg --------------------
     DE_REG u_de_reg (
         .clk    (clk),
@@ -315,6 +315,7 @@ module mips(
     E_ALU u_e_alu (
         .A      (e_alu_a),
         .B      (e_alu_b),
+        .Opcode (e_opcode)
         .E_ALUOp(e_alu_op),
         .E_AO   (e_ao_raw)
     );

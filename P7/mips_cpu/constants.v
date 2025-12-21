@@ -129,7 +129,7 @@
 `define EXCCODE_INT    5'b00000 // 0: 中断 (Interrupt)
 `define EXCCODE_ADEL   5'b00100 // 4: 取数或取指时地址错误 (Address error during data fetch or instruction fetch)
 `define EXCCODE_ADES   5'b00101 // 5: 存数时地址错误 (Address error during data store)
-`define EXCCODE_SYSCALL 5'b01000 // 8: 系统调用 (System call)
+`define EXCCODE_SYS    5'b01000 // 8: 系统调用 (System call)
 `define EXCCODE_RI     5'b01010 // 10: 不认识的(或者非法的)指令码 (Unrecognized or illegal instruction code)
 `define EXCCODE_OV     5'b01100 // 12: 自陷形式的整数算术指令导致的溢出 (Overflow caused by trap-style integer arithmetic instruction)
 
