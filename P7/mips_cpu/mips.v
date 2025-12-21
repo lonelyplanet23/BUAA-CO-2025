@@ -30,7 +30,7 @@ module mips(
     // ------------------------------------------------------------------
 
     // F stage
-    wire [31:0] f_pc;
+    wire [31:0] f_pc_r, f_pc;
     wire [31:0] f_instr_raw, f_instr;
     wire [31:0] f_npc;
     wire        f_pc_en;
@@ -68,6 +68,7 @@ module mips(
     wire [4:0]  d_exccode;      
     wire        d_ri; //! 表示指令是否非法
     wire        d_BD; //! 表示是否是跳转类指令
+    wire        d_eret; //! 表示是否是异常返回
 
     wire [4:0]  de_exccode;
     // E stage
@@ -97,6 +98,7 @@ module mips(
     wire [4:0]  e_exccode_raw;
     wire [4:0]  e_exccode;
     wire        e_BD;
+    wire        e_MTC0;
      
 
     // M stage
@@ -120,6 +122,7 @@ module mips(
     wire        m_cpz_sel;
     wire [4:0]  m_exccode;
     wire        m_BD;
+    wire        m_MTC0;
 
     wire        IntReq; //! 中断请求信号
     wire [31:0] m_EPC;  //! CP0: EPC 寄存器输出值
@@ -172,10 +175,10 @@ module mips(
         .reset   (reset),
         .F_NPC_in(f_npc),
         .F_PC_en (f_pc_en),
-        .F_PC    (f_pc)
+        .F_PC    (f_pc_r)
     );
     
-    
+    assign f_pc = (eret)? m_EPC : f_pc_r; //! eret 传入epc, epc+4 
     assign i_inst_addr = f_pc; //!注意是谁驱动谁（输入驱动输出）
     
     //! f stage exception
@@ -263,7 +266,8 @@ module mips(
         .MDU_related(d_mdu_related),
         .T_use_RS (d_t_use_rs),
         .T_use_RT (d_t_use_rt),
-        .RI       (d_ri)
+        .RI       (d_ri),
+        .IS_ERET   (d_eret)
     );
     // D stage v1, v2 forward muxes
     assign d_v1 = (fwd_d_rs_sel == `FROM_E) ? e_reg_wd: 
@@ -333,7 +337,8 @@ module mips(
         .ALUOp   (e_alu_op),
         .AO_sel  (e_ao_sel),
         .MDUOp   (e_mdu_op),
-        .MDU_start(e_mdu_start) 
+        .MDU_start(e_mdu_start),
+        .IS_MTC0 (e_MTC0),
     );
 
     wire [31:0] e_ao_raw; // 表示alu输出的值
@@ -431,7 +436,8 @@ module mips(
         .BEOp  (m_beOp),
         .DEOp  (m_deOp),
         .CPWr  (m_cpz_wr),
-        .CPZSel(m_cpz_sel)
+        .CPZSel(m_cpz_sel),
+        .IS_MTC0 (m_MTC0)
     );
 
     // M stage data memory
@@ -524,11 +530,14 @@ module mips(
         .D_MDU_related(d_mdu_related),
         .D_A1       (d_rs),
         .D_A2       (d_rt),
+        .D_eret     (d_eret),
         .E_A1       (e_instr[25:21]),
         .E_A2       (e_instr[20:16]),
         .E_A3       (e_a3),
+        .E_MTC0     (e_MTC0),
         .M_A3       (m_a3),
         .M_A2       (m_instr[20:16]),
+        .M_MTC0     (m_MTC0),
         .W_A3       (w_a3),
         .E_RFWr     (e_rfwr),
         .M_RFWr     (m_rfwr),

@@ -43,10 +43,14 @@ module Controller(
         output reg [2:0] DEOp,      // DM读取数据的扩展方式
         output reg CPWr,        // CP0寄存器写使能
         output reg CPZSel,      // 输出选择CP0寄存器
-        output reg RI            // 非法或未知指令标志 (Reserved Instruction)
+        output reg RI,           // 非法或未知指令标志 (Reserved Instruction)
+        output reg IS_ERET,         // ERET指令标志
+        output reg IS_MTC0          // MTC0
     );
-
-    
+    parameter MTC0 = (opcode == 6'b010000 && rs == 5'b00100); //opcode (0x10) and rs=00100
+    parameter MFC0 = (opcode == 6'b010000 && rs == 5'b00000); //opcode (0x10) and rs=00000 
+    parameter ERET = (opcode == 6'b010000 && rs == 5'b10000 && funct == 6'b011000); // 
+        
     always @(*) begin
         Reg_WrSel = `RD_RT;
         ALU_BSrc = `ALU_BSRC_V2;
@@ -301,14 +305,18 @@ module Controller(
             end
             
             default: begin
-                if(`MFC0) begin
+                if(MFC0) begin
                     RFWr = 1'b1;
                     CPZSel = `FROM_CP0;
                 end
-                else if(`MTC0) begin
+                else if(MTC0) begin
                     CPWr = 1'b1;
                     T_use_RT = `TUSE_M;
+                    IS_MTC0 = 1'b1;
                 end     
+                else if(ERET) begin
+                    IS_ERET = 1'b1;
+                end
                 else begin
                     RI = 1'b1;
                 end       

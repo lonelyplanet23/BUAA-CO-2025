@@ -92,7 +92,7 @@
 `define NOP 6'b000000 //opcode (0x00)
 `define MTC0  (opcode == 6'b010000 && rs == 5'b00100) //opcode (0x10) and rs=00100
 `define MFC0  (opcode == 6'b010000 && rs == 5'b00000) //opcode (0x10) and rs=00000 
-
+`define ERET  (opcode == 6'b010000 && rs == 5'b10000 && funct == 6'b011000) // 
 // --- Multiply/Divide and HI/LO related funct (binary) ---
 `define MULT  6'b011000 //funct (0x18)
 `define MULTU 6'b011001 //funct (0x19)
