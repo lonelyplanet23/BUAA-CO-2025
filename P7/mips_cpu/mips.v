@@ -37,6 +37,7 @@ module mips(
     wire        fd_en;
     wire        de_clr;
     wire [4:0]  f_exccode;
+    wire [4:0]  fd_exccode; // from FD reg to D stage
 
     // D stage
     wire [31:0] d_instr;
@@ -63,9 +64,11 @@ module mips(
     wire [1:0]  d_t_use_rt;
     wire [4:0]  d_a3;
     wire        d_mdu_related;
-    wire [4:0]  d_exccode;
+    wire [4:0]  d_exccode_raw; 
+    wire [4:0]  d_exccode;      
     wire        d_ri; //!表示指令是否非法
 
+    wire [4:0]  de_exccode;
     // E stage
     wire [31:0] e_instr;
     wire [31:0] e_pc;
@@ -90,6 +93,7 @@ module mips(
     wire        e_mdu_start;
     wire        e_mdu_busy;
     wire [2:0]  e_ao_sel;
+    wire [4:0]  e_exccode_raw;
     wire [4:0]  e_exccode;
      
 
@@ -180,13 +184,15 @@ module mips(
 
     // -------------------- FD reg --------------------
     FD_REG u_fd_reg (
-        .clk    (clk),
-        .reset  (reset),
-        .FD_en  (fd_en),
-        .F_instr(f_instr),
-        .F_PC   (f_pc),
-        .D_Instr(d_instr),
-        .D_PC   (d_pc)
+        .clk      (clk),
+        .reset    (reset),
+        .FD_en    (fd_en),
+        .F_instr  (f_instr),
+        .F_PC     (f_pc),
+        .F_ExcCode(f_exccode),
+        .D_ExcCode(fd_exccode),
+        .D_Instr  (d_instr),
+        .D_PC     (d_pc)
     );
 
     // -------------------- D stage --------------------
@@ -275,13 +281,16 @@ module mips(
     end
     assign d_a3 = d_a3_r;
 
-    //! D stage exception: 
-    assign d_exccode = (d_ri) ? `EXCCODE_RI : (opcode == `SYSCALL) ? `EXCCODE_SYS : 5'b00000;
+    //! D stage exception 
+    assign d_exccode_raw = (d_ri) ? `EXCCODE_RI : (d_opcode == `SYSCALL) ? `EXCCODE_SYS : 5'b00000;
+    // Merge exceptions arriving from F 
+    assign d_exccode = (fd_exccode != 5'b0) ? fd_exccode : d_exccode_raw;
     // -------------------- DE reg --------------------
     DE_REG u_de_reg (
         .clk    (clk),
         .reset  (reset),
         .DE_clr (de_clr),
+        .D_ExcCode(d_exccode),
         .D_V1   (d_v1),
         .D_V2   (d_v2),
         .D_E32  (d_ext32),
@@ -294,6 +303,7 @@ module mips(
         .E_PC   (e_pc),
         .E_A3   (e_a3),
         .E_Instr(e_instr),
+        .E_ExcCode(de_exccode),
         .E_Tnew (e_tnew)
     );
 
@@ -313,11 +323,12 @@ module mips(
 
     wire [31:0] e_ao_raw; // 表示alu输出的值
     E_ALU u_e_alu (
-        .A      (e_alu_a),
-        .B      (e_alu_b),
-        .Opcode (e_opcode)
-        .E_ALUOp(e_alu_op),
-        .E_AO   (e_ao_raw)
+        .A        (e_alu_a),
+        .B        (e_alu_b),
+        .Opcode   (e_opcode),
+        .E_ALUOp  (e_alu_op),
+        .E_AO     (e_ao_raw),
+        .ExcCode_raw(e_exccode_raw)
     );
     
     MultDivUnit u_e_mdu (
@@ -366,25 +377,29 @@ module mips(
                   (e_ao_sel == `FROM_HI)  ? e_hi :
                   (e_ao_sel == `FROM_LO)  ? e_lo :
                   32'd0;
-    
+    // Merge exceptions arriving from D
+    assign e_exccode = (de_exccode != 5'b00000)? de_exccode : e_exccode_raw;
     
     //-------------------- EM REG --------------------
     EM_REG u_em_reg (
         .clk    (clk),
         .reset  (reset),
-        .E_Instr(e_instr),
-        .E_AO   (e_ao),
-        .E_V2   (fwd_e_v2),
-        .E_PC   (e_pc),
-        .E_A3   (e_a3),
-        .E_RFWr (e_rfwr),
-        .E_Tnew (e_tnew),
-        .M_Instr(m_instr),
-        .M_AO   (m_ao_raw),
-        .M_V2   (m_v2),
-        .M_PC   (m_pc),
-        .M_A3   (m_a3),
-        .M_Tnew (m_tnew)
+        .E_Instr   (e_instr),
+        .E_AO      (e_ao),
+        .E_V2      (fwd_e_v2),
+        .E_PC      (e_pc),
+        .E_ExcCode (e_exccode),
+        .E_A3      (e_a3),
+        .E_RFWr    (e_rfwr),
+        .E_Tnew    (e_tnew),
+        .M_Instr   (m_instr),
+        .M_AO      (m_ao_raw),
+        .M_V2      (m_v2),
+        .M_PC      (m_pc),
+        .M_A3      (m_a3),
+        .M_ExcCode (m_exccode_raw),
+        .M_RFWr    (m_rfwr),
+        .M_Tnew    (m_tnew)
     );
 
     // -------------------- M stage --------------------

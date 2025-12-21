@@ -10,6 +10,7 @@ module DE_REG(
     input [31:0] D_E32,
     input [31:0] D_PC,
     input [4:0] D_A3,
+    input [4:0] D_ExcCode,
     input [31:0] D_Instr,
     output reg [31:0] E_V1,
     output reg [31:0] E_V2,
@@ -17,6 +18,7 @@ module DE_REG(
     output reg [31:0] E_PC,
     output reg [4:0] E_A3,
     output reg [31:0] E_Instr,
+    output reg [4:0] E_ExcCode,
     output reg [1:0] E_Tnew
 );
 
@@ -36,6 +38,7 @@ module DE_REG(
         E_PC <= `INITIAL_ADDRESS;
         E_A3 <= 5'b0;
         E_Instr <= 32'b0;
+        E_ExcCode <= 5'b0;
         E_Tnew <= 2'b0;
     end
 
@@ -47,6 +50,7 @@ module DE_REG(
             E_PC <= `INITIAL_ADDRESS;
             E_A3 <= 5'b0;
             E_Instr <= 32'b0;
+            E_ExcCode <= 5'b0;
             E_Tnew <= 2'b0;
         end else begin
             E_V1 <= D_V1;
@@ -55,6 +59,7 @@ module DE_REG(
             E_PC <= D_PC;
             E_A3 <= D_A3;
             E_Instr <= D_Instr;
+            E_ExcCode <= D_ExcCode;
             E_Tnew <= next_tnew;
         end
     end
