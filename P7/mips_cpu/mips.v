@@ -66,7 +66,8 @@ module mips(
     wire        d_mdu_related;
     wire [4:0]  d_exccode_raw; 
     wire [4:0]  d_exccode;      
-    wire        d_ri; //!表示指令是否非法
+    wire        d_ri; //! 表示指令是否非法
+    wire        d_BD; //! 表示是否是跳转类指令
 
     wire [4:0]  de_exccode;
     // E stage
@@ -95,6 +96,7 @@ module mips(
     wire [2:0]  e_ao_sel;
     wire [4:0]  e_exccode_raw;
     wire [4:0]  e_exccode;
+    wire        e_BD;
      
 
     // M stage
@@ -117,6 +119,7 @@ module mips(
     wire        m_cpz_wr;
     wire        m_cpz_sel;
     wire [4:0]  m_exccode;
+    wire        m_BD;
  
     // W stage
     wire [31:0] w_instr;
@@ -285,6 +288,11 @@ module mips(
     assign d_exccode_raw = (d_ri) ? `EXCCODE_RI : (d_opcode == `SYSCALL) ? `EXCCODE_SYS : 5'b00000;
     // Merge exceptions arriving from F 
     assign d_exccode = (fd_exccode != 5'b0) ? fd_exccode : d_exccode_raw;
+
+    // BD signal
+    assign d_BD = (d_npc_sel == `NPC_BRANCH || d_npc_sel == `NPC_JUMP);
+    
+
     // -------------------- DE reg --------------------
     DE_REG u_de_reg (
         .clk    (clk),
@@ -297,6 +305,7 @@ module mips(
         .D_PC   (d_pc),
         .D_A3   (d_a3),
         .D_Instr(d_instr),
+        .D_BD   (d_BD),
         .E_V1   (e_v1),
         .E_V2   (e_v2),
         .E_E32  (e_e32),
@@ -304,7 +313,8 @@ module mips(
         .E_A3   (e_a3),
         .E_Instr(e_instr),
         .E_ExcCode(de_exccode),
-        .E_Tnew (e_tnew)
+        .E_Tnew (e_tnew),
+        .E_BD   (e_BD)
     );
 
     // -------------------- E stage --------------------
@@ -392,6 +402,7 @@ module mips(
         .E_A3      (e_a3),
         .E_RFWr    (e_rfwr),
         .E_Tnew    (e_tnew),
+        .E_BD      (e_BD),
         .M_Instr   (m_instr),
         .M_AO      (m_ao_raw),
         .M_V2      (m_v2),
@@ -399,7 +410,8 @@ module mips(
         .M_A3      (m_a3),
         .M_ExcCode (m_exccode_raw),
         .M_RFWr    (m_rfwr),
-        .M_Tnew    (m_tnew)
+        .M_Tnew    (m_tnew),
+        .M_BD      (m_BD)
     );
 
     // -------------------- M stage --------------------

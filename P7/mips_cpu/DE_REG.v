@@ -12,6 +12,7 @@ module DE_REG(
     input [4:0] D_A3,
     input [4:0] D_ExcCode,
     input [31:0] D_Instr,
+    input        D_BD,
     output reg [31:0] E_V1,
     output reg [31:0] E_V2,
     output reg [31:0] E_E32,
@@ -19,7 +20,8 @@ module DE_REG(
     output reg [4:0] E_A3,
     output reg [31:0] E_Instr,
     output reg [4:0] E_ExcCode,
-    output reg [1:0] E_Tnew
+    output reg [1:0] E_Tnew,
+    output reg       E_BD
 );
 
     wire [5:0] opcode; 
@@ -40,6 +42,7 @@ module DE_REG(
         E_Instr <= 32'b0;
         E_ExcCode <= 5'b0;
         E_Tnew <= 2'b0;
+        E_BD   <= 1'b0;
     end
 
     always @(posedge clk) begin
@@ -52,6 +55,7 @@ module DE_REG(
             E_Instr <= 32'b0;
             E_ExcCode <= 5'b0;
             E_Tnew <= 2'b0;
+            E_BD   <= 1'b0;
         end else begin
             E_V1 <= D_V1;
             E_V2 <= D_V2;
@@ -61,6 +65,7 @@ module DE_REG(
             E_Instr <= D_Instr;
             E_ExcCode <= D_ExcCode;
             E_Tnew <= next_tnew;
+            E_BD   <=  D_BD;
         end
     end
 
