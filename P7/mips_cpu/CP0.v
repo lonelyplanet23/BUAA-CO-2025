@@ -55,19 +55,21 @@ module CP0 (
             Cause <= 32'h0000_0000;
             EPC   <= 32'h0000_0000;
         end
-        if(IntReq) begin
-            `SR_EXL <= 1'b1;
-            `Cause_BD <= BD;
-            //有外部中断时，先处理外部，设为00000
-            `Cause_ExcCode <= (~`SR_EXL) && `SR_IE && |(`SR_IM & HWInt)? 5'b00000 : ExcCode;
-            EPC <= (BD)?(PC - 4) : PC; //跳转指令还需要向前一条，异常结束后再次执行分支指令
-        end
-        if(CPWr) begin
-            if(A2 == `CP0_SR) begin
-                SR <= DIn;
+        else begin
+            if(IntReq) begin
+                `SR_EXL <= 1'b1;
+                `Cause_BD <= BD;
+                //有外部中断时，先处理外部，设为00000
+                `Cause_ExcCode <= (~`SR_EXL) && `SR_IE && |(`SR_IM & HWInt)? 5'b00000 : ExcCode;
+                EPC <= (BD)?(PC - 4) : PC; //跳转指令还需要向前一条，异常结束后再次执行分支指令
             end
-            else if(A2 == `CP0_EPC) begin
-                EPC <= DIn;
+            if(CPWr && ~IntReq) begin //!防止中断时对于寄存器的写入
+                if(A2 == `CP0_SR) begin
+                    SR <= DIn;
+                end
+                else if(A2 == `CP0_EPC) begin
+                    EPC <= DIn;
+                end
             end
         end
         `Cause_IP = HWInt;

@@ -24,6 +24,7 @@ module M_BE(
     input [31:0] Addr,
     input [31:0] WD,
     input DMWr,
+    input IntReq,
     output reg [3:0] M_byteen,
     output reg [31:0] m_data_wdata
     );
@@ -34,8 +35,7 @@ module M_BE(
         // 1. 默认清零，防止锁存器
         M_byteen = 4'b0000;
         m_data_wdata = 32'b0;
-
-        if (DMWr) begin
+        if (DMWr && ~IntReq) begin
             case(BEOp)
                 `BE_SW: begin 
                     M_byteen = 4'b1111;
