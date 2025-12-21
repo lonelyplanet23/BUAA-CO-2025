@@ -136,6 +136,7 @@
 
 // --- Other Constants ---
 `define INITIAL_ADDRESS       32'h00003000
+`define TRAPPED_ADDRESS       32'h00004180
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 

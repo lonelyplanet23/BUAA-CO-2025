@@ -13,6 +13,7 @@ module EM_REG(
     input        E_RFWr,
     input [1:0]  E_Tnew,
     input        E_BD,
+    input        IntReq,
     output reg [31:0] M_Instr,
     output reg [31:0] M_AO,
     output reg [31:0] M_V2,
@@ -46,6 +47,15 @@ module EM_REG(
             M_ExcCode <= 5'b0;
             M_Tnew <= 2'b0;
             M_BD   <= 1'b0;
+        end else if (IntReq) begin
+            M_Instr <= 32'b0;
+            M_AO <= 32'b0;
+            M_V2 <= 32'b0;
+            M_PC <= `TRAPPED_ADDRESS;
+            M_A3 <= 5'b0;
+            M_ExcCode <= 5'b0;
+            M_Tnew <= 2'b0;
+            M_BD   <= 1'b0;            
         end else begin
             M_Instr <= E_Instr;
             M_AO <= E_AO;

@@ -13,6 +13,7 @@ module DE_REG(
     input [4:0] D_ExcCode,
     input [31:0] D_Instr,
     input        D_BD,
+    input        IntReq,
     output reg [31:0] E_V1,
     output reg [31:0] E_V2,
     output reg [31:0] E_E32,
@@ -46,16 +47,16 @@ module DE_REG(
     end
 
     always @(posedge clk) begin
-        if (reset || DE_clr) begin
+        if (reset || IntReq || DE_clr) begin
             E_V1 <= 32'b0;
             E_V2 <= 32'b0;
             E_E32 <= 32'b0;
-            E_PC <= `INITIAL_ADDRESS;
+            E_PC <= reset ? `INITIAL_ADDRESS : (IntReq)? `TRAPPED_ADDRESS : `INI //!可能需要debug的地方 是否是D_PC？
             E_A3 <= 5'b0;
             E_Instr <= 32'b0;
             E_ExcCode <= 5'b0;
             E_Tnew <= 2'b0;
-            E_BD   <= 1'b0;
+            E_BD   <= (reset) ? 1'b0 : (IntReq)? 1'b0 : D_BD; //!同理
         end else begin
             E_V1 <= D_V1;
             E_V2 <= D_V2;

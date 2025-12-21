@@ -32,7 +32,7 @@ module CP0 (
     input         EXLSet,       // 置位 SR.EXL（当异常或中断请求 Req 生效时产生）
     input         EXLClr,       // 清除 SR.EXL（执行 eret 指令时产生）
     
-    output        IntReq,       // 中断请求信号（送往控制器用于触发跳转）
+    output        IntReq,       // 中断请求信号
     output reg [31:0] EPC           // EPC 寄存器输出值（送往 NPC 用于 eret 跳转）
 );
 

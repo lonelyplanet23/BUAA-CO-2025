@@ -120,6 +120,9 @@ module mips(
     wire        m_cpz_sel;
     wire [4:0]  m_exccode;
     wire        m_BD;
+
+    wire        IntReq; //! 中断请求信号
+    wire [31:0] m_EPC;  //! CP0: EPC 寄存器输出值
  
     // W stage
     wire [31:0] w_instr;
@@ -133,15 +136,15 @@ module mips(
     reg [31:0] w_reg_wd;
 
 
-    // Hazard / forwarding control
+    //! Hazard / forwarding control
     wire        stall;
     wire [1:0]  fwd_d_rs_sel;
     wire [1:0]  fwd_d_rt_sel;
     wire [1:0]  fwd_e_a_sel;
     wire [1:0]  fwd_e_b_sel;
     wire [1:0]  fwd_m_wd_sel;
-
-    assign f_pc_en = ~stall;
+    //! debug1: When Interrupted, PC need to be trapped, reading special addr from NPC.
+    assign f_pc_en = (stall && ~IntReq)? 1'b0 : 1'b1;
     assign fd_en  = ~stall;
     assign de_clr = stall;
 

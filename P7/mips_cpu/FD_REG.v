@@ -8,6 +8,7 @@ module FD_REG(
     input [31:0] F_instr,
     input [31:0] F_PC,
     input [4:0]  F_ExcCode,
+    input        IntReq,
     output [4:0] D_ExcCode,
     output [31:0] D_Instr,
     output [31:0] D_PC
@@ -32,7 +33,13 @@ module FD_REG(
             instr_reg <= 32'b0;
             pc_reg <= `INITIAL_ADDRESS;
             exc_reg <= 5'b0;
-        end else if (FD_en) begin
+        end 
+        else if(IntReq) begin
+            instr_reg <= 32'b0;
+            pc_reg <= `TRAPPED_ADDRESS;
+            exc_reg <= 5'b0;            
+        end
+        else if (FD_en) begin
             instr_reg <= F_instr;
             pc_reg <= F_PC;
             exc_reg <= F_ExcCode;
