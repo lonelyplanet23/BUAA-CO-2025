@@ -1,0 +1,65 @@
+Running: fuse.exe -relaunch -intstyle "ise" -incremental -lib "unisims_ver" -lib "unimacro_ver" -lib "xilinxcorelib_ver" -o "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/mips_txt_isim_beh.exe" -prj "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/mips_txt_beh.prj" "work.mips_txt" "work.glbl" 
+ISim P.20131013 (signature 0x7708f090)
+Number of CPUs detected in this system: 20
+Turning on mult-threading, number of parallel sub-compilation jobs: 40 
+Determining compilation order of HDL files
+WARNING:Simulator:1010 - One or more environment variables have been detected which affect the operation of the C compiler. These are typically not set in standard installations and are not tested by Xilinx, however they may be appropriate for your system, so the flow will attempt to continue.  If errors occur, try running fuse with the "-mt off -v 1" switches to see more information from the C compiler. The following environment variables have been detected:
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/Splitter.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/M_DE.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/M_BE.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/MW_REG.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/MultDivUnit.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/Hazard_controller.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/F_PC.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/FD_REG.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/E_ALU.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/EM_REG.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/D_GRF.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/D_EXT.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/D_CMP.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/DF_NPC.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/DE_REG.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/CP0.v" into library work
+WARNING:HDLCompiler:751 - "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/CP0.v" Line 24: Redeclaration of ansi port IntReq is not allowed
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/Controller.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/P7_standard_timer_2019.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/CPU.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/Bridge.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/mips.v" into library work
+Analyzing Verilog file "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/mips_tb_norm.v" into library work
+Analyzing Verilog file "C:/Xilinx/14.7/ISE_DS/ISE//verilog/src/glbl.v" into library work
+Starting static elaboration
+WARNING:HDLCompiler:1016 - "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/CPU.v" Line 273: Port ALU_BSrc is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/CPU.v" Line 345: Port Reg_WrSel is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/CPU.v" Line 445: Port Reg_WrSel is not connected to this instance
+WARNING:HDLCompiler:1016 - "C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/CPU.v" Line 536: Port rs is not connected to this instance
+Completed static elaboration
+Compiling module F_PC
+Compiling module FD_REG
+Compiling module Splitter
+Compiling module D_GRF
+Compiling module D_EXT
+Compiling module D_CMP
+Compiling module DF_NPC
+Compiling module Controller
+Compiling module DE_REG
+Compiling module E_ALU
+Compiling module MultDivUnit
+Compiling module EM_REG
+Compiling module M_BE
+Compiling module M_DE
+Compiling module CP0
+Compiling module MW_REG
+Compiling module HazardCtrl
+Compiling module CPU
+Compiling module Bridge
+Compiling module TC
+Compiling module mips
+Compiling module mips_txt
+Compiling module glbl
+Time Resolution for simulation is 1ps.
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 23 Verilog Units
+Built simulation executable C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/mips_txt_isim_beh.exe
+Fuse Memory Usage: 36220 KB
+Fuse CPU Usage: 546 ms

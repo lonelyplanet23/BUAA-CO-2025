@@ -4,20 +4,17 @@
 module mips(
     input clk,
     input reset,
-
-    input  [31:0] i_inst_addr,
-    output [31:0] i_inst_rdata,
-
-    input  [31:0] m_data_addr,
-    output [31:0] m_data_rdata,
-    input  [31:0] m_data_wdata,
-    input  [3 :0] m_data_byteen,
-    input  [31:0] m_inst_addr,
-
-    input         w_grf_we,
-    input  [4:0]  w_grf_addr,
-    input  [31:0] w_grf_wdata,
-    input  [31:0] w_inst_addr
+    input [31:0] i_inst_rdata,
+    input [31:0] m_data_rdata,
+    output [31:0] i_inst_addr,
+    output [31:0] m_data_addr,
+    output [31:0] m_data_wdata,
+    output [3 :0] m_data_byteen,
+    output [31:0] m_inst_addr,
+    output w_grf_we,
+    output [4:0] w_grf_addr,
+    output [31:0] w_grf_wdata,
+    output [31:0] w_inst_addr
 );
 
     // ------------------------------------------------------------------

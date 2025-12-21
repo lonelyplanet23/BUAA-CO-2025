@@ -1,0 +1,478 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.14 secs
+ 
+--> Reading design: mips.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "mips.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "mips"
+Output Format                      : NGC
+Target Device                      : xa3s50-4-vqg100
+
+---- Source Options
+Top Module Name                    : mips
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 500
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "Splitter.v" in library work
+Compiling verilog file "M_DE.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <Splitter> compiled
+Compiling verilog file "M_BE.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 19 Macro 'FROM_ALU' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <M_DE> compiled
+Compiling verilog file "MW_REG.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 19 Macro 'FROM_ALU' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <M_BE> compiled
+Compiling verilog file "MultDivUnit.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 19 Macro 'FROM_ALU' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <MW_REG> compiled
+Compiling verilog file "Hazard_controller.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 19 Macro 'FROM_ALU' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <MultDivUnit> compiled
+Compiling verilog file "F_PC.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 19 Macro 'FROM_ALU' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <HazardCtrl> compiled
+Compiling verilog file "FD_REG.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 19 Macro 'FROM_ALU' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <F_PC> compiled
+Compiling verilog file "E_ALU.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 19 Macro 'FROM_ALU' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <FD_REG> compiled
+ERROR:HDLCompilers:26 - "E_ALU.v" line 54 unexpected token: '['
+ERROR:HDLCompilers:26 - "E_ALU.v" line 54 expecting ')', found ']'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 54 expecting 'end', found '1'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 54 expecting ':', found ')'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 55 unexpected token: '='
+ERROR:HDLCompilers:26 - "E_ALU.v" line 55 expecting ':', found ';'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 59 unexpected token: 'begin'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 60 expecting ':', found ';'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 67 unexpected token: '['
+ERROR:HDLCompilers:26 - "E_ALU.v" line 67 expecting ')', found ':'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 67 expecting 'end', found '0'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 67 expecting ':', found ')'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 68 unexpected token: '='
+ERROR:HDLCompilers:26 - "E_ALU.v" line 68 expecting ':', found ';'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 74 unexpected token: 'begin'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 75 expecting ':', found ';'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 82 unexpected token: '['
+ERROR:HDLCompilers:26 - "E_ALU.v" line 82 expecting ')', found ']'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 82 expecting 'end', found '1'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 82 expecting ':', found ')'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 83 unexpected token: '='
+ERROR:HDLCompilers:26 - "E_ALU.v" line 83 expecting ':', found ';'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 87 unexpected token: 'begin'
+ERROR:HDLCompilers:26 - "E_ALU.v" line 88 expecting ':', found ';'
+ERROR:HDLCompilers:28 - "E_ALU.v" line 96 'ExcCode' has not been declared
+Compiling verilog file "EM_REG.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 19 Macro 'FROM_ALU' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <E_ALU> compiled
+Compiling verilog file "D_GRF.v" in library work
+Module <EM_REG> compiled
+Compiling verilog file "D_EXT.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 19 Macro 'FROM_ALU' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <D_GRF> compiled
+Compiling verilog file "D_CMP.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 19 Macro 'FROM_ALU' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <D_EXT> compiled
+Compiling verilog file "DF_NPC.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 19 Macro 'FROM_ALU' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <D_CMP> compiled
+Compiling verilog file "DE_REG.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 19 Macro 'FROM_ALU' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <DF_NPC> compiled
+Compiling verilog file "CP0.v" in library work
+WARNING:HDLCompilers:38 - "CP0.v" line 2 Macro 'SR_IM' redefined
+WARNING:HDLCompilers:38 - "CP0.v" line 3 Macro 'SR_EXL' redefined
+WARNING:HDLCompilers:38 - "CP0.v" line 4 Macro 'SR_IE' redefined
+WARNING:HDLCompilers:38 - "CP0.v" line 6 Macro 'Cause_BD' redefined
+WARNING:HDLCompilers:38 - "CP0.v" line 7 Macro 'Cause_IP' redefined
+WARNING:HDLCompilers:38 - "CP0.v" line 8 Macro 'Cause_ExcCode' redefined
+Module <DE_REG> compiled
+ERROR:HDLCompilers:27 - "CP0.v" line 39 Illegal redeclaration of 'IntReq'
+Compiling verilog file "Controller.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 19 Macro 'FROM_ALU' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 111 Macro 'SR_IM' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 112 Macro 'SR_EXL' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 113 Macro 'SR_IE' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 115 Macro 'Cause_BD' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 116 Macro 'Cause_IP' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 117 Macro 'Cause_ExcCode' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <CP0> compiled
+Compiling verilog file "P7_standard_timer_2019.v" in library work
+Module <Controller> compiled
+Compiling verilog file "CPU.v" in library work
+Compiling verilog include file "constants.v"
+WARNING:HDLCompilers:38 - "constants.v" line 19 Macro 'FROM_ALU' redefined
+WARNING:HDLCompilers:38 - "constants.v" line 121 Macro 'FROM_ALU' redefined
+Module <TC> compiled
+ERROR:HDLCompilers:26 - "CPU.v" line 29 unexpected token: 'assign'
+ERROR:HDLCompilers:26 - "CPU.v" line 29 expecting 'endfunction', found 'PC_error'
+Module <CPU> compiled
+ERROR:HDLCompilers:26 - "CPU.v" line 29 expecting 'endmodule', found '('
+ERROR:HDLCompilers:26 - "CPU.v" line 290 unexpected token: ')'
+ERROR:HDLCompilers:26 - "CPU.v" line 312 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 313 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 314 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 315 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 316 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 317 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 318 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 319 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 320 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 321 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 322 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 323 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 324 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 325 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 326 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 327 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 328 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 329 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 330 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 331 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 337 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 338 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 339 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 340 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 341 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 342 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 343 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 344 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 345 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 346 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 347 unexpected token: ')'
+ERROR:HDLCompilers:26 - "CPU.v" line 352 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 353 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 354 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 355 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 356 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 361 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 362 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 363 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 364 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 365 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 366 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 367 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 368 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 411 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 412 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 413 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 414 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 415 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 416 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 417 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 418 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 419 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 420 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 421 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 422 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 423 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 424 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 425 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 426 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 427 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 428 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 429 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 430 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 436 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 437 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 438 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 439 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 440 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 441 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 442 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 443 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 444 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 445 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 446 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 447 unexpected token: ')'
+ERROR:HDLCompilers:26 - "CPU.v" line 452 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 453 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 454 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 455 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 456 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 464 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 465 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 466 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 485 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 486 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 487 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 488 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 489 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 490 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 491 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 492 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 493 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 494 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 495 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 496 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 497 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 510 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 511 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 512 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 513 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 514 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 515 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 516 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 517 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 518 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 519 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 520 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 526 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 527 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 528 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 551 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 552 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 553 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 554 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 555 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 556 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 557 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 558 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 559 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 560 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 561 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 562 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 563 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 564 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 565 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 566 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 567 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 568 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 569 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 570 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 571 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 572 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 573 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 574 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 575 unexpected token: '.'
+ERROR:HDLCompilers:26 - "CPU.v" line 576 unexpected token: '.'
+Compiling verilog file "Bridge.v" in library work
+ERROR:HDLCompilers:26 - "Bridge.v" line 5 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 7 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 9 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "Bridge.v" line 10 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 11 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "Bridge.v" line 12 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "Bridge.v" line 14 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "Bridge.v" line 18 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "Bridge.v" line 19 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 20 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 22 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "Bridge.v" line 23 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 24 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "Bridge.v" line 25 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 27 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 28 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 29 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 32 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 33 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 34 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 35 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "Bridge.v" line 36 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "Bridge.v" line 39 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 40 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 41 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "Bridge.v" line 42 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "Bridge.v" line 43 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "Bridge.v" line 46 unexpected token: 'is_data'
+ERROR:HDLCompilers:26 - "Bridge.v" line 53 unexpected token: 'Timer0_IRQ'
+Compiling verilog file "mips.v" in library work
+ERROR:HDLCompilers:26 - "mips.v" line 3 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "mips.v" line 4 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "mips.v" line 5 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "mips.v" line 7 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "mips.v" line 8 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "mips.v" line 10 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "mips.v" line 11 unexpected token: 'input'
+ERROR:HDLCompilers:26 - "mips.v" line 12 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "mips.v" line 13 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "mips.v" line 15 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "mips.v" line 16 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "mips.v" line 18 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "mips.v" line 20 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "mips.v" line 21 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "mips.v" line 22 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "mips.v" line 24 unexpected token: 'output'
+ERROR:HDLCompilers:26 - "mips.v" line 51 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 53 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 54 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 56 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 58 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 59 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 60 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 61 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 62 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 64 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 65 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 66 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 67 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 68 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 75 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 76 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 77 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 78 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 79 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 80 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 81 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 83 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 84 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 85 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 86 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 87 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 88 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 89 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 90 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 91 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 92 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 94 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 95 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 96 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 97 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 98 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 100 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 101 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 102 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 103 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 104 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 110 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 112 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 113 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 114 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 115 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 116 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 122 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 124 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 125 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 126 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 127 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 128 unexpected token: '.'
+ERROR:HDLCompilers:26 - "mips.v" line 131 expecting '*)', found 'EOF'
+ERROR:HDLCompilers:26 - "mips.v" line 131 unexpected token: 'EOF'
+Analysis of file <"mips.prj"> failed.
+--> 
+
+Total memory usage is 4514064 kilobytes
+
+Number of errors   :  267 (   0 filtered)
+Number of warnings :   41 (   0 filtered)
+Number of infos    :    0 (   0 filtered)
+

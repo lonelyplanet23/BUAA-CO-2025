@@ -39,7 +39,7 @@ module Controller(
         output reg [2:0] MDUOp,      // 乘除槽操作类型
         output reg       MDU_related,  // 指令是否与乘除槽相关
         output reg       MDU_start,        // 乘除槽开始运算的信号
-        output reg [2:0] BEOp,        // 字节使能操作类型
+        output reg [1:0] BEOp,        // 字节使能操作类型
         output reg [2:0] DEOp,      // DM读取数据的扩展方式
         output reg CPWr,        // CP0寄存器写使能
         output reg CPZSel,      // 输出选择CP0寄存器
@@ -47,10 +47,10 @@ module Controller(
         output reg IS_ERET,         // ERET指令标志
         output reg IS_MTC0          // MTC0
     );
-    parameter MTC0 = (opcode == 6'b010000 && rs == 5'b00100); //opcode (0x10) and rs=00100
-    parameter MFC0 = (opcode == 6'b010000 && rs == 5'b00000); //opcode (0x10) and rs=00000 
-    parameter ERET = (opcode == 6'b010000 && rs == 5'b10000 && funct == 6'b011000); // 
-        
+    wire MTC0 = (opcode == 6'b010000 && rs == 5'b00100); //opcode (0x10) and rs=00100
+    wire MFC0 = (opcode == 6'b010000 && rs == 5'b00000); //opcode (0x10) and rs=00000 
+    wire ERET = (opcode == 6'b010000 && rs == 5'b10000 && funct == 6'b011000); // opcode (0x10) and rs=10000 and funct=011000
+
     always @(*) begin
         Reg_WrSel = `RD_RT;
         ALU_BSrc = `ALU_BSRC_V2;
@@ -311,6 +311,7 @@ module Controller(
                 end
                 else if(MTC0) begin
                     CPWr = 1'b1;
+                    Reg_WrSel = `RD_RD;
                     T_use_RT = `TUSE_M;
                     IS_MTC0 = 1'b1;
                 end     
