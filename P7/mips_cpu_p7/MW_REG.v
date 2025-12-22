@@ -4,6 +4,7 @@
 module MW_REG(
     input clk,
     input reset,
+    input IntReq,
     input [31:0] M_Instr,
     input [31:0] M_AO,
     input [31:0] M_RD,
@@ -31,7 +32,14 @@ module MW_REG(
             W_RD <= 32'b0;
             W_PC <= `INITIAL_ADDRESS;
             W_A3 <= 5'b0;
-        end else begin
+        end else if(IntReq) begin
+            W_Instr <= 32'b0;
+            W_AO <= 32'b0;
+            W_RD <= 32'b0;
+            W_PC <= `TRAPPED_ADDRESS;
+            W_A3 <= 5'b0;
+        end
+        else begin
             W_Instr <= M_Instr;
             W_AO <= M_AO;
             W_RD <= M_RD;

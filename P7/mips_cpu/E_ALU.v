@@ -34,13 +34,13 @@ module E_ALU(
     // 有符号拓展一位,再运算
     wire [32:0] Add_temp = {A[31], A} + {B[31], B};
     wire [32:0] Sub_temp = {A[31], A} - {B[31], B};
-    wire Add_overflow = (Add_temp[31] == Add_temp[32]);
-    wire Sub_overflow = (Sub_temp[31] == Sub_temp[32]);
+    wire Add_overflow = (Add_temp[31] != Add_temp[32]);
+    wire Sub_overflow = (Sub_temp[31] != Sub_temp[32]);
     // ALU 运算
     always @(*) begin
         ExcCode = 5'b0; 
         E_AO = 32'b0;
-        
+
         case (E_ALUOp)
             `ALU_ADD: begin 
                 E_AO = A + B;
@@ -58,7 +58,6 @@ module E_ALU(
             default: E_AO = 32'h00000000;
         endcase
                
-        // 异常检测
         case (Opcode)
             `LW: begin
                 // 对齐检查（地址[1:0]必须为00）
@@ -66,24 +65,26 @@ module E_ALU(
                     ExcCode = `EXCCODE_ADEL;
                 end
                 // 地址范围检查
-                else if(!( ((AaddB) >= 32'h00000000 && (AaddB) < 32'h00003000) ||  // 基础范围
-                           ((AaddB) == 32'h00007f00) || (AaddB) == 32'h00007f04 || 
-                           (AaddB) == 32'h00007f08 || (AaddB) == 32'h00007f10 || 
-                           (AaddB) == 32'h00007f14 || (AaddB) == 32'h00007f18 ||  // LW专属
-                           ((AaddB) >= 32'h00007f20 && (AaddB) < 32'h00007f24) )) begin  // 通用额外
+               
+                else if(!( ((AaddB) >= 32'h0000_0000 && (AaddB) < 32'h0000_3000) ||  // DM 数据区
+                           ((AaddB) >= 32'h0000_7f00 && (AaddB) <= 32'h0000_7f0b) ||  // Timer0 (0-B)
+                           ((AaddB) >= 32'h0000_7f10 && (AaddB) <= 32'h0000_7f1b) ||  // Timer1 (10-1B)
+                           ((AaddB) >= 32'h0000_7f20 && (AaddB) <= 32'h0000_7f23) ))  // Interrupt Gen
+                begin
                     ExcCode = `EXCCODE_ADEL;
                 end
             end
 
-            // LH（2字节）
+            // LH（2字节） 
+            
             `LH: begin
                 // 对齐检查
                 if(AaddB[0] != 1'b0) begin
                     ExcCode = `EXCCODE_ADEL;
                 end
                 // 地址范围检查
-                else if(!( ((AaddB) >= 32'h00000000 && (AaddB) < 32'h00003000) ||  // 基础范围
-                           ((AaddB) >= 32'h00007f20 && (AaddB) < 32'h00007f24) )) begin  // 通用额外
+                else if(!( ((AaddB) >= 32'h0000_0000 && (AaddB) < 32'h0000_3000) || 
+                           ((AaddB) >= 32'h0000_7f20 && (AaddB) <= 32'h0000_7f23) )) begin 
                     ExcCode = `EXCCODE_ADEL;
                 end
             end
@@ -95,31 +96,33 @@ module E_ALU(
                     ExcCode = `EXCCODE_ADES;
                 end
                 //地址范围检查
-                else if(!( ((AaddB) >= 32'h00000000 && (AaddB) < 32'h00003000) ||  
-                           ((AaddB) == 32'h00007f00) || (AaddB) == 32'h00007f04 || 
-                           (AaddB) == 32'h00007f10 || (AaddB) == 32'h00007f14 ||  // SW专属
-                           ((AaddB) >= 32'h00007f20 && (AaddB) < 32'h00007f24) )) begin  
+                // 【修改重点】同样改为范围判断，覆盖 Timer 写操作
+                else if(!( ((AaddB) >= 32'h0000_0000 && (AaddB) < 32'h0000_3000) || 
+                           ((AaddB) >= 32'h0000_7f00 && (AaddB) <= 32'h0000_7f0b) ||  // Timer0
+                           ((AaddB) >= 32'h0000_7f10 && (AaddB) <= 32'h0000_7f1b) ||  // Timer1
+                           ((AaddB) >= 32'h0000_7f20 && (AaddB) <= 32'h0000_7f23) )) begin  
                     ExcCode = `EXCCODE_ADES;
                 end
             end
 
-            // 存储类指令：SH（2字节）
+            // 存储类指令：SH（2字节）- 保持原样
             `SH: begin
                 // 对齐检查
                 if(AaddB[0] != 1'b0) begin
                     ExcCode = `EXCCODE_ADES;
                 end
                 // 地址范围检查
-                else if(!( ((AaddB) >= 32'h00000000 && (AaddB) < 32'h00003000) ||  
-                           ((AaddB) >= 32'h00007f20 && (AaddB) < 32'h00007f24) )) begin  
+                else if(!( ((AaddB) >= 32'h0000_0000 && (AaddB) < 32'h0000_3000) || 
+                           ((AaddB) >= 32'h0000_7f20 && (AaddB) <= 32'h0000_7f23) )) begin 
                     ExcCode = `EXCCODE_ADES;
                 end
             end
-            //存储类指令：SB（1字节）
+            
+            // 存储类指令：SB（1字节）- 保持原样
             `SB: begin
                 // 检查地址范围
-                if(!( ((AaddB) >= 32'h00000000 && (AaddB) < 32'h00003000) ||  
-                       ((AaddB) >= 32'h00007f20 && (AaddB) < 32'h00007f24) )) begin 
+                if(!( ((AaddB) >= 32'h0000_0000 && (AaddB) < 32'h0000_3000) || 
+                      ((AaddB) >= 32'h0000_7f20 && (AaddB) <= 32'h0000_7f23) )) begin 
                     ExcCode = `EXCCODE_ADES;
                 end
             end

@@ -70,7 +70,7 @@ module Controller(
         BEOp = `BE_NONE;    
         DEOp = `DE_NONE;
         CPWr = 1'b0;
-        CPZSel = `FROM_ALU;
+        CPZSel = `FROM_ALU_CPZ;
         RI = 1'b0;  // 初始化非法指令标志为0
 
         
@@ -174,6 +174,10 @@ module Controller(
                         Reg_WrSel = `RD_RD;
                         AO_sel = `FROM_LO;
                         RFWr = 1'b1;
+                    end
+                    `SYSCALL: begin
+                        // 系统调用指令，不需要设置控制信号
+                        // 异常处理由CP0模块处理
                     end
                     6'b000000: begin // NOP指令
                     end
@@ -299,10 +303,7 @@ module Controller(
                 RFWr = 1'b0;
                 nPC_sel = `NPC_JUMP;
             end
-            `SYSCALL: begin
-                // 系统调用指令，不需要设置控制信号
-                // 异常处理由CP0模块处理
-            end
+
             
             default: begin
                 if(MFC0) begin

@@ -80,7 +80,7 @@ module MultDivUnit(
             endcase
         end
 
-        else if(!busy) begin //没有乘除法正在执行，且没有新的乘除法开始,处理mthi mtlo
+        else if(!busy && !IntReq) begin //没有乘除法正在执行，且没有新的乘除法开始,处理mthi mtlo
             case(MDUOp)
                 `MDU_MTHI: begin
                     E_HI <= A;

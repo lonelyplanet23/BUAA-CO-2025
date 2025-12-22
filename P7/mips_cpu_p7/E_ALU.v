@@ -24,6 +24,7 @@ module E_ALU(
     input [31:0] B,
     input [3:0] E_ALUOp,
     input [5:0] Opcode,    
+    input [1:0] ALU_TYPE,
     output reg [31:0] E_AO,
     output reg [4:0] ExcCode
     );
@@ -44,11 +45,13 @@ module E_ALU(
         case (E_ALUOp)
             `ALU_ADD: begin 
                 E_AO = A + B;
-                if(Add_overflow) ExcCode = `EXCCODE_OV;
+                if(Add_overflow && ALU_TYPE == `ALU_ARITHMETIC) ExcCode = `EXCCODE_OV;
+                else if(Add_overflow && ALU_TYPE == `ALU_SAVE) ExcCode = `EXCCODE_ADES;
+                else if(Add_overflow && ALU_TYPE == `ALU_LOAD) ExcCode = `EXCCODE_ADEL;
             end
             `ALU_SUB: begin
                 E_AO = A - B;
-                if(Sub_overflow) ExcCode = `EXCCODE_OV;
+                if(Sub_overflow && ALU_TYPE == `ALU_ARITHMETIC) ExcCode = `EXCCODE_OV;
             end
             `ALU_OR:  E_AO = A | B;
             `ALU_SHIFT_LEFT_16: E_AO = B << 16;
@@ -74,7 +77,14 @@ module E_ALU(
                     ExcCode = `EXCCODE_ADEL;
                 end
             end
-
+            // LB （1字节）
+            `LB: begin
+                // 地址范围检查
+                if(!( ((AaddB) >= 32'h0000_0000 && (AaddB) < 32'h0000_3000) || 
+                      ((AaddB) >= 32'h0000_7f20 && (AaddB) <= 32'h0000_7f23) )) begin 
+                    ExcCode = `EXCCODE_ADEL;
+                end
+            end
             // LH（2字节） 
             
             `LH: begin
@@ -98,9 +108,9 @@ module E_ALU(
                 //地址范围检查
                 // 【修改重点】同样改为范围判断，覆盖 Timer 写操作
                 else if(!( ((AaddB) >= 32'h0000_0000 && (AaddB) < 32'h0000_3000) || 
-                           ((AaddB) >= 32'h0000_7f00 && (AaddB) <= 32'h0000_7f0b) ||  // Timer0
-                           ((AaddB) >= 32'h0000_7f10 && (AaddB) <= 32'h0000_7f1b) ||  // Timer1
-                           ((AaddB) >= 32'h0000_7f20 && (AaddB) <= 32'h0000_7f23) )) begin  
+                           ((AaddB) >= 32'h0000_7f00 && (AaddB) < 32'h0000_7f08) ||  // Timer0
+                           ((AaddB) >= 32'h0000_7f10 && (AaddB) < 32'h0000_7f18) ||  // Timer1
+                           ((AaddB) >= 32'h0000_7f20 && (AaddB) < 32'h0000_7f24) )) begin  
                     ExcCode = `EXCCODE_ADES;
                 end
             end
@@ -113,7 +123,7 @@ module E_ALU(
                 end
                 // 地址范围检查
                 else if(!( ((AaddB) >= 32'h0000_0000 && (AaddB) < 32'h0000_3000) || 
-                           ((AaddB) >= 32'h0000_7f20 && (AaddB) <= 32'h0000_7f23) )) begin 
+                           ((AaddB) >= 32'h0000_7f20 && (AaddB) < 32'h0000_7f24) )) begin 
                     ExcCode = `EXCCODE_ADES;
                 end
             end
@@ -122,7 +132,7 @@ module E_ALU(
             `SB: begin
                 // 检查地址范围
                 if(!( ((AaddB) >= 32'h0000_0000 && (AaddB) < 32'h0000_3000) || 
-                      ((AaddB) >= 32'h0000_7f20 && (AaddB) <= 32'h0000_7f23) )) begin 
+                      ((AaddB) >= 32'h0000_7f20 && (AaddB) < 32'h0000_7f24) )) begin 
                     ExcCode = `EXCCODE_ADES;
                 end
             end

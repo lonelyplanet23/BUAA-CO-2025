@@ -24,7 +24,6 @@ module F_PC(
     input clk,
     input reset,
     input [31:0] F_NPC_in,
-    input IntReq,
     input F_PC_en,
     output reg [31:0] F_PC
     );
@@ -35,9 +34,6 @@ module F_PC(
     always @(posedge clk) begin
         if(reset) begin
             F_PC <= `INITIAL_ADDRESS;
-        end
-        else if(IntReq) begin
-            F_PC <= `TRAPPED_ADDRESS;
         end
         else if(F_PC_en)begin
             F_PC <= F_NPC_in;
