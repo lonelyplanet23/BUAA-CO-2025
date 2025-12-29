@@ -41,7 +41,7 @@ module CP0 (
         end
         else begin
             if(IntReq) begin
-                `SR_EXL <= 1'b1;
+                `SR_EXL <= 1'b1; 
                 `Cause_BD <= BD;
                 //有外部中断时，先处理外部，设为00000
                 `Cause_ExcCode <= (~`SR_EXL) && `SR_IE && |(`SR_IM & HWInt)? 5'b00000 : ExcCode;
