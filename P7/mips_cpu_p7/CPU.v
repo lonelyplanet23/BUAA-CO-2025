@@ -91,6 +91,7 @@ module CPU(
     wire [3:0]  e_alu_op;
     wire [1:0]  e_alu_bsrc;
     wire [1:0]  e_Reg_WrSrc;
+    wire [1:0]  e_alu_type;
     wire        e_rfwr;
     wire [31:0] e_alu_a;
     wire [31:0] e_alu_b;
@@ -184,18 +185,18 @@ module CPU(
         .clk     (clk),
         .reset   (reset),
         .F_NPC_in(f_npc),
-        .IntReq   (IntReq),
         .F_PC_en (f_pc_en),
         .F_PC    (f_pc_r)
     );
     
-    assign f_pc = (IntReq === 1'b1) ? 32'h0000_4180 : 
-              (d_eret === 1'b1) ? m_EPC :  //!
+    assign f_pc = (d_eret === 1'b1) ? m_EPC :  //!
               f_pc_r; //! eret 传入epc, epc+4 
+
     assign i_inst_addr = f_pc; //!注意是谁驱动谁（输入驱动输出）
-    
-    //! f stage exception
     assign f_instr_raw = i_inst_rdata;
+
+
+    //! f stage exception
     assign f_instr = PC_error(f_pc) ? 32'b0 : f_instr_raw;
     assign f_exccode = PC_error(f_pc) ? `EXCCODE_ADEL : 5'b0;
 
@@ -265,6 +266,7 @@ module CPU(
         .D_imm16(d_imm16),
         .D_imm26(d_imm26),
         .D_ra   (d_v1), //!
+        .IntReq (IntReq),
         .nPC_Sel(d_npc_sel),
         .D_bjump(d_bjump),
         .NPC    (f_npc)
@@ -353,7 +355,8 @@ module CPU(
         .AO_sel  (e_ao_sel),
         .MDUOp   (e_mdu_op),
         .MDU_start(e_mdu_start),
-        .IS_MTC0 (e_MTC0)
+        .IS_MTC0 (e_MTC0),
+        .ALU_type (e_alu_type)
     );
 
     wire [31:0] e_ao_raw; // 表示alu输出的值
@@ -363,7 +366,8 @@ module CPU(
         .Opcode   (e_opcode),
         .E_ALUOp  (e_alu_op),
         .E_AO     (e_ao_raw),
-        .ExcCode  (e_exccode_raw)
+        .ExcCode  (e_exccode_raw),
+        .ALU_TYPE (e_alu_type)
     );
     
     MultDivUnit u_e_mdu (
@@ -525,6 +529,7 @@ module CPU(
         .M_RD   (m_rd),
         .M_PC   (m_pc),
         .M_A3   (m_a3),
+        .IntReq   (IntReq),
         .W_Instr(w_instr),
         .W_AO   (w_ao),
         .W_RD   (w_rd),
@@ -536,6 +541,7 @@ module CPU(
     Controller ctrl_w (
         .opcode   (w_opcode),
         .funct    (w_funct),
+        .rs       (w_instr[25:21]),
         .Reg_WrSrc(w_Reg_WrSrc),
         .RFWr     (w_rfwr)
     );

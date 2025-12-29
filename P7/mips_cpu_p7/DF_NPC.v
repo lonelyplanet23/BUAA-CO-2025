@@ -28,6 +28,7 @@ module DF_NPC(
     input [25:0] D_imm26,
     input [31:0] D_ra,    
     input [2:0] nPC_Sel,
+    input        IntReq,
     input D_bjump,
     output reg [31:0] NPC
     );
@@ -45,13 +46,18 @@ module DF_NPC(
 
 
     always @(*) begin
-        case (nPC_Sel)          
-            `NPC_PC4:    NPC = NPC1;       
-            `NPC_BRANCH: NPC = NPC2;       
-            `NPC_JUMP:   NPC = NPC3;       
-            `NPC_JR:     NPC = D_ra;         
-            default:     NPC = 32'h00003000; // 默认情况（覆盖所有未列举的nPC_Sel值）
-        endcase
+        if(IntReq) begin
+            NPC = `TRAPPED_ADDRESS;
+        end
+        else begin
+            case (nPC_Sel)          
+                `NPC_PC4:    NPC = NPC1;       
+                `NPC_BRANCH: NPC = NPC2;       
+                `NPC_JUMP:   NPC = NPC3;       
+                `NPC_JR:     NPC = D_ra;         
+                default:     NPC = `INITIAL_ADDRESS; // 默认情况（覆盖所有未列举的nPC_Sel值）
+            endcase
+        end
     end
 
 endmodule

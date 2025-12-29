@@ -1,6 +1,6 @@
 `timescale 1ns/1ps
 
-module mips_txt;
+module mips_tb;
 
 	reg clk;
 	reg reset;
@@ -101,6 +101,31 @@ module mips_txt;
 		if (~reset) begin
 			if (w_grf_we && (w_grf_addr != 0)) begin
 				$display("%d@%h: $%d <= %h", $time, w_inst_addr, w_grf_addr, w_grf_wdata);
+			end
+		end
+	end
+
+	// ----------- For Interrupt -----------
+
+	wire [31:0] fixed_macroscopic_pc;
+
+	assign fixed_macroscopic_pc = macroscopic_pc & 32'hfffffffc;
+
+	integer count;
+
+	initial begin
+		count = 0;
+	end
+
+	always @(negedge clk) begin
+		if (reset) begin
+			interrupt = 0;
+		end
+		else begin
+			if (interrupt) begin
+				if (|m_int_byteen && (m_int_addr & 32'hfffffffc) == 32'h7f20) begin
+					interrupt = 0;
+				end
 			end
 		end
 	end

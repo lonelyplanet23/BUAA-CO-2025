@@ -89,7 +89,7 @@
 `define JAL  6'b000011 //opcode (0x03) ok
 `define JR   6'b001000 //funct (0x08)  ok
 `define SYSCALL 6'b001100 //opcode (0x0C)
-`define NOP 6'b000000 //opcode (0x00)
+`define NOP 6'b000000 //funct (0x00)
 `define MTC0  (opcode == 6'b010000 && rs == 5'b00100) //opcode (0x10) and rs=00100
 `define MFC0  (opcode == 6'b010000 && rs == 5'b00000) //opcode (0x10) and rs=00000 
 `define ERET  (opcode == 6'b010000 && rs == 5'b10000 && funct == 6'b011000) // 
@@ -115,10 +115,14 @@
 `define Cause_BD        Cause[31]
 `define Cause_IP        Cause[15:10]
 `define Cause_ExcCode   Cause[6:2]
-
-// cp0内寄存器位置
+// 
 `define FROM_CP0 1'b1
-`define FROM_ALU 1'b0
+`define FROM_ALU_CPZ 1'b0
+// cp0内寄存器位置
+`define CP0_PRId 5'b01111
+`define CP0_SR   5'b01100
+`define CP0_Cause 5'b01101
+`define CP0_EPC  5'b01110
 
 // --- Forward encoding ---
 // 00表示不使用转发

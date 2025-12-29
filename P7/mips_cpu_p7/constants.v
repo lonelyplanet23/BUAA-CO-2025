@@ -1,4 +1,9 @@
- `timescale 1ns / 1ps
+`timescale 1ns / 1ps
+// -- ALU type for overflow --
+`define ALU_ARITHMETIC 2'b00
+`define ALU_SAVE       2'b01
+`define ALU_LOAD       2'b10
+`define ALU_OTHERS      2'b11
 // --- ALU Control (4-bit) ---
 `define ALU_ADD               4'b0000
 `define ALU_SUB               4'b0001

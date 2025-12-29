@@ -184,11 +184,14 @@ module CPU(
         .clk     (clk),
         .reset   (reset),
         .F_NPC_in(f_npc),
+        .IntReq   (IntReq),
         .F_PC_en (f_pc_en),
         .F_PC    (f_pc_r)
     );
     
-    assign f_pc = (d_eret)? m_EPC : f_pc_r; //! eret 传入epc, epc+4 
+    assign f_pc = (IntReq === 1'b1) ? 32'h0000_4180 : 
+              (d_eret === 1'b1) ? m_EPC :  //!
+              f_pc_r; //! eret 传入epc, epc+4 
     assign i_inst_addr = f_pc; //!注意是谁驱动谁（输入驱动输出）
     
     //! f stage exception
@@ -305,7 +308,7 @@ module CPU(
     assign d_a3 = d_a3_r;
 
     //! D stage exception 
-    assign d_exccode_raw = (d_ri) ? `EXCCODE_RI : (d_opcode == `SYSCALL) ? `EXCCODE_SYS : 5'b00000;
+    assign d_exccode_raw = (d_ri === 1'b1) ? `EXCCODE_RI : (d_opcode == `ZERO && d_funct == `SYSCALL) ? `EXCCODE_SYS : 5'b00000;
     // Merge exceptions arriving from F 
     assign d_exccode = (fd_exccode != 5'b0) ? fd_exccode : d_exccode_raw;
 
@@ -460,6 +463,7 @@ module CPU(
         .Addr(m_ao),
         .WD(m_wd),
         .DMWr(m_dmwr),
+        .IntReq(IntReq),
         .M_byteen(m_data_byteen),
         .m_data_wdata(m_data_wdata)
     );
@@ -507,7 +511,7 @@ module CPU(
     );
 
     //! M stage CP0 read mux
-    assign m_ao = (m_cpz_sel) ? m_cp0_out : m_ao_raw; 
+    assign m_ao = (m_cpz_sel === `FROM_CP0) ? m_cp0_out : m_ao_raw; 
 
     //宏观PC输出
     assign macroscopic_pc = m_pc;

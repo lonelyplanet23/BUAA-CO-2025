@@ -51,7 +51,7 @@ module DE_REG(
             E_V1 <= 32'b0;
             E_V2 <= 32'b0;
             E_E32 <= 32'b0;
-            E_PC <= reset ? `INITIAL_ADDRESS : (IntReq)? `TRAPPED_ADDRESS : `INITIAL_ADDRESS;//!可能需要debug的地方 是否是D_PC？
+            E_PC <= reset ? `INITIAL_ADDRESS : (IntReq)? `TRAPPED_ADDRESS : D_PC;//!可能需要debug的地方 是否是D_PC？
             E_A3 <= 5'b0;
             E_Instr <= 32'b0;
             E_ExcCode <= 5'b0;

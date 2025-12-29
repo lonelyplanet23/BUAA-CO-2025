@@ -8,31 +8,122 @@
 <!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
 
 <messages>
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/CPU.v&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/CP0.v&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/CPU.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/CPU.v&quot; line 2
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/CP0.v</arg>&quot; Line <arg fmt="%d" index="2">1</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/CP0.v&quot; line 1
 </arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/Controller.v&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/CPU.v&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/Controller.v</arg>&quot; Line <arg fmt="%d" index="2">21</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/Controller.v&quot; line 21
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/CPU.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/CPU.v&quot; line 2
 </arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/E_ALU.v&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/Controller.v&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/E_ALU.v</arg>&quot; Line <arg fmt="%d" index="2">21</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/E_ALU.v&quot; line 21
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/Controller.v</arg>&quot; Line <arg fmt="%d" index="2">21</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/Controller.v&quot; line 21
 </arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/Hazard_controller.v&quot; into library work</arg>
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/DE_REG.v&quot; into library work</arg>
 </msg>
 
-<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/Hazard_controller.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Desktop/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Desktop/CO-2025/P7/mips_cpu_p7/Hazard_controller.v&quot; line 2
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/DE_REG.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/DE_REG.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/DF_NPC.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/DF_NPC.v</arg>&quot; Line <arg fmt="%d" index="2">22</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/DF_NPC.v&quot; line 22
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/D_CMP.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/D_CMP.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/D_CMP.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/D_EXT.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/D_EXT.v</arg>&quot; Line <arg fmt="%d" index="2">21</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/D_EXT.v&quot; line 21
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/EM_REG.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/EM_REG.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/EM_REG.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/E_ALU.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/E_ALU.v</arg>&quot; Line <arg fmt="%d" index="2">21</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/E_ALU.v&quot; line 21
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/FD_REG.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/FD_REG.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/FD_REG.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/F_IM.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/F_IM.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/F_IM.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/F_PC.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/F_PC.v</arg>&quot; Line <arg fmt="%d" index="2">22</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/F_PC.v&quot; line 22
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/Hazard_controller.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/Hazard_controller.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/Hazard_controller.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/MW_REG.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/MW_REG.v</arg>&quot; Line <arg fmt="%d" index="2">2</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/MW_REG.v&quot; line 2
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/M_BE.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/M_BE.v</arg>&quot; Line <arg fmt="%d" index="2">21</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/M_BE.v&quot; line 21
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/M_DE.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/M_DE.v</arg>&quot; Line <arg fmt="%d" index="2">21</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/M_DE.v&quot; line 21
+</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1845" ><arg fmt="%s" index="1">Analyzing Verilog file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/MultDivUnit.v&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1065" >&quot;<arg fmt="%s" index="1">C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/MultDivUnit.v</arg>&quot; Line <arg fmt="%d" index="2">21</arg>. <arg fmt="%s" index="3">Include file found: &apos;C:/Users/27628/Documents/CO-2025/P6/Pipeline_cpuP6/constants.v&apos; in file &quot;C:/Users/27628/Documents/CO-2025/P7/mips_cpu_p7/MultDivUnit.v&quot; line 21
 </arg>
 </msg>
 

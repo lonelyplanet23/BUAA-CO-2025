@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+    `timescale 1ns / 1ps
 `include "constants.v"
 
 module DE_REG(

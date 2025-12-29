@@ -30,7 +30,7 @@ module CP0 (
         DOut  <= 32'b0;
     end
 
-    assign IntReq = (~`SR_EXL) && (ExcCode || (`SR_IE && |(`SR_IM & HWInt)));
+    assign IntReq = (~`SR_EXL) && (ExcCode || (`SR_IE && (`SR_IM & HWInt)));
 
     always @(posedge clk) begin
         if(reset) begin
@@ -40,13 +40,6 @@ module CP0 (
             EPC   <= 32'h0000_0000;
         end
         else begin
-            if(IntReq) begin
-                `SR_EXL <= 1'b1;
-                `Cause_BD <= BD;
-                //有外部中断时，先处理外部，设为00000
-                `Cause_ExcCode <= (~`SR_EXL) && `SR_IE && |(`SR_IM & HWInt)? 5'b00000 : ExcCode;
-                EPC <= (BD)?(PC - 4) : PC; //跳转指令还需要向前一条，异常结束后再次执行分支指令
-            end
             if(CPWr && ~IntReq) begin //!防止中断时对于寄存器的写入
                 if(A2 == `CP0_SR) begin
                     SR <= DIn;
@@ -55,7 +48,14 @@ module CP0 (
                     EPC <= DIn;
                 end
             end
-            if(EXLClr) begin
+            if(IntReq) begin
+                `SR_EXL <= 1'b1;
+                `Cause_BD <= BD;
+                //有外部中断时，先处理外部，设为00000
+                `Cause_ExcCode <= (~`SR_EXL) && `SR_IE && |(`SR_IM & HWInt)? 5'b00000 : ExcCode;
+                EPC <= (BD)?(PC - 32'h0000_0004) : PC; //跳转指令还需要向前一条，异常结束后再次执行分支指令
+            end
+            if(EXLClr === 1'b1) begin
                 `SR_EXL <= 1'b0;
             end
             `Cause_IP <= HWInt;

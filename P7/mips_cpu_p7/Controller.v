@@ -45,7 +45,8 @@ module Controller(
         output reg CPZSel,      // 输出选择CP0寄存器
         output reg RI,           // 非法或未知指令标志 (Reserved Instruction)
         output reg IS_ERET,         // ERET指令标志
-        output reg IS_MTC0          // MTC0
+        output reg IS_MTC0,          // MTC0
+        output reg [1:0] ALU_type      // ALU类型
     );
     wire MTC0 = (opcode == 6'b010000 && rs == 5'b00100); //opcode (0x10) and rs=00100
     wire MFC0 = (opcode == 6'b010000 && rs == 5'b00000); //opcode (0x10) and rs=00000 
@@ -72,6 +73,9 @@ module Controller(
         CPWr = 1'b0;
         CPZSel = `FROM_ALU_CPZ;
         RI = 1'b0;  // 初始化非法指令标志为0
+        IS_ERET = 1'b0;
+        IS_MTC0 = 1'b0;
+        ALU_type = `ALU_OTHERS;
 
         
         case(opcode) 
@@ -83,6 +87,7 @@ module Controller(
                         ALUOp = `ALU_ADD;
                         T_use_RS = `TUSE_E;
                         T_use_RT = `TUSE_E;
+                        ALU_type = `ALU_ARITHMETIC;
                     end
                     `SUB: begin
                         Reg_WrSel = `RD_RD;
@@ -90,6 +95,7 @@ module Controller(
                         ALUOp = `ALU_SUB;
                         T_use_RS = `TUSE_E;
                         T_use_RT = `TUSE_E;
+                        ALU_type = `ALU_ARITHMETIC;
                     end
                     `JR: begin
                         nPC_sel = `NPC_JR;
@@ -194,7 +200,8 @@ module Controller(
                 ExtOp = `EXT_SIGN;
                 ALUOp = `ALU_ADD;
                 T_use_RS = `TUSE_E;
-                T_use_RT = `TUSE_NONE;                
+                T_use_RT = `TUSE_NONE;  
+                ALU_type = `ALU_ARITHMETIC;              
             end
             `ANDI: begin
                 ALU_BSrc = `ALU_BSRC_EXT;
@@ -221,6 +228,8 @@ module Controller(
                 ALUOp = `ALU_ADD;
                 T_use_RS = `TUSE_E;
                 T_use_RT = `TUSE_NONE;
+                ALU_type = `ALU_LOAD;
+                
             end
             `LB: begin
                 ALU_BSrc = `ALU_BSRC_EXT;
@@ -231,6 +240,7 @@ module Controller(
                 ALUOp = `ALU_ADD;
                 T_use_RS = `TUSE_E;
                 T_use_RT = `TUSE_NONE;
+                ALU_type = `ALU_LOAD;
             end            
             `LH: begin
                 ALU_BSrc = `ALU_BSRC_EXT;
@@ -241,6 +251,7 @@ module Controller(
                 ALUOp = `ALU_ADD;
                 T_use_RS = `TUSE_E;
                 T_use_RT = `TUSE_NONE;
+                ALU_type = `ALU_LOAD;
             end            
             `SW: begin
                 ALU_BSrc = `ALU_BSRC_EXT;
@@ -250,6 +261,7 @@ module Controller(
                 ALUOp = `ALU_ADD;
                 T_use_RS = `TUSE_E;
                 T_use_RT = `TUSE_M;
+                ALU_type = `ALU_SAVE;
             end
             `SB: begin
                 ALU_BSrc = `ALU_BSRC_EXT;
@@ -258,7 +270,8 @@ module Controller(
                 ExtOp = `EXT_SIGN;
                 ALUOp = `ALU_ADD;
                 T_use_RS = `TUSE_E;
-                T_use_RT = `TUSE_M;                
+                T_use_RT = `TUSE_M;  
+                ALU_type = `ALU_SAVE;              
             end
             `SH: begin
                 ALU_BSrc = `ALU_BSRC_EXT;
@@ -267,7 +280,8 @@ module Controller(
                 ExtOp = `EXT_SIGN;
                 ALUOp = `ALU_ADD;
                 T_use_RS = `TUSE_E;
-                T_use_RT = `TUSE_M;                
+                T_use_RT = `TUSE_M; 
+                ALU_type = `ALU_SAVE;               
             end
             `BEQ: begin
                 nPC_sel = `NPC_BRANCH;
